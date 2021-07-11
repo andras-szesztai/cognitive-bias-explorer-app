@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import styled from '@emotion/styled'
+import { useDetectClickOutside } from 'react-detect-click-outside'
 
 import { ChevronIcon, DisplayContainer } from '../../atoms'
 
@@ -15,11 +16,14 @@ import {
   DropdownButton,
   ArrowMainContainer,
   ArrowSubContainer,
+  DropdownContainer,
+  ListContainer,
 } from './styles'
 import colors, {
   categoryColors,
   categoryLightColors,
 } from '../../../styles/colors'
+import { getOpacityInOut } from '../../../styles/animations'
 
 export interface Props {
   category: TCategories
@@ -40,13 +44,16 @@ const ButtonWithDropdown = ({
   })
   const [isSecondaryHovered, setIsSecondaryHovered] = useState(false)
   const [isSecondaryClicked, setIsSecondaryClicked] = useState(false)
+  const ref = useDetectClickOutside({
+    onTriggered: () => setIsSecondaryClicked(false),
+  })
 
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
   const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'
   return (
     <DisplayContainer>
-      <Container>
+      <Container color={color} ref={ref}>
         <MainButton
           initial={{ background: mainButtonColor }}
           animate={{ background: mainButtonColor }}
@@ -72,15 +79,20 @@ const ButtonWithDropdown = ({
             </ArrowSubContainer>
           </ArrowMainContainer>
         </DropdownButton>
-        <DropdownContainer></DropdownContainer>
+        <AnimatePresence>
+          {isSecondaryClicked && (
+            <DropdownContainer {...getOpacityInOut()}>
+              <ListContainer>
+                {selectedSubCategories.map((category) => (
+                  <div>{category}</div>
+                ))}
+              </ListContainer>
+            </DropdownContainer>
+          )}
+        </AnimatePresence>
       </Container>
     </DisplayContainer>
   )
 }
-
-const DropdownContainer = styled(motion.div)`
-  position: absolute;
-  border: 1px solid ${colors.darkGray};
-`
 
 export default ButtonWithDropdown
