@@ -10,3 +10,13 @@ export type TCategories =
     | typeof NEED_TO_ACT_FAST
     | typeof NOT_ENOUGH_MEANING
     | typeof TOO_MUCH_INFORMATION
+
+export interface IBiasData {
+    category: TCategories
+    subCategory: string
+    cognitiveBias: string
+    definition: string
+    toLink: string //TODO update to
+}
+
+export type TSubCategories = Record<TCategories, string[]>
