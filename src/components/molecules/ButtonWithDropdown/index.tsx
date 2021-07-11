@@ -1,35 +1,59 @@
-import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import styled from '@emotion/styled'
 
 import { ChevronIcon, DisplayContainer } from '../../atoms'
 
+import { useMainButtonStatus } from './hooks'
+
 import { TCategories } from '../../../types/data'
 
+import {
+  Container,
+  Divider,
+  MainButton,
+  DropdownButton,
+  ArrowMainContainer,
+  ArrowSubContainer,
+} from './styles'
 import colors, {
   categoryColors,
   categoryLightColors,
 } from '../../../styles/colors'
-import { fontWeights } from '../../../styles'
-interface Props {
+
+export interface Props {
   category: TCategories
-  onClick: () => void
+  selectedSubCategories: string[]
+  allSubCategoriesLength: number
+  onMainClick: () => void
 }
 
-const ButtonWithDropdown = ({ category, onClick }: Props) => {
-  const handleClick = () => {
-    onClick()
-  }
-
+const ButtonWithDropdown = ({
+  category,
+  selectedSubCategories,
+  allSubCategoriesLength,
+  onMainClick,
+}: Props) => {
+  const mainButtonStatus = useMainButtonStatus({
+    selectedSubCategories,
+    allSubCategoriesLength,
+  })
   const [isSecondaryHovered, setIsSecondaryHovered] = useState(false)
   const [isSecondaryClicked, setIsSecondaryClicked] = useState(false)
 
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
+  const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'
   return (
     <DisplayContainer>
-      <Container color={color}>
-        <MainButton onClick={handleClick}>{category}</MainButton>
+      <Container>
+        <MainButton
+          initial={{ background: mainButtonColor }}
+          animate={{ background: mainButtonColor }}
+          onClick={onMainClick}
+        >
+          {category}
+        </MainButton>
         <Divider />
         <DropdownButton
           onMouseEnter={() => setIsSecondaryHovered(true)}
@@ -38,7 +62,7 @@ const ButtonWithDropdown = ({ category, onClick }: Props) => {
         >
           <ArrowMainContainer
             animate={{
-              backgroundColor: isSecondaryHovered ? lightColor : color,
+              background: isSecondaryHovered ? lightColor : color,
             }}
           >
             <ArrowSubContainer
@@ -48,67 +72,15 @@ const ButtonWithDropdown = ({ category, onClick }: Props) => {
             </ArrowSubContainer>
           </ArrowMainContainer>
         </DropdownButton>
+        <DropdownContainer></DropdownContainer>
       </Container>
     </DisplayContainer>
   )
 }
 
-const Container = styled.div<{ color: string }>`
-  position: relative;
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-gap: 0;
-
-  border-radius: 4px;
-
-  box-sizing: content-box;
-
-  background: ${({ color }) => color};
+const DropdownContainer = styled(motion.div)`
+  position: absolute;
   border: 1px solid ${colors.darkGray};
-  overflow: hidden;
 `
-
-const Divider = styled.span`
-  width: 1px;
-  height: 100%;
-  background: ${colors.darkGray};
-`
-
-const MainButton = styled.button`
-  place-self: stretch;
-  padding: 8px 16px;
-
-  font-weight: ${fontWeights.bold};
-
-  cursor: pointer;
-  border: none;
-  background: none;
-`
-
-const DropdownButton = styled.button`
-  place-self: stretch;
-
-  cursor: pointer;
-  border: none;
-  background: none;
-
-  display: grid;
-  place-items: center;
-
-  padding: 0;
-
-  position: relative;
-
-  overflow: hidden;
-`
-
-const ArrowMainContainer = styled(motion.div)`
-  padding: 8px;
-  place-self: stretch;
-  display: grid;
-  place-items: center;
-`
-
-const ArrowSubContainer = styled(motion.span)``
 
 export default ButtonWithDropdown

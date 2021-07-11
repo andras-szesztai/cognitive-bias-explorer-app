@@ -1,5 +1,6 @@
 import { css } from '@emotion/css'
 import styled from '@emotion/styled'
+import { useState } from 'react'
 
 import {
   MainContainer,
@@ -10,9 +11,15 @@ import {
 } from './components/atoms'
 import { ButtonWithDropdown } from './components/molecules'
 
+import { getSubcategoriesPerCategory } from './utils/dataHelpers'
+
 import { CATEGORIES_ARRAY } from './constants/categories'
 
+const subCategoriesPerCategory = getSubcategoriesPerCategory()
+
 function App() {
+  const [filters, setFilters] = useState(subCategoriesPerCategory) //TODO also from local storage
+
   return (
     <div className={style}>
       <MainContainer>
@@ -20,8 +27,22 @@ function App() {
         <ContentContainer>
           <FiltersContainer>
             {CATEGORIES_ARRAY.map((category) => {
+              const selectedSubCategories = filters[category]
+              const allSubcategories = subCategoriesPerCategory[category]
               return (
-                <ButtonWithDropdown category={category} onClick={() => {}} />
+                <ButtonWithDropdown
+                  category={category}
+                  selectedSubCategories={selectedSubCategories}
+                  allSubCategoriesLength={allSubcategories.length}
+                  onMainClick={() => {
+                    setFilters((prev) => ({
+                      ...prev,
+                      [category]: !selectedSubCategories.length
+                        ? allSubcategories
+                        : [],
+                    }))
+                  }}
+                />
               )
             })}
           </FiltersContainer>
