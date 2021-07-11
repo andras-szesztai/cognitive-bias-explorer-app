@@ -7,9 +7,10 @@ import {
     ContentContainer,
     SearchCardsContainer,
     FiltersContainer,
-    ChevronIcon,
 } from './components/atoms'
 import { ButtonWithDropdown } from './components/molecules'
+
+import { NEED_TO_ACT_FAST, WHAT_DO_WE_REMEMBER } from './constants/categories'
 
 function App() {
     return (
@@ -18,10 +19,14 @@ function App() {
                 <TitleLogo />
                 <ContentContainer>
                     <FiltersContainer>
-                        <Container>
-                            <ChevronIcon />
-                        </Container>
-                        <ButtonWithDropdown />
+                        <ButtonWithDropdown
+                            category={WHAT_DO_WE_REMEMBER}
+                            onClick={() => {}}
+                        />
+                        <ButtonWithDropdown
+                            category={NEED_TO_ACT_FAST}
+                            onClick={() => {}}
+                        />
                         <Container>Need to act fast</Container>
                         <Container>Too much info</Container>
                     </FiltersContainer>
