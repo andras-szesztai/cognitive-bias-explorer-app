@@ -25,6 +25,7 @@ function App() {
       <MainContainer>
         <TitleLogo />
         <ContentContainer>
+          {/* TODO move it to organisms */}
           <FiltersContainer>
             {CATEGORIES_ARRAY.map((category) => {
               const selectedSubCategories = filters[category]
@@ -33,7 +34,7 @@ function App() {
                 <ButtonWithDropdown
                   category={category}
                   selectedSubCategories={selectedSubCategories}
-                  allSubCategoriesLength={allSubcategories.length}
+                  allSubCategories={allSubcategories}
                   onMainClick={() => {
                     setFilters((prev) => ({
                       ...prev,
@@ -42,12 +43,28 @@ function App() {
                         : [],
                     }))
                   }}
+                  onCheckboxClick={(subCategory) => {
+                    setFilters((prev) => {
+                      let newArray
+                      if (selectedSubCategories.includes(subCategory)) {
+                        newArray = selectedSubCategories.filter(
+                          (subC) => subC !== subCategory
+                        )
+                      } else {
+                        newArray = [...selectedSubCategories, subCategory]
+                      }
+                      return {
+                        ...prev,
+                        [category]: newArray,
+                      }
+                    })
+                  }}
                 />
               )
             })}
           </FiltersContainer>
           <SearchCardsContainer>
-            <Container>Searches</Container>
+            <Container>Search</Container>
             <Container />
           </SearchCardsContainer>
         </ContentContainer>

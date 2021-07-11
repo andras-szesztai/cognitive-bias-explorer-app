@@ -6,20 +6,20 @@ type TStatus = 'full' | 'empty'
 
 export const useMainButtonStatus = ({
   selectedSubCategories,
-  allSubCategoriesLength,
-}: Pick<Props, 'selectedSubCategories' | 'allSubCategoriesLength'>) => {
+  allSubCategories,
+}: Pick<Props, 'selectedSubCategories' | 'allSubCategories'>) => {
   const [status, setStatus] = useState<TStatus>('full') //TODO: can come from above
   useEffect(() => {
     if (!selectedSubCategories.length && status === 'full') {
       setStatus('empty')
     }
     if (
-      selectedSubCategories.length === allSubCategoriesLength &&
+      selectedSubCategories.length === allSubCategories.length &&
       status === 'empty'
     ) {
       setStatus('full')
     }
-  }, [selectedSubCategories, allSubCategoriesLength, status])
+  }, [selectedSubCategories, allSubCategories, status])
 
   return status
 }

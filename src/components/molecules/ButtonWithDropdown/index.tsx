@@ -1,9 +1,8 @@
 import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import styled from '@emotion/styled'
+import { AnimatePresence } from 'framer-motion'
 import { useDetectClickOutside } from 'react-detect-click-outside'
 
-import { ChevronIcon, DisplayContainer } from '../../atoms'
+import { ChevronIcon, DisplayContainer, Checkbox } from '../../atoms'
 
 import { useMainButtonStatus } from './hooks'
 
@@ -19,28 +18,27 @@ import {
   DropdownContainer,
   ListContainer,
 } from './styles'
-import colors, {
-  categoryColors,
-  categoryLightColors,
-} from '../../../styles/colors'
+import { categoryColors, categoryLightColors } from '../../../styles/colors'
 import { getOpacityInOut } from '../../../styles/animations'
 
 export interface Props {
   category: TCategories
   selectedSubCategories: string[]
-  allSubCategoriesLength: number
+  allSubCategories: string[]
   onMainClick: () => void
+  onCheckboxClick: (subCategory: string) => void
 }
 
 const ButtonWithDropdown = ({
   category,
   selectedSubCategories,
-  allSubCategoriesLength,
+  allSubCategories,
   onMainClick,
+  onCheckboxClick,
 }: Props) => {
   const mainButtonStatus = useMainButtonStatus({
     selectedSubCategories,
-    allSubCategoriesLength,
+    allSubCategories,
   })
   const [isSecondaryHovered, setIsSecondaryHovered] = useState(false)
   const [isSecondaryClicked, setIsSecondaryClicked] = useState(false)
@@ -83,8 +81,12 @@ const ButtonWithDropdown = ({
           {isSecondaryClicked && (
             <DropdownContainer {...getOpacityInOut()}>
               <ListContainer>
-                {selectedSubCategories.map((category) => (
-                  <div>{category}</div>
+                {allSubCategories.map((subCategory) => (
+                  <Checkbox
+                    label={subCategory}
+                    checked={selectedSubCategories.includes(subCategory)}
+                    onClick={() => onCheckboxClick(subCategory)}
+                  />
                 ))}
               </ListContainer>
             </DropdownContainer>
