@@ -1,1 +1,5 @@
 export { default as MainContainer } from './MainContainer'
+export { default as ContentContainer } from './ContentContainer'
+export { default as SearchCardsContainer } from './SearchCardsContainer'
+export { default as FiltersContainer } from './FiltersContainer'
+export { default as DisplayContainer } from './DisplayContainer'

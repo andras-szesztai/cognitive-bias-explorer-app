@@ -1,20 +1,41 @@
 import { css } from '@emotion/css'
 import styled from '@emotion/styled'
 
-import { MainContainer, TitleLogo } from './components/atoms'
+import {
+    MainContainer,
+    TitleLogo,
+    ContentContainer,
+    SearchCardsContainer,
+    FiltersContainer,
+    ChevronIcon,
+} from './components/atoms'
+import { ButtonWithDropdown } from './components/molecules'
 
 function App() {
     return (
-        <div className={containerStyle}>
+        <div className={style}>
             <MainContainer>
                 <TitleLogo />
-                <Container>Rest</Container>
+                <ContentContainer>
+                    <FiltersContainer>
+                        <Container>
+                            <ChevronIcon />
+                        </Container>
+                        <ButtonWithDropdown />
+                        <Container>Need to act fast</Container>
+                        <Container>Too much info</Container>
+                    </FiltersContainer>
+                    <SearchCardsContainer>
+                        <Container>Searches</Container>
+                        <Container />
+                    </SearchCardsContainer>
+                </ContentContainer>
             </MainContainer>
         </div>
     )
 }
 
-const containerStyle = css`
+const style = css`
     width: 100vw;
     height: 100vh;
     display: grid;
@@ -22,6 +43,7 @@ const containerStyle = css`
     position: relative;
 `
 
+// TODO remove
 const Container = styled.div`
     background: rgba(0, 0, 0, 0.2);
     place-self: stretch;
