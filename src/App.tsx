@@ -32,6 +32,7 @@ function App() {
               const allSubcategories = subCategoriesPerCategory[category]
               return (
                 <ButtonWithDropdown
+                  key={category}
                   category={category}
                   selectedSubCategories={selectedSubCategories}
                   allSubCategories={allSubcategories}

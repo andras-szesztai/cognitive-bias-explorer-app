@@ -46,9 +46,25 @@ const ButtonWithDropdown = ({
     onTriggered: () => setIsSecondaryClicked(false),
   })
 
+  // TODO make it work on the main cards part
+  // const [focusedOption, setFocusedOption] = useState(0)
+  // useEventListener('keydown', (event: KeyboardEvent) => {
+  //   if (isSecondaryClicked) {
+  //     if (event.key === 'ArrowDown' || event.key === 's') {
+  //       setFocusedOption((prev) =>
+  //         prev < allSubCategories.length - 1 ? ++prev : prev
+  //       )
+  //     }
+  //     if (event.key === 'ArrowUp' || event.key === 'w') {
+  //       setFocusedOption((prev) => (prev > 0 ? --prev : prev))
+  //     }
+  //   }
+  // })
+
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
   const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'
+
   return (
     <DisplayContainer>
       <Container color={color} ref={ref}>
@@ -56,6 +72,7 @@ const ButtonWithDropdown = ({
           initial={{ background: mainButtonColor }}
           animate={{ background: mainButtonColor }}
           onClick={onMainClick}
+          color={color}
         >
           {category}
         </MainButton>
@@ -63,7 +80,10 @@ const ButtonWithDropdown = ({
         <DropdownButton
           onMouseEnter={() => setIsSecondaryHovered(true)}
           onMouseLeave={() => setIsSecondaryHovered(false)}
-          onClick={() => setIsSecondaryClicked((prev) => !prev)}
+          onClick={() => {
+            setIsSecondaryClicked((prev) => !prev)
+          }}
+          color={color}
         >
           <ArrowMainContainer
             animate={{
@@ -83,9 +103,12 @@ const ButtonWithDropdown = ({
               <ListContainer>
                 {allSubCategories.map((subCategory) => (
                   <Checkbox
+                    key={subCategory}
                     label={subCategory}
                     checked={selectedSubCategories.includes(subCategory)}
-                    onClick={() => onCheckboxClick(subCategory)}
+                    onClick={() => {
+                      onCheckboxClick(subCategory)
+                    }}
                   />
                 ))}
               </ListContainer>

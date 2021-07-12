@@ -33,24 +33,39 @@ export const MainButtonContainer = styled.div`
   border-radius: 4px;
 `
 
-export const MainButton = styled(motion.button)`
+export const MainButton = styled(motion.button)<{ color: string }>`
   place-self: stretch;
   padding: 8px 16px;
   border-radius: 3px 0 0 3px;
 
   font-weight: ${fontWeights.bold};
   font-size: ${fontSizesString.default};
+  line-height: 0.8;
 
   cursor: pointer;
   border: none;
+  position: relative;
 
-  :focus {
+  :focus-visible {
     outline: none;
-    /* //TODO set it up */
+    :before {
+      top: -16px;
+      left: 50%;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(136, 183, 213, 0);
+      border-top-color: ${({ color }) => color};
+      border-width: 8px;
+      margin-left: -8px;
+    }
   }
 `
 
-export const DropdownButton = styled.button`
+export const DropdownButton = styled.button<{ color: string }>`
   place-self: stretch;
 
   cursor: pointer;
@@ -61,12 +76,24 @@ export const DropdownButton = styled.button`
   place-items: center;
 
   padding: 0;
-
   position: relative;
 
-  :focus {
+  :focus-visible {
     outline: none;
-    /* //TODO set it up */
+    :before {
+      top: -16px;
+      left: 50%;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(136, 183, 213, 0);
+      border-top-color: ${({ color }) => color};
+      border-width: 8px;
+      margin-left: -8px;
+    }
   }
 `
 
@@ -82,10 +109,10 @@ export const ArrowSubContainer = styled(motion.span)``
 
 export const DropdownContainer = styled(motion.div)`
   position: absolute;
-  width: calc(100% + ${dropdownOffset}px - ${2 * space}px);
+  width: calc(100% + ${dropdownOffset}px - ${space}px);
   max-height: 180px;
   border: 1px solid ${colors.darkGray};
-  padding: ${space}px;
+  padding: ${space / 2}px;
   border-radius: 4px;
   background: #fff;
 

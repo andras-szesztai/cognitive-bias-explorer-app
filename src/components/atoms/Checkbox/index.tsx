@@ -14,39 +14,42 @@ interface Props {
   onClick: () => void
 }
 
-// TODO make it accessible  (keyboard and highlight)
 const Checkbox = ({ label, checked, onClick }: Props) => {
   const fillScale = checked ? 1 : 0
+
   return (
-    <Container>
-      <Input id={label} type="checkbox" />
-      <StyledCheckbox onClick={onClick}>
+    <Container onClick={onClick}>
+      <StyledCheckbox>
         <StyledCheckboxFill
           initial={{ scale: fillScale }}
           animate={{ scale: fillScale }}
           transition={{ duration: durations.sm }}
         />
       </StyledCheckbox>
-      <StyledLabel onClick={onClick} htmlFor={label}>
-        {label}
-      </StyledLabel>
+      <StyledLabel htmlFor={label}>{label}</StyledLabel>
     </Container>
   )
 }
 
 export default Checkbox
 
-const Container = styled.div`
+const Container = styled(motion.button)`
   display: grid;
   grid-template-columns: min-content 1fr;
   grid-column-gap: 8px;
   cursor: pointer;
   position: relative;
-`
+  padding: 0px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  padding: 4px;
+  text-align: left;
 
-const Input = styled.input`
-  position: absolute;
-  visibility: hidden;
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
 `
 
 const StyledCheckbox = styled.div`
