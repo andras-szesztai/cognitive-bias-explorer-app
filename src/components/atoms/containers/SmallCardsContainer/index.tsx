@@ -9,6 +9,7 @@ const SmallCardsContainer = styled.div`
   align-content: start;
 
   overflow-y: scroll;
+  padding-right: 12px;
 `
 
 export default SmallCardsContainer

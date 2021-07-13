@@ -40,7 +40,7 @@ export const MainButton = styled(motion.button)<{ color: string }>`
 
   font-weight: ${fontWeights.bold};
   font-size: ${fontSizesString.default};
-  line-height: 0.8;
+  line-height: 1;
 
   cursor: pointer;
   border: none;
@@ -98,18 +98,23 @@ export const DropdownButton = styled.button<{ color: string }>`
 `
 
 export const ArrowMainContainer = styled(motion.div)`
-  padding: 8px;
   place-self: stretch;
+  padding: 8px;
   display: grid;
   place-items: center;
   border-radius: 0 3px 3px 0;
+  position: relative;
 `
 
-export const ArrowSubContainer = styled(motion.span)``
+export const ArrowSubContainer = styled(motion.span)`
+  height: 100%;
+  display: grid;
+  place-items: center;
+`
 
 export const DropdownContainer = styled(motion.div)`
   position: absolute;
-  width: calc(100% + ${dropdownOffset}px - ${space}px);
+  width: calc(100% + ${dropdownOffset}px);
   max-height: 180px;
   border: 1px solid ${colors.darkGray};
   padding: ${space / 2}px;
