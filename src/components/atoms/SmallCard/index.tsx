@@ -1,19 +1,36 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import { Dispatch, SetStateAction } from 'react'
+
+import { IBiasData } from '../../../types/data'
 
 import { colors } from '../../../styles'
 import { categoryColors, categoryLightColors } from '../../../styles/colors'
-import { IBiasData } from '../../../types/data'
 
 interface Props {
   bias: IBiasData
+  setSelectedBias: Dispatch<SetStateAction<IBiasData | undefined>>
+  selectedBias?: IBiasData
 }
 
-const SmallCard = ({ bias }: Props) => {
+const SmallCard = ({ bias, setSelectedBias, selectedBias }: Props) => {
   const color = categoryColors[bias.category]
   const colorLight = categoryLightColors[bias.category]
+  const isSelected = selectedBias?.cognitiveBias === bias.cognitiveBias
+
+  const borderColor = isSelected ? colors.darkGray : '#FFF'
+  const bgColor = isSelected ? colorLight : '#FFF'
   return (
     <Container
+      onClick={() => setSelectedBias(bias)}
+      initial={{
+        borderColor: borderColor,
+        backgroundColor: bgColor,
+      }}
+      animate={{
+        borderColor: borderColor,
+        backgroundColor: bgColor,
+      }}
       whileHover={{
         borderColor: colors.darkGray,
         backgroundColor: colorLight,
@@ -25,6 +42,7 @@ const SmallCard = ({ bias }: Props) => {
   )
 }
 
+// TODO Make it button
 const Container = styled(motion.div)`
   width: 200px;
 

@@ -15,6 +15,7 @@ import { ButtonWithDropdownControls } from './components/organisms'
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 
 import biasData from './data/cognitiveBiases'
+import { IBiasData } from './types/data'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
@@ -35,6 +36,9 @@ const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
 function App() {
   const [filters, setFilters] = useState(subCategoriesPerCategory) //TODO also from local storage
+  const [selectedBias, setSelectedBias] = useState<IBiasData | undefined>(
+    undefined
+  )
 
   return (
     <div className={style}>
@@ -52,9 +56,17 @@ function App() {
               {/* // TODO make it organism */}
               <SmallCardsContainer>
                 {biasData.map((bias) => {
-                  return <SmallCard bias={bias} />
+                  return (
+                    <SmallCard
+                      key={bias.cognitiveBias}
+                      bias={bias}
+                      selectedBias={selectedBias}
+                      setSelectedBias={setSelectedBias}
+                    />
+                  )
                 })}
               </SmallCardsContainer>
+              <div>{selectedBias?.definition}</div>
             </CardsContainer>
           </SearchCardsContainer>
         </ContentContainer>
