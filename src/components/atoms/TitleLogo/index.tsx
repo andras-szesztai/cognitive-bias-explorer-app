@@ -21,7 +21,7 @@ const TitleLogo = () => {
 
 const containerStyle = css`
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 `
 
 const titleContainerStyle = css`

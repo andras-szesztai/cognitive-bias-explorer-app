@@ -46,21 +46,6 @@ const ButtonWithDropdown = ({
     onTriggered: () => setIsSecondaryClicked(false),
   })
 
-  // TODO make it work on the main cards part
-  // const [focusedOption, setFocusedOption] = useState(0)
-  // useEventListener('keydown', (event: KeyboardEvent) => {
-  //   if (isSecondaryClicked) {
-  //     if (event.key === 'ArrowDown' || event.key === 's') {
-  //       setFocusedOption((prev) =>
-  //         prev < allSubCategories.length - 1 ? ++prev : prev
-  //       )
-  //     }
-  //     if (event.key === 'ArrowUp' || event.key === 'w') {
-  //       setFocusedOption((prev) => (prev > 0 ? --prev : prev))
-  //     }
-  //   }
-  // })
-
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
   const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'

@@ -7,66 +7,54 @@ import {
   TitleLogo,
   ContentContainer,
   SearchCardsContainer,
-  FiltersContainer,
+  CardsContainer,
+  SmallCardsContainer,
+  SmallCard,
 } from './components/atoms'
-import { ButtonWithDropdown } from './components/molecules'
+import { ButtonWithDropdownControls } from './components/organisms'
 
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 
-import { CATEGORIES_ARRAY } from './constants/categories'
-
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
+
+// TODO make it work on the main cards part
+// const [focusedOption, setFocusedOption] = useState(0)
+// useEventListener('keydown', (event: KeyboardEvent) => {
+//   if (isSecondaryClicked) {
+//     if (event.key === 'ArrowDown' || event.key === 's') {
+//       setFocusedOption((prev) =>
+//         prev < allSubCategories.length - 1 ? ++prev : prev
+//       )
+//     }
+//     if (event.key === 'ArrowUp' || event.key === 'w') {
+//       setFocusedOption((prev) => (prev > 0 ? --prev : prev))
+//     }
+//   }
+// })
 
 function App() {
   const [filters, setFilters] = useState(subCategoriesPerCategory) //TODO also from local storage
 
+  console.log(new Array(10).fill(''))
   return (
     <div className={style}>
       <MainContainer>
         <TitleLogo />
         <ContentContainer>
-          {/* TODO move it to organisms */}
-          <FiltersContainer>
-            {CATEGORIES_ARRAY.map((category) => {
-              const selectedSubCategories = filters[category]
-              const allSubcategories = subCategoriesPerCategory[category]
-              return (
-                <ButtonWithDropdown
-                  key={category}
-                  category={category}
-                  selectedSubCategories={selectedSubCategories}
-                  allSubCategories={allSubcategories}
-                  onMainClick={() => {
-                    setFilters((prev) => ({
-                      ...prev,
-                      [category]: !selectedSubCategories.length
-                        ? allSubcategories
-                        : [],
-                    }))
-                  }}
-                  onCheckboxClick={(subCategory) => {
-                    setFilters((prev) => {
-                      let newArray
-                      if (selectedSubCategories.includes(subCategory)) {
-                        newArray = selectedSubCategories.filter(
-                          (subC) => subC !== subCategory
-                        )
-                      } else {
-                        newArray = [...selectedSubCategories, subCategory]
-                      }
-                      return {
-                        ...prev,
-                        [category]: newArray,
-                      }
-                    })
-                  }}
-                />
-              )
-            })}
-          </FiltersContainer>
+          <ButtonWithDropdownControls
+            filters={filters}
+            subCategoriesPerCategory={subCategoriesPerCategory}
+            setFilters={setFilters}
+          />
           <SearchCardsContainer>
             <Container>Search</Container>
-            <Container />
+            <CardsContainer>
+              <SmallCardsContainer>
+                {new Array(100).fill('').map(() => {
+                  return <SmallCard />
+                })}
+              </SmallCardsContainer>
+            </CardsContainer>
           </SearchCardsContainer>
         </ContentContainer>
       </MainContainer>
