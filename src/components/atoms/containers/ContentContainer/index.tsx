@@ -1,7 +1,9 @@
 import styled from '@emotion/styled'
 
 const ContentContainer = styled.div`
-  place-self: stretch;
+  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
 
   display: grid;
   grid-row-gap: 36px;

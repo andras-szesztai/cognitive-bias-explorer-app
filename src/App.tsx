@@ -1,5 +1,4 @@
 import { css } from '@emotion/css'
-import styled from '@emotion/styled'
 import { useState } from 'react'
 
 import {
@@ -14,6 +13,8 @@ import {
 import { ButtonWithDropdownControls } from './components/organisms'
 
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
+
+import biasData from './data/cognitiveBiases'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
@@ -35,7 +36,6 @@ const subCategoriesPerCategory = getSubcategoriesPerCategory()
 function App() {
   const [filters, setFilters] = useState(subCategoriesPerCategory) //TODO also from local storage
 
-  console.log(new Array(10).fill(''))
   return (
     <div className={style}>
       <MainContainer>
@@ -47,11 +47,12 @@ function App() {
             setFilters={setFilters}
           />
           <SearchCardsContainer>
-            <Container>Search</Container>
+            <div>Search</div>
             <CardsContainer>
+              {/* // TODO make it organism */}
               <SmallCardsContainer>
-                {new Array(100).fill('').map(() => {
-                  return <SmallCard />
+                {biasData.map((bias) => {
+                  return <SmallCard bias={bias} />
                 })}
               </SmallCardsContainer>
             </CardsContainer>
@@ -68,14 +69,6 @@ const style = css`
   display: grid;
   place-items: center;
   position: relative;
-`
-
-// TODO remove
-const Container = styled.div`
-  background: rgba(0, 0, 0, 0.2);
-  place-self: stretch;
-  display: grid;
-  place-items: center;
 `
 
 export default App

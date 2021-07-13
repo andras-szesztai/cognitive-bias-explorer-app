@@ -49,6 +49,7 @@ const ButtonWithDropdown = ({
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
   const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'
+  const secondaryButtonColor = isSecondaryHovered ? lightColor : color
 
   return (
     <DisplayContainer>
@@ -71,9 +72,8 @@ const ButtonWithDropdown = ({
           color={color}
         >
           <ArrowMainContainer
-            animate={{
-              background: isSecondaryHovered ? lightColor : color,
-            }}
+            initial={{ background: secondaryButtonColor }}
+            animate={{ background: secondaryButtonColor }}
           >
             <ArrowSubContainer
               animate={{ rotate: isSecondaryClicked ? 180 : 0 }}
