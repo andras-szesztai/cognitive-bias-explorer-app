@@ -7,11 +7,12 @@ import {
   CardsContainer,
   SmallCardsContainer,
 } from './containers'
-import { ChevronIcon } from './icons'
+import { ChevronIcon, SearchIcon } from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
 export { default as Checkbox } from './Checkbox'
 export { default as SmallCard } from './SmallCard'
+export { default as SearchBar } from './SearchBar'
 export {
   MainContainer,
   ContentContainer,
@@ -21,4 +22,5 @@ export {
   DisplayContainer,
   CardsContainer,
   SmallCardsContainer,
+  SearchIcon,
 }

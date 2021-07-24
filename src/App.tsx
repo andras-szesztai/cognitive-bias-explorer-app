@@ -1,5 +1,6 @@
 import { css } from '@emotion/css'
 import { useState } from 'react'
+import { useDebounce } from 'use-debounce'
 
 import {
   MainContainer,
@@ -9,6 +10,7 @@ import {
   CardsContainer,
   SmallCardsContainer,
   SmallCard,
+  SearchBar,
 } from './components/atoms'
 import { ButtonWithDropdownControls } from './components/organisms'
 
@@ -32,9 +34,15 @@ function App() {
   const [filters, setFilters] = useState(subCategoriesPerCategory)
   const [searchString, setSearchString] = useState('')
 
-  const filteredBiasData = useMakeFilteredData({ filters })
+  const filteredBiasData = useMakeFilteredData({
+    filters,
+    searchString,
+  })
 
-  useKeyboardNavigation({
+  const [
+    keyboardNavigationIsEnabled,
+    setKeyboardNavigationIsEnabled,
+  ] = useKeyboardNavigation({
     selectedBias,
     setSelectedBias,
     filteredBiasData,
@@ -51,7 +59,13 @@ function App() {
             setFilters={setFilters}
           />
           <SearchCardsContainer>
-            <div>Search</div>
+            <SearchBar
+              onFocus={() => setKeyboardNavigationIsEnabled(false)}
+              onBlur={() => setKeyboardNavigationIsEnabled(true)}
+              blurFromParent={keyboardNavigationIsEnabled}
+              onChange={(val) => setSearchString(val)}
+              value={searchString}
+            />
             <CardsContainer>
               {/* // TODO make it organism */}
               <SmallCardsContainer>

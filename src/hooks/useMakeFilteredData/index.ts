@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useDebounce } from 'use-debounce/lib'
 
 import biasData from '../../data/cognitiveBiases'
 
@@ -10,17 +11,25 @@ const sortedBiasData = biasData.sort((a, b) =>
 
 interface IParams {
   filters: TSubCategories
+  searchString: string
 }
 
-const useMakeFilteredData = ({ filters }: IParams) => {
+const useMakeFilteredData = ({ filters, searchString }: IParams) => {
   const [filteredBiasData, setFilteredBiasData] = useState<IBiasData[]>([])
+  const [debouncedSearchString] = useDebounce(searchString, 300)
+
   useEffect(() => {
     const subCategories = Object.values(filters).flat()
     const newFilteredBiasData = sortedBiasData.filter(
-      (d) => !!subCategories.includes(d.subCategory)
+      (d) =>
+        !!subCategories.includes(d.subCategory) &&
+        (!debouncedSearchString ||
+          d.cognitiveBias
+            .toLowerCase()
+            .includes(debouncedSearchString.toLowerCase()))
     )
     setFilteredBiasData(newFilteredBiasData)
-  }, [filters])
+  }, [filters, debouncedSearchString])
 
   return filteredBiasData
 }
