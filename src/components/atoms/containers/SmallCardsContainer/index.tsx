@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { breakPoints } from '../../../../styles'
 
 const SmallCardsContainer = styled.div`
   place-self: stretch;
@@ -10,6 +11,10 @@ const SmallCardsContainer = styled.div`
 
   overflow-y: scroll;
   padding-right: 12px;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-template-columns: repeat(2, min-content);
+  }
 `
 
 export default SmallCardsContainer

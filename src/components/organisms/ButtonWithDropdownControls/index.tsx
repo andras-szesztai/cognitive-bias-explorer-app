@@ -20,12 +20,13 @@ const ButtonWithDropdownControls = ({
 }: Props) => {
   return (
     <FiltersContainer>
-      {CATEGORIES_ARRAY.map((category) => {
+      {CATEGORIES_ARRAY.map((category, index) => {
         const selectedSubCategories = filters[category]
         const allSubcategories = subCategoriesPerCategory[category]
         return (
           <ButtonWithDropdown
             key={category}
+            zIndexAdjust={index + 1}
             category={category}
             selectedSubCategories={selectedSubCategories}
             allSubCategories={allSubcategories}

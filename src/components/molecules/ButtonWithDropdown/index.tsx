@@ -30,6 +30,7 @@ export interface Props {
   allSubCategories: string[]
   onMainClick: () => void
   onCheckboxClick: (subCategory: string) => void
+  zIndexAdjust: number
 }
 
 const ButtonWithDropdown = ({
@@ -38,6 +39,7 @@ const ButtonWithDropdown = ({
   allSubCategories,
   onMainClick,
   onCheckboxClick,
+  zIndexAdjust,
 }: Props) => {
   const mainButtonStatus = useMainButtonStatus({
     selectedSubCategories,
@@ -56,7 +58,7 @@ const ButtonWithDropdown = ({
 
   return (
     <DisplayContainer>
-      <Container color={color} ref={ref}>
+      <Container color={color} ref={ref} zIndexAdjust={zIndexAdjust}>
         <MainButton
           initial={{ background: mainButtonColor }}
           animate={{ background: mainButtonColor }}

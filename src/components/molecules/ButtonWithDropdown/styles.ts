@@ -4,10 +4,9 @@ import { motion } from 'framer-motion'
 import colors from '../../../styles/colors'
 import { fontSizesString, fontWeights, zIndexes } from '../../../styles'
 
-const dropdownOffset = 80
 const space = 8
 
-export const Container = styled.div<{ color: string }>`
+export const Container = styled.div<{ color: string; zIndexAdjust: number }>`
   position: relative;
   display: grid;
   grid-auto-flow: column;
@@ -19,7 +18,7 @@ export const Container = styled.div<{ color: string }>`
 
   border: 1px solid ${colors.darkGray};
   background-color: ${({ color }) => color};
-  z-index: ${zIndexes.buttonsWithDropdown};
+  z-index: ${({ zIndexAdjust }) => zIndexes.buttonsWithDropdown - zIndexAdjust};
 `
 
 export const Divider = styled.span`
@@ -38,6 +37,10 @@ export const MainButton = styled(motion.button)<{ color: string }>`
   place-self: stretch;
   padding: 8px 16px;
   border-radius: 3px 0 0 3px;
+  white-space: nowrap;
+
+  width: 250px;
+  text-align: left;
 
   font-weight: ${fontWeights.bold};
   font-size: ${fontSizesString.default};
@@ -111,11 +114,12 @@ export const ArrowSubContainer = styled(motion.span)`
   height: 100%;
   display: grid;
   place-items: center;
+  width: 14px;
 `
 
 export const DropdownContainer = styled(motion.div)`
   position: absolute;
-  width: calc(100% + ${dropdownOffset}px);
+  width: 100%;
   max-height: 180px;
   border: 1px solid ${colors.darkGray};
   padding: ${space / 2}px;
@@ -123,7 +127,6 @@ export const DropdownContainer = styled(motion.div)`
   background: #fff;
 
   top: calc(100% + 4px);
-  left: -${dropdownOffset}px;
 
   overflow-y: scroll;
 `

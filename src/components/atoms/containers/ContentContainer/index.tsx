@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { breakPoints } from '../../../../styles'
 
 const ContentContainer = styled.div`
   height: 100%;
@@ -8,6 +9,11 @@ const ContentContainer = styled.div`
   display: grid;
   grid-row-gap: 36px;
   grid-template-rows: min-content 1fr;
+
+  @media (max-width: ${breakPoints.second}) {
+    width: 800px;
+    grid-row-gap: 24px;
+  }
 `
 
 export default ContentContainer
