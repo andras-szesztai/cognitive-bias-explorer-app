@@ -3,17 +3,16 @@ import { motion } from 'framer-motion'
 import { Dispatch, SetStateAction } from 'react'
 import kebabCase from 'lodash/kebabCase'
 
-import { IBiasData } from '../../../types/data'
+import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
 import { colors } from '../../../styles'
 import { categoryColors, categoryLightColors } from '../../../styles/colors'
-import { ISelectedBiasData } from '../../../App'
 
 interface Props {
   bias: IBiasData
-  setSelectedBias: Dispatch<SetStateAction<ISelectedBiasData | undefined>>
   position: number
-  selectedBias?: IBiasData
+  selectedBias: ISelectedBiasData | undefined
+  setSelectedBias: Dispatch<SetStateAction<ISelectedBiasData | undefined>>
 }
 
 const SmallCard = ({
@@ -51,7 +50,6 @@ const SmallCard = ({
   )
 }
 
-// TODO Make it button
 const Container = styled(motion.div)`
   width: 200px;
 

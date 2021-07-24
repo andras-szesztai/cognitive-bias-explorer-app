@@ -1,6 +1,5 @@
 import { css } from '@emotion/css'
 import { useState } from 'react'
-import { useDebounce } from 'use-debounce'
 
 import {
   MainContainer,
@@ -8,23 +7,21 @@ import {
   ContentContainer,
   SearchCardsContainer,
   CardsContainer,
-  SmallCardsContainer,
-  SmallCard,
   SearchBar,
+  BigCard,
 } from './components/atoms'
-import { ButtonWithDropdownControls } from './components/organisms'
+import {
+  ButtonWithDropdownControls,
+  SmallCardsContainerContent,
+} from './components/organisms'
 
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 
 import { useKeyboardNavigation, useMakeFilteredData } from './hooks'
 
-import { IBiasData } from './types/data'
+import { ISelectedBiasData } from './types/data'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
-
-export interface ISelectedBiasData extends IBiasData {
-  position: number
-}
 
 function App() {
   const [selectedBias, setSelectedBias] = useState<
@@ -67,21 +64,12 @@ function App() {
               value={searchString}
             />
             <CardsContainer>
-              {/* // TODO make it organism */}
-              <SmallCardsContainer>
-                {filteredBiasData.map((bias, index) => {
-                  return (
-                    <SmallCard
-                      key={bias.cognitiveBias}
-                      bias={bias}
-                      selectedBias={selectedBias}
-                      setSelectedBias={setSelectedBias}
-                      position={index + 1}
-                    />
-                  )
-                })}
-              </SmallCardsContainer>
-              <div>{selectedBias?.definition}</div>
+              <SmallCardsContainerContent
+                filteredBiasData={filteredBiasData}
+                setSelectedBias={setSelectedBias}
+                selectedBias={selectedBias}
+              />
+              <BigCard selectedBias={selectedBias} />
             </CardsContainer>
           </SearchCardsContainer>
         </ContentContainer>

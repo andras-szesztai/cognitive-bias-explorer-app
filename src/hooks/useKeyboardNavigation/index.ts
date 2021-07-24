@@ -2,9 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import useEventListener from '@use-it/event-listener'
 import { kebabCase } from 'lodash'
 
-import { ISelectedBiasData } from '../../App'
-
-import { IBiasData } from '../../types/data'
+import { IBiasData, ISelectedBiasData } from '../../types/data'
 
 interface IParams {
   selectedBias: ISelectedBiasData | undefined

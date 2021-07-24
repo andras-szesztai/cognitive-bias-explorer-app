@@ -16,7 +16,11 @@ export interface IBiasData {
   subCategory: string
   cognitiveBias: string
   definition: string
-  toLink: string //TODO update to number
+  toLink: string
+}
+
+export interface ISelectedBiasData extends IBiasData {
+  position: number
 }
 
 export type TSubCategories = Record<TCategories, string[]>
