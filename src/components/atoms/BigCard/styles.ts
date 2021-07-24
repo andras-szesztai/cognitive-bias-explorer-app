@@ -41,7 +41,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   padding: 0px 8px;
   line-height: 1.8;
   overflow-y: auto;
-  max-height: 280px;
+  max-height: 400px;
 
   a {
     color: ${colors.blue};

@@ -503,7 +503,7 @@ const data: IBiasData[] = [
   {
     category: 'Too much information',
     subCategory: 'We notice when something has changed',
-    cognitiveBias: 'Contrast Effect:',
+    cognitiveBias: 'Contrast Effect',
     definition:
       'The enhancement or diminishment, relative to normal, of perception, cognition or related performance as a result of successive immediately previous) or simultaneous exposure to a stimulus of lesser or greater value in the same dimension. Example: A person will appear more or less attractive than that person does in isolation when immediately preceded by, or simultaneously compared to respectively, a less or more attractive person.',
   },
@@ -671,6 +671,256 @@ const data: IBiasData[] = [
     cognitiveBias: 'Insensitivity to Sample Size',
     definition:
       'A cognitive bias that occurs when people judge the probability of obtaining a sample statistic without respect to the sample size. For example, in or study subjects assigned the same probability to the likelihood of obtaining a mean height of above six feet in samples of 10, 100, and 1,000 men. In other words, variation is more likely in smaller samples, but people do not expect this.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To avoid mistakes, we aim to preserve autonomy and group status, and avoid irreversible decisions',
+    cognitiveBias: 'System Justification',
+    definition:
+      'A theory within social psychology that system-justifying beliefs serve a psychologically palliative function. People have epistemic, existential, and relational needs that are met by and manifest as ideological support for the prevailing structure of social, economic, and political norms. Need for order and stability, and\nthus resistance to change or alternatives, for example, can be a motivator for individuals to see the status quo as good, legitimate, and even desirable. Related: Staus Quo Bias',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Neglect of Probability',
+    definition:
+      "The tendency to disregard probability when making a decision under uncertainty. It is one way in which people regularly violate the normative rules for decision making. Small risks are typically either neglected entirely or hugely overrated. The continuum between the extremes is ignored. There are many related\nways in which people violate the normative rules of decision making with regard to probability including hindsight bias, the neglect of prior base rates effect, and the gambler's fallacy. However, this bias is different in that rather than incorrectly using probability, the actor disregards it.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Backfire Effect',
+    definition:
+      'Given evidence against their beliefs, people can reject the evidence and believe even more strongly.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Anecdotal Fallacy',
+    definition:
+      'Misuse of anecdotal evidence is an informal fallacy and is sometimes referred to as the person who" fallacy ("I know a person who.."; "I know of a case where." etc.) which places undue weight on experiences of close peers which may not be typical. A common way anecdotal evidence becomes unscientific is through fallacious reasoning such as the Post hoc ergo propter hoc fallacy, the human tendency to assume that if one event happens after another, then the first must be the cause of the second. Another fallacy involves inductive reasoning. For instance, if an anecdote illustrates a desired conclusion rather than a logical conclusion, it is considered a faulty or hasty generalization.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Endowment Effect (Divestiture Aversion)',
+    definition:
+      'People ascribe more value to things merely because they own them.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Processing Difficulty Effect',
+    definition:
+      'The relation between processing difficulty and subsequent memory performance, in that processing difficulty has shown to enhance memory. Related: Levels of Processing Effect',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Pseudocertainty Effect',
+    definition:
+      'The tendency for people to perceive an outcome as certain while it is actually uncertain. This is mostly observed in multi-stage decision making, in which evaluation of the probability of the outcome in a previous stage of decisions is assumed certain when selecting an option in subsequent stages Related: Certainty Effect, the psychological effect resulting from the reduction of probability from certainty to probable. Normally a reduction in probability of winning a reward leads to the perception of loss from the original probability thus favoring a risk-aversion decision. However, the same percentage reduction results in larger psychological effect when it reduces from certainty vice probable.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Illusion of Validity',
+    definition:
+      'A cognitive bias in which a person overestimates his or her ability to interpret and predict accurately the outcome when analyzing a set of data, in particular when the data analyzed show a very consistent patter—that is, when the data "tell" a coherent story. This effect persists even when the person is aware of all\nthe factors that limit the accuracy of his or her predictions, that is when the data and/or methods used to judge them lead to highly fallible predictions. Example: Subjects reported higher confidence in a prediction of the final grade point average of a student after seeing a first-year record of consistent B\'s than\na first-year record of an even number of A\'s and Cs. Consistent patterns may be observed when input variables are highly redundant or correlated, which may increase subjective confidence. However, a number of highly correlated inputs should not increase confidence much more than only one of the inputs; instead\nhigher confidence should be merited when a number of highly independent inputs show a consistent pattern.\nRelated: WYSIATI (What You See Is All There Is) This is solving a difficult problem by substituting a simpler problem that you know about. One does not solve the other.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Disposition Effect',
+    definition:
+      'The tendency of investors to sell shares whose price has increased, while keeping assets that have dropped in value based solely on a psychological feeling. Stock market momentum tends to indicate that stocks that have done well over the past six months tend to keep doing well over the next six months and that stocks that have done poorly over the past six months tend to keep doing poorly over the next six months. This being the case, the generally rational act would be to hold on to stocks that have recently risen in value and to sell stocks that have recently fallen in value; but individual investors tend to do exactly the opposite.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias:
+      'Masked Man Fallacy (Intentional Fallacy, Epistemic Fallacy)',
+    definition:
+      "The masked-man fallacy is committed when one makes an illicit use (illicit due to the difference between knowing and being, knowing can be subject to error or incompleteness) of Leibniz's law in an argument. Leibniz's law states that, if one object has a certain property, while another object does not have the same\nproperty, the two objects cannot be identical. Example: Premise 1 - I know who Bob is. Premise 2 - I do not know who the masked man is. Conclusion: Therefore, Bob is not the masked man. The premises may be true and the conclusion false if Bob is the masked man and the speaker does not know that. Thus the argument is a fallacious one.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Zero Risk Bias',
+    definition:
+      'A tendency to prefer the complete elimination of a risk even when alternative options produce a greater reduction in overall risk.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Unit Bias',
+    definition:
+      'The tendency to want to finish a given unit of a task or an item. This has strong effects on the consumption of food in particular.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Recency Illusion',
+    definition:
+      'The belief that things you have noticed only recently are in fact recent.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'IKEA Effect',
+    definition:
+      'A cognitive bias in which consumers place a disproportionately high value on products they partially created.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias:
+      "Gambler's Fallacy (Monte Carlo Fallacy, Fallacy of the Maturity of Chances)",
+    definition:
+      'The mistaken belief that, if something happens more frequently than normal during some period, it will happen less frequently in the future or that if something happens less frequently than normal during some period, it will happen more frequently in the future (presumably as a means of balancing nature).',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Loss Aversion',
+    definition:
+      "People's tendency to prefer avoiding losses to acquiring equivalent gains it's better to not lose $5 than to find $5. Some studies have suggested that losses are twice as powerful, psychologically, as gains. Related: Negativity Bias",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Hot Hand Fallacy (Hot Hand Phenomenon, Hot Hand)',
+    definition:
+      'The sometimes fallacious belief that a person who experiences success with a random event has a greater probability of further success in additional attempts. This is written as "sometimes because a quasi-random event that involves skill, such as basketball free-throws, may be susceptible to the psychological effect of believing a continued outcome; and therefore an aspect of the "Hot Hand” may be true.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Generation Effect',
+    definition:
+      "A phenomenon where information is better remembered if it is generated from one's own mind rather than simply read.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Illusory Correlation',
+    definition:
+      "The phenomenon of perceiving a relationship between variables (typically people, events, or behaviors) even when no such relationship exists. A false association\nmay be formed because rare or novel occurrences are more salient and therefore tend to capture one's attention Example 1: A woman has her purse stolen by a person of a specific demographic. Henceforth, she keeps her close purse each time she sees a similar person. Example 2: A man holds the belief that people in urban environments tend to be rude. Therefore, when he meets someone who is rude he assumes that the person lives in a city, rather than a rural area.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To get things done, we tend to complete things we’ve invested time and energy in',
+    cognitiveBias: 'Sunk Cost Fallacy',
+    definition:
+      "The Misconception: You make rational decisions based on the future value of objects, investments and experiences. The Truth: Your decisions are tainted by the\nemotional investments you accumulate, and the more you invest in something the harder it becomes to abandon it. Example: R&D costs. Once spent, such costs are sunk and should have no effect on future pricing decisions. So a pharmaceutical company's attempt to justify high prices because of the need to recoup R&D expenses is fallacious. The company will charge market prices whether R&D had cost one dollar or one million dollars. However, R&D costs, and the ability to recoup those costs, are a factor in deciding whether to spend the money on R&D. It's important to distinguish that while justifying high prices on past R&D is a fallacy, raising prices in order to finance future R&D is not. Counterpoint: It is sometimes not that simple. In a broad range of situations, it is rational for people to condition behavior on sunk costs, because of informational content, reputational concerns, or financial and time constraints. Related: Irrational Escalation",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Pareidolia (Subset of Apophenia)',
+    definition:
+      'A psychological phenomenon in which the mind responds to a stimulus, usually an image or a sound, by perceiving a familiar pattern where none exists (e.g., in random data). Apophenia: A human tendency to seek patterns in random information.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We tend to find stories and patterns even when looking at sparse data',
+    cognitiveBias: 'Anthropomorphism',
+    definition:
+      'The attribution of human traits, emotions, or intentions to non-human entities.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To stay focused, we favour the immediate, relatable thing in front of us',
+    cognitiveBias: 'Appeal to Novelty (Argumentum Ad Novitatem)',
+    definition:
+      'A fallacy in which one prematurely claims that an idea or proposal is correct or superior, exclusively because it is new and modern.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To stay focused, we favour the immediate, relatable thing in front of us',
+    cognitiveBias: 'Hyberbolic Discounting',
+    definition:
+      'Given two similar rewards, humans show a preference for one that arrives sooner rather than later. Humans are said to discount the value of the later reward by a factor that increases with the length of the delay. According to hyperbolic discounting, valuations fall relatively rapidly for earlier delay periods (as in, from now\nto one week) but then fall more slowly for longer delay periods (for instance, more than a week). For example, in a study subjects said they would be indifferent between receiving $15 immediately or $30 after 3 months, $60 after 1 year, or $100 after 3 years.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Stereotyping (Stereotypical Bias)',
+    definition:
+      'A stereotype is any thought widely adopted about specific types of individuals or certain ways of behaving intended to represent the entire group of those individuals or behaviors as a whole. These thoughts or beliefs may or may not accurately reflect reality.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Essentialism',
+    definition:
+      'The view that all objects have an essential substance that make the thing what it is, and without which it would be not that kind of thing. Controversial: This is a philosophical viewpoint not a cognitive bias.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Functional Fixedness',
+    definition:
+      'A cognitive bias that limits a person to using an object only in the way it is traditionally used.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Peltzman Effect',
+    definition:
+      'The reduction of predicted benefit from regulations that intend to increase safety due to Risk Compensation. Substantial empirical work has found that the effect exists in many contexts but generally offsets less than half of the desired increase of safety benefit. Related: Risk Compensation',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Subadditivity Effect',
+    definition:
+      'The tendency to judge probability of the whole to be less than the probabilities of the parts.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Forer Effect (Barnum effect)',
+    definition:
+      'A common psychological phenomenon whereby individuals will give high accuracy ratings to descriptions\nspecifically to them but that are, in fact, vague and general enough to apply to a wide range of people. Related: Subjective Validation (Personal Validation Effect)',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Projection Bias',
+    definition:
+      "The tendency to falsely project current preferences onto a future event. When people are trying to estimate their emotional state in the future they attempt to give an unbiased estimate. However, people's assessments are contaminated by their current emotional state and thus it may be difficult for them to predict their emotional state in the future. Related: Empathy Gap",
   },
 ]
 
