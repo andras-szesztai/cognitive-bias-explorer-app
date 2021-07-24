@@ -70,7 +70,8 @@ const MainContainer = styled(motion.div)`
   position: relative;
 
   place-self: stretch;
-  border: 1px solid red;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 8px;
   padding: 36px;
   padding-bottom: 64px;
@@ -95,10 +96,12 @@ const SubTitle = styled.h4`
   padding: 8px;
   font-style: italic;
   font-weight: ${fontWeights.default};
+  font-size: ${fontSizesString.sm};
 `
 
 const Paragraph = styled.p`
   line-height: 1.7;
+  font-size: ${fontSizesString.default};
   padding: 8px;
   overflow-y: auto;
 `

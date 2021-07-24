@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 import colors from '../../../styles/colors'
-import { fontSizesString, fontWeights } from '../../../styles'
+import { fontSizesString, fontWeights, zIndexes } from '../../../styles'
 
 const dropdownOffset = 80
 const space = 8
@@ -19,6 +19,7 @@ export const Container = styled.div<{ color: string }>`
 
   border: 1px solid ${colors.darkGray};
   background-color: ${({ color }) => color};
+  z-index: ${zIndexes.buttonsWithDropdown};
 `
 
 export const Divider = styled.span`

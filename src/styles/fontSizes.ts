@@ -9,8 +9,8 @@ const fontSizesNumbers = {
 }
 
 const fontSizesString = {
-  xxs: '12px',
-  xs: '14px',
+  xs: '12px',
+  sm: '14px',
   default: '16px',
   md: '20px',
   lg: '24px',

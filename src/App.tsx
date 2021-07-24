@@ -34,6 +34,8 @@ function App() {
   const filteredBiasData = useMakeFilteredData({
     filters,
     searchString,
+    selectedBias,
+    setSelectedBias,
   })
 
   const [
@@ -68,6 +70,7 @@ function App() {
                 filteredBiasData={filteredBiasData}
                 setSelectedBias={setSelectedBias}
                 selectedBias={selectedBias}
+                searchString={searchString}
               />
               <BigCard
                 selectedBias={selectedBias}

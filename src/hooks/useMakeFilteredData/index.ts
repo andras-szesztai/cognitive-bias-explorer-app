@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce/lib'
+
+import usePrevious from '../usePrevious'
 
 import biasData from '../../data/cognitiveBiases'
 
-import { IBiasData, TSubCategories } from '../../types/data'
+import { IBiasData, ISelectedBiasData, TSubCategories } from '../../types/data'
 
 const sortedBiasData = biasData.sort((a, b) =>
   a.cognitiveBias.localeCompare(b.cognitiveBias)
@@ -12,9 +14,16 @@ const sortedBiasData = biasData.sort((a, b) =>
 interface IParams {
   filters: TSubCategories
   searchString: string
+  selectedBias: ISelectedBiasData | undefined
+  setSelectedBias: Dispatch<SetStateAction<ISelectedBiasData | undefined>>
 }
 
-const useMakeFilteredData = ({ filters, searchString }: IParams) => {
+const useMakeFilteredData = ({
+  filters,
+  searchString,
+  selectedBias,
+  setSelectedBias,
+}: IParams) => {
   const [filteredBiasData, setFilteredBiasData] = useState<IBiasData[]>([])
   const [debouncedSearchString] = useDebounce(searchString, 300)
 
@@ -30,6 +39,23 @@ const useMakeFilteredData = ({ filters, searchString }: IParams) => {
     )
     setFilteredBiasData(newFilteredBiasData)
   }, [filters, debouncedSearchString])
+
+  // Updates position key in selectedBias if filteredBiasData is updated
+  const prevFilteredBiasData = usePrevious(filteredBiasData)
+  useEffect(() => {
+    if (
+      selectedBias &&
+      prevFilteredBiasData?.length !== filteredBiasData.length
+    ) {
+      setSelectedBias({
+        ...selectedBias,
+        position:
+          filteredBiasData.findIndex(
+            (d) => d.cognitiveBias === selectedBias.cognitiveBias
+          ) + 1,
+      })
+    }
+  }, [filteredBiasData, selectedBias, prevFilteredBiasData, setSelectedBias])
 
   return filteredBiasData
 }

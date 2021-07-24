@@ -8,8 +8,8 @@ const CardsContainer = styled.div`
   padding-bottom: 32px;
 
   display: grid;
-  grid-template-columns: 4fr 3fr;
-  grid-column-gap: 24px;
+  grid-template-columns: 5fr 3fr;
+  grid-column-gap: 36px;
 `
 
 export default CardsContainer
