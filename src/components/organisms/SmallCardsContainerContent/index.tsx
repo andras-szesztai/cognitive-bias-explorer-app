@@ -5,6 +5,7 @@ import styled from '@emotion/styled'
 import { SmallCard, SmallCardsContainer } from '../../atoms'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
+
 import { colors } from '../../../styles'
 
 interface IProps {

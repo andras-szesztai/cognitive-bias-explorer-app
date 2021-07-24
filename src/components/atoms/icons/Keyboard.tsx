@@ -5,18 +5,19 @@ import { colors } from '../../../styles'
 type TSides = 'top' | 'left' | 'bottom' | 'right'
 
 interface IProps {
-  activeKeys: Record<TSides, boolean>
+  activeKeys?: Record<TSides, boolean>
+  height?: number
 }
 
-const Keyboard = ({ activeKeys }: IProps) => {
+const Keyboard = ({ activeKeys, height = 36 }: IProps) => {
   const getAnimationProps = (key: TSides) => ({
-    initial: { fillOpacity: activeKeys[key] ? 1 : 0.15 },
+    initial: { fillOpacity: !activeKeys ? 1 : activeKeys?.[key] ? 1 : 0.15 },
     animate: {
-      fillOpacity: activeKeys[key] ? 1 : 0.15,
+      fillOpacity: !activeKeys ? 1 : activeKeys?.[key] ? 1 : 0.15,
     },
   })
   return (
-    <svg viewBox="510.554 219.362 82.759 58.228" height={36}>
+    <svg viewBox="510.554 219.362 82.759 58.228" height={height}>
       <g
         transform="matrix(1.001117, 0, 0, 1, 501.892853, 202.0867)"
         fillRule="evenodd"

@@ -25,17 +25,14 @@ const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
   const colorLight = selectedBias
     ? categoryLightColors[selectedBias.category]
     : colors.white
-  const borderColor = selectedBias ? colors.darkGray : colors.white
 
   const activeKeys = useActiveKeys({ filteredBiasData, selectedBias })
   return (
     <MainContainer
       initial={{
-        borderColor: borderColor,
         backgroundColor: colorLight,
       }}
       animate={{
-        borderColor: borderColor,
         backgroundColor: colorLight,
       }}
     >
@@ -51,16 +48,39 @@ const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
           >
             {selectedBias.cognitiveBias}
           </Title>
-          <SubTitle>
-            {selectedBias.category} › {selectedBias.subCategory}
-          </SubTitle>
+          <SubTitle>{selectedBias.subCategory}</SubTitle>
           <Paragraph>{selectedBias.definition}</Paragraph>
           <IconContainer>
             <KeyboardIcon activeKeys={activeKeys} />
           </IconContainer>
         </>
       ) : (
-        <Paragraph>Please select</Paragraph>
+        <>
+          <Title noBorder>Welcome to the Cognitive Bias Explorer!</Title>
+          <SubTitle>What are cognitive biases?</SubTitle>
+          <Paragraph>
+            They are inherent thinking "blind spots" that reduce thinking
+            accuracy and result inaccurate, often irrational conclusions. Much
+            like logical fallacies, they can be viewed as either as causes or
+            effects but can generally be reduced to broken thinking. Some are so
+            common that they are given names to easier identify, emphasize,
+            analyze, and ultimately avoid. These biases and their definitions
+            come directly from the enriched version of the{' '}
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Cognitive_Bias_Codex_With_Definitions,_an_Extension_of_the_work_of_John_Manoogian_by_Brian_Morrissette.jpg"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Cognitive Bias Codex
+            </a>
+            . Click around, filter and search for biases that you would like to
+            find out more about! You can also use keyboard arrows or the WASD
+            keys to browse around!&nbsp;{' '}
+          </Paragraph>
+          <IconContainer>
+            <KeyboardIcon activeKeys={activeKeys} />
+          </IconContainer>
+        </>
       )}
     </MainContainer>
   )
@@ -70,8 +90,7 @@ const MainContainer = styled(motion.div)`
   position: relative;
 
   place-self: stretch;
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid ${colors.darkGray};
   border-radius: 8px;
   padding: 36px;
   padding-bottom: 64px;
@@ -85,25 +104,36 @@ const MainContainer = styled(motion.div)`
   min-height: 100%;
 `
 
-const Title = styled(motion.h2)`
+const Title = styled(motion.h2)<{ noBorder?: boolean }>`
   font-size: ${fontSizesString.lg};
+  line-height: 1.3;
   padding: 4px 8px;
-  border: 1px solid ${colors.darkGray};
+  border: 1px solid
+    ${({ noBorder }) => (noBorder ? 'transparent' : colors.darkGray)};
   border-radius: 6px;
 `
 
 const SubTitle = styled.h4`
-  padding: 8px;
+  padding: 0px 8px;
+  line-height: 1.6;
   font-style: italic;
   font-weight: ${fontWeights.default};
   font-size: ${fontSizesString.sm};
 `
 
 const Paragraph = styled.p`
-  line-height: 1.7;
   font-size: ${fontSizesString.default};
-  padding: 8px;
+  padding: 0px 8px;
+  line-height: 1.8;
   overflow-y: auto;
+
+  a {
+    color: ${colors.blue};
+
+    :visited {
+      color: ${colors.blue};
+    }
+  }
 `
 
 const IconContainer = styled.div`
