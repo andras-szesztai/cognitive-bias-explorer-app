@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   MainContainer,
@@ -15,30 +15,102 @@ import { ButtonWithDropdownControls } from './components/organisms'
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 
 import biasData from './data/cognitiveBiases'
+
 import { IBiasData } from './types/data'
+import useEventListener from '@use-it/event-listener'
+import { kebabCase } from 'lodash'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
-// TODO make it work on the main cards part
-// const [focusedOption, setFocusedOption] = useState(0)
-// useEventListener('keydown', (event: KeyboardEvent) => {
-//   if (isSecondaryClicked) {
-//     if (event.key === 'ArrowDown' || event.key === 's') {
-//       setFocusedOption((prev) =>
-//         prev < allSubCategories.length - 1 ? ++prev : prev
-//       )
-//     }
-//     if (event.key === 'ArrowUp' || event.key === 'w') {
-//       setFocusedOption((prev) => (prev > 0 ? --prev : prev))
-//     }
-//   }
-// })
+const sortedBiasData = biasData.sort((a, b) =>
+  a.cognitiveBias.localeCompare(b.cognitiveBias)
+)
+
+export interface ISelectedBiasData extends IBiasData {
+  position: number
+}
 
 function App() {
-  const [filters, setFilters] = useState(subCategoriesPerCategory) //TODO also from local storage
-  const [selectedBias, setSelectedBias] = useState<IBiasData | undefined>(
-    undefined
-  )
+  const [filters, setFilters] = useState(subCategoriesPerCategory)
+  const [searchString, setSearchString] = useState('')
+  const [selectedBias, setSelectedBias] = useState<
+    ISelectedBiasData | undefined
+  >(undefined)
+  const [filteredBiasData, setFilteredBiasData] = useState<IBiasData[]>([])
+  useEffect(() => {
+    const subCategories = Object.values(filters).flat()
+    const newFilteredBiasData = sortedBiasData.filter(
+      (d) => !!subCategories.includes(d.subCategory)
+    )
+    setFilteredBiasData(newFilteredBiasData)
+  }, [filters])
+
+  useEffect(() => {
+    if (!!selectedBias) {
+      document
+        ?.getElementById(kebabCase(selectedBias.cognitiveBias))
+        ?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [selectedBias])
+
+  useEventListener('keydown', (event: KeyboardEvent) => {
+    const first = { ...filteredBiasData[0], position: 1 }
+    const selectedNotInView = !filteredBiasData.find(
+      (d) => selectedBias && d.cognitiveBias === selectedBias.cognitiveBias
+    )
+    if (event.key === 'ArrowDown' || event.key === 's') {
+      if (!selectedBias || selectedNotInView) {
+        setSelectedBias(first)
+      } else {
+        if (selectedBias.position + 3 <= filteredBiasData.length) {
+          const newIndex = selectedBias.position + 2
+          setSelectedBias({
+            ...filteredBiasData[newIndex],
+            position: newIndex + 1,
+          })
+        }
+      }
+    }
+    if (event.key === 'ArrowUp' || event.key === 'w') {
+      if (!selectedBias || selectedNotInView) {
+        setSelectedBias(first)
+      } else {
+        if (selectedBias.position - 3 > 0) {
+          const newIndex = selectedBias.position - 4
+          setSelectedBias({
+            ...filteredBiasData[newIndex],
+            position: newIndex + 1,
+          })
+        }
+      }
+    }
+    if (event.key === 'ArrowRight' || event.key === 'd') {
+      if (!selectedBias || selectedNotInView) {
+        setSelectedBias(first)
+      } else {
+        if (selectedBias.position % 3) {
+          const newIndex = selectedBias.position
+          setSelectedBias({
+            ...filteredBiasData[newIndex],
+            position: newIndex + 1,
+          })
+        }
+      }
+    }
+    if (event.key === 'ArrowLeft' || event.key === 'a') {
+      if (!selectedBias || selectedNotInView) {
+        setSelectedBias(first)
+      } else {
+        if ((selectedBias.position - 1) % 3) {
+          const newIndex = selectedBias.position - 2
+          setSelectedBias({
+            ...filteredBiasData[newIndex],
+            position: newIndex + 1,
+          })
+        }
+      }
+    }
+  })
 
   return (
     <div className={style}>
@@ -55,13 +127,14 @@ function App() {
             <CardsContainer>
               {/* // TODO make it organism */}
               <SmallCardsContainer>
-                {biasData.map((bias) => {
+                {filteredBiasData.map((bias, index) => {
                   return (
                     <SmallCard
                       key={bias.cognitiveBias}
                       bias={bias}
                       selectedBias={selectedBias}
                       setSelectedBias={setSelectedBias}
+                      position={index + 1}
                     />
                   )
                 })}

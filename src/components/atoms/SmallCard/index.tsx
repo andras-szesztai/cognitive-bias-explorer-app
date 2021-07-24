@@ -1,19 +1,27 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 import { Dispatch, SetStateAction } from 'react'
+import kebabCase from 'lodash/kebabCase'
 
 import { IBiasData } from '../../../types/data'
 
 import { colors } from '../../../styles'
 import { categoryColors, categoryLightColors } from '../../../styles/colors'
+import { ISelectedBiasData } from '../../../App'
 
 interface Props {
   bias: IBiasData
-  setSelectedBias: Dispatch<SetStateAction<IBiasData | undefined>>
+  setSelectedBias: Dispatch<SetStateAction<ISelectedBiasData | undefined>>
+  position: number
   selectedBias?: IBiasData
 }
 
-const SmallCard = ({ bias, setSelectedBias, selectedBias }: Props) => {
+const SmallCard = ({
+  bias,
+  setSelectedBias,
+  selectedBias,
+  position,
+}: Props) => {
   const color = categoryColors[bias.category]
   const colorLight = categoryLightColors[bias.category]
   const isSelected = selectedBias?.cognitiveBias === bias.cognitiveBias
@@ -22,7 +30,8 @@ const SmallCard = ({ bias, setSelectedBias, selectedBias }: Props) => {
   const bgColor = isSelected ? colorLight : '#FFF'
   return (
     <Container
-      onClick={() => setSelectedBias(bias)}
+      id={kebabCase(bias.cognitiveBias)}
+      onClick={() => setSelectedBias({ ...bias, position })}
       initial={{
         borderColor: borderColor,
         backgroundColor: bgColor,
