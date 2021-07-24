@@ -7,7 +7,7 @@ import {
   CardsContainer,
   SmallCardsContainer,
 } from './containers'
-import { ChevronIcon, SearchIcon, Keyboard } from './icons'
+import { ChevronIcon, SearchIcon, KeyboardIcon } from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
 export { default as Checkbox } from './Checkbox'
@@ -24,5 +24,5 @@ export {
   CardsContainer,
   SmallCardsContainer,
   SearchIcon,
-  Keyboard,
+  KeyboardIcon,
 }

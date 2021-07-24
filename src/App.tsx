@@ -69,7 +69,10 @@ function App() {
                 setSelectedBias={setSelectedBias}
                 selectedBias={selectedBias}
               />
-              <BigCard selectedBias={selectedBias} />
+              <BigCard
+                selectedBias={selectedBias}
+                filteredBiasData={filteredBiasData}
+              />
             </CardsContainer>
           </SearchCardsContainer>
         </ContentContainer>

@@ -25,8 +25,8 @@ const SmallCard = ({
   const colorLight = categoryLightColors[bias.category]
   const isSelected = selectedBias?.cognitiveBias === bias.cognitiveBias
 
-  const borderColor = isSelected ? colors.darkGray : '#FFF'
-  const bgColor = isSelected ? colorLight : '#FFF'
+  const borderColor = isSelected ? colors.darkGray : colors.white
+  const bgColor = isSelected ? colorLight : colors.white
   return (
     <Container
       id={kebabCase(bias.cognitiveBias)}

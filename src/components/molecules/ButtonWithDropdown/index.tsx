@@ -18,7 +18,10 @@ import {
   DropdownContainer,
   ListContainer,
 } from './styles'
-import { categoryColors, categoryLightColors } from '../../../styles/colors'
+import colors, {
+  categoryColors,
+  categoryLightColors,
+} from '../../../styles/colors'
 import { getOpacityInOut } from '../../../styles/animations'
 
 export interface Props {
@@ -48,7 +51,7 @@ const ButtonWithDropdown = ({
 
   const color = categoryColors[category]
   const lightColor = categoryLightColors[category]
-  const mainButtonColor = mainButtonStatus === 'full' ? color : '#FFF'
+  const mainButtonColor = mainButtonStatus === 'full' ? color : colors.white
   const secondaryButtonColor = isSecondaryHovered ? lightColor : color
 
   return (
