@@ -67,7 +67,7 @@ const Input = styled.input`
   }
 
   ::placeholder {
-    line-height: 1;
+    line-height: 1.6;
     color: ${colors.darkGray};
     opacity: 1;
   }

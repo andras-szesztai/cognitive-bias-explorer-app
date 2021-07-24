@@ -1,5 +1,4 @@
-import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
+import { isMobile } from 'react-device-detect'
 
 import { KeyboardIcon } from '../icons'
 
@@ -7,7 +6,13 @@ import { useActiveKeys } from '../../../hooks'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
-import { fontSizesString, fontWeights } from '../../../styles'
+import {
+  IconContainer,
+  MainContainer,
+  Paragraph,
+  SubTitle,
+  Title,
+} from './styles'
 import colors, {
   categoryColors,
   categoryLightColors,
@@ -49,10 +54,12 @@ const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
             {selectedBias.cognitiveBias}
           </Title>
           <SubTitle>{selectedBias.subCategory}</SubTitle>
-          <Paragraph>{selectedBias.definition}</Paragraph>
-          <IconContainer>
-            <KeyboardIcon activeKeys={activeKeys} />
-          </IconContainer>
+          <Paragraph color={color}>{selectedBias.definition}</Paragraph>
+          {!isMobile && (
+            <IconContainer>
+              <KeyboardIcon activeKeys={activeKeys} />
+            </IconContainer>
+          )}
         </>
       ) : (
         <>
@@ -74,72 +81,19 @@ const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
               Cognitive Bias Codex
             </a>
             . Click around, filter and search for biases that you would like to
-            find out more about! You can also use keyboard arrows or the WASD
-            keys to browse around!&nbsp;{' '}
+            find out more about!
+            {!isMobile &&
+              'You can also use keyboard arrows or the WASD keys to browse around!'}
           </Paragraph>
-          <IconContainer>
-            <KeyboardIcon activeKeys={activeKeys} />
-          </IconContainer>
+          {!isMobile && (
+            <IconContainer>
+              <KeyboardIcon activeKeys={activeKeys} />
+            </IconContainer>
+          )}
         </>
       )}
     </MainContainer>
   )
 }
-
-const MainContainer = styled(motion.div)`
-  position: relative;
-
-  place-self: stretch;
-  border: 1px solid ${colors.darkGray};
-  border-radius: 8px;
-  padding: 36px;
-  padding-bottom: 64px;
-
-  display: grid;
-  grid-template-rows: repeat(2, min-content) 1fr;
-  grid-row-gap: 8px;
-
-  color: ${colors.darkGray};
-
-  min-height: 100%;
-`
-
-const Title = styled(motion.h2)<{ noBorder?: boolean }>`
-  font-size: ${fontSizesString.lg};
-  line-height: 1.3;
-  padding: 4px 8px;
-  border: 1px solid
-    ${({ noBorder }) => (noBorder ? 'transparent' : colors.darkGray)};
-  border-radius: 6px;
-`
-
-const SubTitle = styled.h4`
-  padding: 0px 8px;
-  line-height: 1.6;
-  font-style: italic;
-  font-weight: ${fontWeights.default};
-  font-size: ${fontSizesString.sm};
-`
-
-const Paragraph = styled.p`
-  font-size: ${fontSizesString.default};
-  padding: 0px 8px;
-  line-height: 1.8;
-  overflow-y: auto;
-
-  a {
-    color: ${colors.blue};
-
-    :visited {
-      color: ${colors.blue};
-    }
-  }
-`
-
-const IconContainer = styled.div`
-  position: absolute;
-  right: 16px;
-  bottom: 8px;
-`
 
 export default BigCard

@@ -11,7 +11,6 @@ const ContentContainer = styled.div`
   grid-template-rows: min-content 1fr;
 
   @media (max-width: ${breakPoints.second}) {
-    width: 800px;
     grid-row-gap: 24px;
   }
 `

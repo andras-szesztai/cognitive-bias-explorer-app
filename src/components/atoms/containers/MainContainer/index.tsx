@@ -4,7 +4,7 @@ import { breakPoints } from '../../../../styles'
 
 const topMargin = 64
 const topMarginMd = 36
-const topMarginSm = 24
+// const topMarginSm = 24
 
 const MainContainer = styled.div`
   width: 1240px;
@@ -22,6 +22,14 @@ const MainContainer = styled.div`
     width: 800px;
     grid-row-gap: ${topMarginMd}px;
     margin-top: ${topMarginMd}px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    width: 640px;
+  }
+
+  @media (max-width: ${breakPoints.fourth}) {
+    width: 560px;
   }
 
   display: grid;

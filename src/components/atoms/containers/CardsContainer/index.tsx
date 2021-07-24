@@ -6,6 +6,8 @@ const CardsContainer = styled.div`
   max-height: 100%;
   min-height: 100%;
 
+  position: relative;
+
   padding-bottom: 36px;
 
   display: grid;
@@ -15,6 +17,11 @@ const CardsContainer = styled.div`
   @media (max-width: ${breakPoints.second}) {
     grid-template-columns: 6fr 5fr;
     grid-column-gap: 24px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 16px;
   }
 `
 

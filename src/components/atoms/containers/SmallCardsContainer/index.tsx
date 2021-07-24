@@ -15,6 +15,10 @@ const SmallCardsContainer = styled.div`
   @media (max-width: ${breakPoints.second}) {
     grid-template-columns: repeat(2, min-content);
   }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-template-columns: min-content;
+  }
 `
 
 export default SmallCardsContainer
