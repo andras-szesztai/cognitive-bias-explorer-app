@@ -66,15 +66,15 @@ function App() {
               value={searchString}
             />
             <CardsContainer>
+              <BigCard
+                selectedBias={selectedBias}
+                filteredBiasData={filteredBiasData}
+              />
               <SmallCardsContainerContent
                 filteredBiasData={filteredBiasData}
                 setSelectedBias={setSelectedBias}
                 selectedBias={selectedBias}
                 searchString={searchString}
-              />
-              <BigCard
-                selectedBias={selectedBias}
-                filteredBiasData={filteredBiasData}
               />
             </CardsContainer>
           </SearchCardsContainer>

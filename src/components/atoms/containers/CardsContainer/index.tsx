@@ -11,16 +11,16 @@ const CardsContainer = styled.div`
   padding-bottom: 36px;
 
   display: grid;
-  grid-template-columns: 5fr 3fr;
+  grid-template-columns: 3fr 5fr;
   grid-column-gap: 36px;
 
   @media (max-width: ${breakPoints.second}) {
-    grid-template-columns: 6fr 5fr;
+    grid-template-columns: 5fr 6fr;
     grid-column-gap: 24px;
   }
 
   @media (max-width: ${breakPoints.third}) {
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr min-content;
     grid-column-gap: 16px;
   }
 `

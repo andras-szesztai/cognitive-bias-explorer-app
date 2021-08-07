@@ -6,7 +6,10 @@ const topMargin = 64
 const topMarginMd = 36
 // const topMarginSm = 24
 
+// TODO fix scroll on safari
+
 const MainContainer = styled.div`
+  position: relative;
   width: 1240px;
   height: calc(100% - ${topMargin}px);
   max-height: calc(100% - ${topMargin}px);

@@ -7,10 +7,10 @@ const TitleLogo = () => {
   return (
     <div className={containerStyle}>
       <div className={pillContainerStyle}>
-        <Pill color="yellow" top={6} left={-8} />
-        <Pill color="blue" top={32} left={175} />
-        <Pill color="pink" top={-5} left={300} />
-        <Pill color="green" top={24} left={452} />
+        <Pill color="yellow" top={-11} left={-8} />
+        <Pill color="blue" top={42} left={175} />
+        <Pill color="pink" top={-20} left={300} />
+        <Pill color="green" top={50} left={466} />
       </div>
       <div className={titleContainerStyle}>
         <h1 className={titleStyle}>Cognitive Bias Explorer</h1>
