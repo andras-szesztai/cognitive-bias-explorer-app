@@ -37,9 +37,10 @@ const MobileView = ({
   const drawerHeight = height + 24
   const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
+  const maxExpandedCardHeight = fullHeight - 148
   return (
     <MobileMainContainer ref={containerRef}>
-      <TitleLogo />
+      <TitleLogo isMobileOnly />
       <AnimateSharedLayout type="crossfade">
         <CardsContainer isMobileOnly>
           <BigCard
@@ -57,13 +58,17 @@ const MobileView = ({
         </CardsContainer>
         <AnimatePresence>
           {isBigCardExpanded && (
-            <FixedBigCard layoutId="bigCard" layout height={fullHeight}>
+            <FixedBigCard
+              layoutId="bigCard"
+              layout
+              maxHeight={maxExpandedCardHeight}
+            >
               <BigCard
                 selectedBias={selectedBias}
                 filteredBiasData={filteredBiasData}
-                autoHeight
                 onClick={() => setIsBigCardExpanded(false)}
                 isExpanded
+                maxExpandedCardHeight={maxExpandedCardHeight}
               />
             </FixedBigCard>
           )}
@@ -94,14 +99,13 @@ const MobileView = ({
   )
 }
 
-const FixedBigCard = styled(motion.div)<{ height: number }>`
+const FixedBigCard = styled(motion.div)<{ maxHeight: number }>`
   position: fixed;
   top: 16px;
   left: 16px;
   width: calc(100vw - 32px);
-  height: ${({ height }) => height - 148}px;
 
-  display: grid;
+  max-height: ${({ maxHeight }) => maxHeight}px;
 `
 
 export default MobileView

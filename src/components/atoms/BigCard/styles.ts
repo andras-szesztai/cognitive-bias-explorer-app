@@ -8,7 +8,9 @@ import {
   fontWeights,
 } from '../../../styles'
 
-export const MainContainer = styled(motion.div)<{ autoHeight?: boolean }>`
+export const MainContainer = styled(motion.div)<{
+  maxExpandedCardHeight?: number
+}>`
   position: relative;
 
   place-self: start;
@@ -25,7 +27,8 @@ export const MainContainer = styled(motion.div)<{ autoHeight?: boolean }>`
 
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px 8px 12px 8px;
-    height: ${({ autoHeight }) => (autoHeight ? '100%' : '180px')};
+    max-height: ${({ maxExpandedCardHeight }) =>
+      maxExpandedCardHeight ? maxExpandedCardHeight : 180}px;
   }
 `
 export const TitleContainer = styled(motion.div)<{ noBorder?: boolean }>`

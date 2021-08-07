@@ -1,6 +1,5 @@
 import { css } from '@emotion/css'
 import styled from '@emotion/styled'
-import { isMobileOnly } from 'react-device-detect'
 
 import {
   breakPoints,
@@ -23,7 +22,11 @@ const pillsMobile: PillProps[] = [
   { color: 'green', top: 65, left: 45 },
 ]
 
-const TitleLogo = () => {
+interface IProps {
+  isMobileOnly?: boolean
+}
+
+const TitleLogo = ({ isMobileOnly }: IProps) => {
   const pillsArray = isMobileOnly ? pillsMobile : pillsDesktop
   return (
     <div className={containerStyle}>
@@ -33,7 +36,7 @@ const TitleLogo = () => {
         ))}
       </div>
       <div className={titleContainerStyle}>
-        <h1 className={titleStyle}>Cognitive Bias Explorer</h1>
+        <Title isMobileOnly={isMobileOnly}>Cognitive Bias Explorer</Title>
       </div>
     </div>
   )
@@ -53,17 +56,13 @@ const titleContainerStyle = css`
   position: relative;
 `
 
-const titleStyle = css`
-  font-size: ${fontSizesString.xxl};
+const Title = styled.h1<{ isMobileOnly?: boolean }>`
+  font-size: ${({ isMobileOnly }) =>
+    isMobileOnly ? fontSizesString.xl : fontSizesString.xxl};
+  line-height: ${({ isMobileOnly }) => (isMobileOnly ? 1 : 0.8)};
   font-weight: ${fontWeights.bold};
   color: ${colors.darkGray};
-  line-height: 0.8;
   user-select: none;
-
-  @media (max-width: ${breakPoints.fifth}) {
-    line-height: 1;
-    font-size: ${fontSizesString.xl};
-  }
 `
 
 const pillContainerStyle = css`

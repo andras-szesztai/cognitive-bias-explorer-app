@@ -23,16 +23,16 @@ import colors, {
 interface IProps {
   selectedBias: ISelectedBiasData | undefined
   filteredBiasData: IBiasData[]
-  autoHeight?: boolean
   layoutId?: string
   onClick?: () => void
   isExpanded?: boolean
+  maxExpandedCardHeight?: number
 }
 
 const BigCard = ({
   selectedBias,
   filteredBiasData,
-  autoHeight,
+  maxExpandedCardHeight,
   layoutId,
   onClick,
   isExpanded,
@@ -58,7 +58,6 @@ const BigCard = ({
   return (
     <MainContainer
       layoutId={layoutId}
-      autoHeight={autoHeight}
       initial={{
         backgroundColor: colorLight,
       }}
@@ -66,6 +65,7 @@ const BigCard = ({
         backgroundColor: colorLight,
       }}
       onClick={onClick}
+      maxExpandedCardHeight={maxExpandedCardHeight}
     >
       {selectedBias ? (
         <>
