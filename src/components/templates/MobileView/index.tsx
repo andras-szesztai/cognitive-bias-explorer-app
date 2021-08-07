@@ -34,7 +34,6 @@ const MobileView = ({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [ref, { height }] = useMeasure()
   const [containerRef, { height: fullHeight }] = useMeasure()
-  console.log('🚀 ~ file: index.tsx ~ line 37 ~ testHeight', fullHeight)
   const drawerHeight = height + 24
   const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
@@ -100,7 +99,7 @@ const FixedBigCard = styled(motion.div)<{ height: number }>`
   top: 16px;
   left: 16px;
   width: calc(100vw - 32px);
-  height: ${({ height }) => height - 100}px;
+  height: ${({ height }) => height - 160}px;
 
   display: grid;
 `
