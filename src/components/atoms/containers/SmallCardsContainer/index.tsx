@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import { breakPoints } from '../../../../styles'
 
 const SmallCardsContainer = styled.div`
+  position: relative;
+
   place-self: stretch;
   display: grid;
   grid-template-columns: repeat(3, min-content);

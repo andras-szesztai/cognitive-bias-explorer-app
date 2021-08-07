@@ -20,15 +20,28 @@ import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 import { useKeyboardNavigation, useMakeFilteredData } from './hooks'
 
 import { ISelectedBiasData } from './types/data'
+import {
+  NEED_TO_ACT_FAST,
+  NOT_ENOUGH_MEANING,
+  TOO_MUCH_INFORMATION,
+  WHAT_DO_WE_REMEMBER,
+} from './constants/categories'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
+
+const defaultFilters = {
+  [WHAT_DO_WE_REMEMBER]: [] as string[],
+  [NEED_TO_ACT_FAST]: [] as string[],
+  [NOT_ENOUGH_MEANING]: [] as string[],
+  [TOO_MUCH_INFORMATION]: [] as string[],
+}
 
 function App() {
   const [selectedBias, setSelectedBias] = useState<
     ISelectedBiasData | undefined
   >(undefined)
 
-  const [filters, setFilters] = useState(subCategoriesPerCategory)
+  const [filters, setFilters] = useState(defaultFilters)
   const [searchString, setSearchString] = useState('')
 
   const filteredBiasData = useMakeFilteredData({
@@ -38,14 +51,12 @@ function App() {
     setSelectedBias,
   })
 
-  const [
-    keyboardNavigationIsEnabled,
-    setKeyboardNavigationIsEnabled,
-  ] = useKeyboardNavigation({
-    selectedBias,
-    setSelectedBias,
-    filteredBiasData,
-  })
+  const [keyboardNavigationIsEnabled, setKeyboardNavigationIsEnabled] =
+    useKeyboardNavigation({
+      selectedBias,
+      setSelectedBias,
+      filteredBiasData,
+    })
 
   return (
     <div className={style}>

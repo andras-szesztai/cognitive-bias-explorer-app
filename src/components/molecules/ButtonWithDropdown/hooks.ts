@@ -8,7 +8,7 @@ export const useMainButtonStatus = ({
   selectedSubCategories,
   allSubCategories,
 }: Pick<Props, 'selectedSubCategories' | 'allSubCategories'>) => {
-  const [status, setStatus] = useState<TStatus>('full') //TODO: can come from above
+  const [status, setStatus] = useState<TStatus>('empty')
   useEffect(() => {
     if (!selectedSubCategories.length && status === 'full') {
       setStatus('empty')
