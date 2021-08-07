@@ -21,9 +21,18 @@ import colors, {
 interface IProps {
   selectedBias: ISelectedBiasData | undefined
   filteredBiasData: IBiasData[]
+  autoHeight?: boolean
+  layoutId?: string
+  onClick?: () => void
 }
 
-const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
+const BigCard = ({
+  selectedBias,
+  filteredBiasData,
+  autoHeight,
+  layoutId,
+  onClick,
+}: IProps) => {
   const color = selectedBias
     ? categoryColors[selectedBias.category]
     : colors.white
@@ -31,15 +40,21 @@ const BigCard = ({ selectedBias, filteredBiasData }: IProps) => {
     ? categoryLightColors[selectedBias.category]
     : colors.white
 
-  const activeKeys = useActiveKeys({ filteredBiasData, selectedBias })
+  const activeKeys = useActiveKeys({
+    filteredBiasData,
+    selectedBias,
+  })
   return (
     <MainContainer
+      layoutId={layoutId}
+      autoHeight={autoHeight}
       initial={{
         backgroundColor: colorLight,
       }}
       animate={{
         backgroundColor: colorLight,
       }}
+      onClick={onClick}
     >
       {selectedBias ? (
         <>

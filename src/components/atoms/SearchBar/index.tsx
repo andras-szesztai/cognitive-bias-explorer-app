@@ -14,6 +14,7 @@ interface IProps {
   blurFromParent: boolean
   value: string
   onChange: (val: string) => void
+  withMarginBottom?: boolean
 }
 
 const SearchBar = ({
@@ -22,6 +23,7 @@ const SearchBar = ({
   onChange,
   value,
   blurFromParent,
+  withMarginBottom,
 }: IProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const prevBlurFromParent = usePrevious(blurFromParent)
@@ -35,7 +37,7 @@ const SearchBar = ({
     }
   }, [blurFromParent, prevBlurFromParent])
   return (
-    <Container>
+    <Container withMarginBottom={withMarginBottom}>
       <IconContainer>
         <SearchIcon />
       </IconContainer>
@@ -56,16 +58,14 @@ const SearchBar = ({
   )
 }
 
-const Container = styled.div`
+const Container = styled.div<{ withMarginBottom?: boolean }>`
   position: relative;
 
-  @media (max-width: ${breakPoints.fifth}) {
-    margin-bottom: 16px;
-  }
+  margin-bottom: ${({ withMarginBottom }) => (withMarginBottom ? 16 : 0)}px;
 `
 
 const Input = styled.input`
-  padding: 5px 16px 5px 32px;
+  padding: 4px 16px 4px 32px;
   border-radius: 4px;
   border: 1px solid ${colors.darkGray};
   width: 282px;

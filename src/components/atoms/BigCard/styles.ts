@@ -8,7 +8,7 @@ import {
   fontWeights,
 } from '../../../styles'
 
-export const MainContainer = styled(motion.div)`
+export const MainContainer = styled(motion.div)<{ autoHeight?: boolean }>`
   position: relative;
 
   place-self: start;
@@ -24,8 +24,8 @@ export const MainContainer = styled(motion.div)`
   color: ${colors.darkGray};
 
   @media (max-width: ${breakPoints.fifth}) {
-    padding: 8px;
-    height: 200px;
+    padding: 8px 8px 12px 8px;
+    height: ${({ autoHeight }) => (autoHeight ? '100%' : '200px')};
   }
 `
 

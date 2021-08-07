@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
+import styled from '@emotion/styled'
 
 import {
   BigCard,
@@ -18,6 +19,7 @@ import {
 import { IViewProps } from '../../../types/views'
 import { durations } from '../../../styles'
 import { eases } from '../../../styles/animations'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 
 const MobileView = ({
   setSearchString,
@@ -32,22 +34,39 @@ const MobileView = ({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [ref, { height }] = useMeasure()
   const drawerHeight = height + 24
+  const [isClicked, setIsClicked] = useState(false)
 
   return (
     <MobileMainContainer>
       <TitleLogo />
-      <CardsContainer>
-        <BigCard
-          selectedBias={selectedBias}
-          filteredBiasData={filteredBiasData}
-        />
-        <SmallCardsContainerContent
-          filteredBiasData={filteredBiasData}
-          setSelectedBias={setSelectedBias}
-          selectedBias={selectedBias}
-          searchString={searchString}
-        />
-      </CardsContainer>
+      <AnimateSharedLayout type="crossfade">
+        <CardsContainer>
+          <BigCard
+            selectedBias={selectedBias}
+            filteredBiasData={filteredBiasData}
+            layoutId="card"
+            onClick={() => setIsClicked(true)}
+          />
+          <SmallCardsContainerContent
+            filteredBiasData={filteredBiasData}
+            setSelectedBias={setSelectedBias}
+            selectedBias={selectedBias}
+            searchString={searchString}
+          />
+        </CardsContainer>
+        <AnimatePresence>
+          {isClicked && (
+            <FixedBigCard layoutId="card">
+              <BigCard
+                selectedBias={selectedBias}
+                filteredBiasData={filteredBiasData}
+                autoHeight
+                onClick={() => setIsClicked(false)}
+              />
+            </FixedBigCard>
+          )}
+        </AnimatePresence>
+      </AnimateSharedLayout>
       <MobileFiltersContainer
         initial={{ y: 300 }}
         animate={{ y: isDrawerOpen ? 0 : drawerHeight }}
@@ -59,6 +78,7 @@ const MobileView = ({
             onChange={(val) => setSearchString(val)}
             value={searchString}
             blurFromParent={false}
+            withMarginBottom
           />
           <ButtonWithDropdownControls
             filters={filters}
@@ -71,5 +91,15 @@ const MobileView = ({
     </MobileMainContainer>
   )
 }
+
+const FixedBigCard = styled(motion.div)`
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: calc(100vw - 32px);
+  height: calc(100vh - 72px);
+
+  display: grid;
+`
 
 export default MobileView

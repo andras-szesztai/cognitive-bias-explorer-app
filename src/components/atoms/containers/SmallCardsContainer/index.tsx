@@ -38,7 +38,9 @@ const SmallCardsContainer = styled.div`
 
   @media (max-width: ${breakPoints.fifth}) {
     grid-template-columns: repeat(2, min-content);
+    justify-content: start;
     grid-row-gap: 8px;
+    grid-column-gap: 8px;
     margin-bottom: 24px;
 
     ::-webkit-scrollbar {
@@ -49,6 +51,11 @@ const SmallCardsContainer = styled.div`
       background: ${colors.darkGray};
       border-radius: 4px;
     }
+  }
+
+  @media (max-width: ${breakPoints.sixth}) {
+    grid-template-columns: min-content;
+    grid-column-gap: 0px;
   }
 `
 

@@ -70,6 +70,10 @@ const Container = styled(motion.div)`
     padding: 8px;
     grid-row-gap: 4px;
   }
+
+  @media (max-width: ${breakPoints.sixth}) {
+    width: 200px;
+  }
 `
 
 const Pill = styled.div<{ color: string }>`
@@ -89,6 +93,10 @@ const Title = styled.span`
   @media (max-width: ${breakPoints.fifth}) {
     font-size: ${fontSizesString.sm};
     line-height: 1.4;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-template-columns: min-content;
   }
 `
 

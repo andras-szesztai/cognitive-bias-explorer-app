@@ -4,6 +4,7 @@ const breakPoints = {
   third: '880px',
   fourth: '660px',
   fifth: '590px',
+  sixth: '320px',
 }
 
 export default breakPoints

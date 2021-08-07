@@ -37,6 +37,7 @@ export const MainButton = styled(motion.button)<{
   padding: 8px 16px;
   border-radius: 3px 0 0 3px;
   white-space: nowrap;
+  margin: 0;
 
   width: ${({ width }) => (width ? width - colorLegendWidth - 3 : 250)}px;
   text-align: left;
