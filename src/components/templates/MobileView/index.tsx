@@ -16,6 +16,8 @@ import {
 } from '../../organisms'
 
 import { IViewProps } from '../../../types/views'
+import { durations } from '../../../styles'
+import { eases } from '../../../styles/animations'
 
 const MobileView = ({
   setSearchString,
@@ -47,8 +49,9 @@ const MobileView = ({
         />
       </CardsContainer>
       <MobileFiltersContainer
-        initial={{ y: drawerHeight }}
+        initial={{ y: 300 }}
         animate={{ y: isDrawerOpen ? 0 : drawerHeight }}
+        transition={{ ease: eases.easeInOutCubic, duration: durations.md }}
       >
         <MobileFiltersButton onClick={setIsDrawerOpen} value={isDrawerOpen} />
         <div ref={ref}>

@@ -25,7 +25,7 @@ export const MainContainer = styled(motion.div)`
 
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px;
-    height: 180px;
+    height: 200px;
   }
 `
 
@@ -66,7 +66,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   max-height: 360px;
 
   @media (max-width: ${breakPoints.fifth}) {
-    line-height: 1.45;
+    line-height: 1.4;
     padding: 0px 4px;
     font-size: ${fontSizesString.sm};
   }
@@ -90,6 +90,17 @@ export const Paragraph = styled.p<{ color?: string }>`
   ::-webkit-scrollbar-thumb {
     background: ${({ color }) => color || colors.darkGray};
     border-radius: 8px;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${colors.darkGray};
+      border-radius: 4px;
+    }
   }
 `
 

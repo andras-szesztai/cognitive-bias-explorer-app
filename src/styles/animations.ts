@@ -11,3 +11,7 @@ export const getOpacityInOut = (duration = durations.sm) => ({
   exit: { opacity: 0 },
   transition: { duration: duration },
 })
+
+export const eases = {
+  easeInOutCubic: [0.65, 0, 0.35, 1],
+}

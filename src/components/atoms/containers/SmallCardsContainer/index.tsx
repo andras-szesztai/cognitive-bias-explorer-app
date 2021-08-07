@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { breakPoints } from '../../../../styles'
+import { breakPoints, colors } from '../../../../styles'
 
 const SmallCardsContainer = styled.div`
   position: relative;
@@ -15,6 +15,19 @@ const SmallCardsContainer = styled.div`
   overflow-y: scroll;
   padding-right: 12px;
 
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.darkGray};
+    border-radius: 8px;
+  }
+
   @media (max-width: ${breakPoints.second}) {
     grid-template-columns: repeat(2, min-content);
   }
@@ -26,6 +39,16 @@ const SmallCardsContainer = styled.div`
   @media (max-width: ${breakPoints.fifth}) {
     grid-template-columns: repeat(2, min-content);
     grid-row-gap: 8px;
+    margin-bottom: 24px;
+
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${colors.darkGray};
+      border-radius: 4px;
+    }
   }
 `
 

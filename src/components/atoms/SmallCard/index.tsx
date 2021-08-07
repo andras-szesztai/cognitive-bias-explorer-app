@@ -88,6 +88,7 @@ const Title = styled.span`
 
   @media (max-width: ${breakPoints.fifth}) {
     font-size: ${fontSizesString.sm};
+    line-height: 1.4;
   }
 `
 
