@@ -5,7 +5,8 @@ const MobileMainContainer = styled.div`
   width: 100%;
   height: 100%;
   max-height: 100%;
-  padding: 16px;
+  min-height: 100%;
+  padding: 24px 16px;
 
   display: grid;
   grid-template-rows: min-content 1fr;

@@ -29,19 +29,18 @@ const useMakeFilteredData = ({
 
   useEffect(() => {
     const subCategories = Object.values(filters).flat()
-    let newFilteredBiasData
-    if (!subCategories.length) {
-      newFilteredBiasData = sortedBiasData
-    } else {
-      newFilteredBiasData = sortedBiasData.filter(
-        (d) =>
-          !!subCategories.includes(d.subCategory) &&
-          (!debouncedSearchString ||
-            d.cognitiveBias
-              .toLowerCase()
-              .includes(debouncedSearchString.toLowerCase()))
-      )
-    }
+    const newFilteredBiasData = sortedBiasData.filter((d) => {
+      let isIn = true
+      if (debouncedSearchString) {
+        isIn = d.cognitiveBias
+          .toLowerCase()
+          .includes(debouncedSearchString.toLowerCase())
+      }
+      if (subCategories.length) {
+        isIn = !!subCategories.includes(d.subCategory)
+      }
+      return isIn
+    })
     setFilteredBiasData(newFilteredBiasData)
   }, [filters, debouncedSearchString])
 

@@ -27,8 +27,9 @@ const CardsContainer = styled.div`
   @media (max-width: ${breakPoints.fifth}) {
     grid-template-columns: 1fr;
     grid-column-gap: 0px;
-    grid-template-rows: min-content 1fr;
+    grid-template-rows: 220px 1fr;
     grid-row-gap: 16px;
+    padding-bottom: 0px;
   }
 `
 

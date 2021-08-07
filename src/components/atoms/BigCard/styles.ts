@@ -25,7 +25,7 @@ export const MainContainer = styled(motion.div)`
 
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px;
-    max-height: 200px;
+    height: 220px;
   }
 `
 
@@ -40,6 +40,7 @@ export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
   @media (max-width: ${breakPoints.fifth}) {
     font-size: ${fontSizesString.md};
     padding: 2px 4px;
+    line-height: 1.2;
   }
 `
 
@@ -53,6 +54,7 @@ export const SubTitle = styled.h4`
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1.4;
     padding: 0px 4px;
+    font-size: ${fontSizesString.xs};
   }
 `
 
@@ -66,6 +68,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1.5;
     padding: 0px 4px;
+    font-size: ${fontSizesString.sm};
   }
 
   a {

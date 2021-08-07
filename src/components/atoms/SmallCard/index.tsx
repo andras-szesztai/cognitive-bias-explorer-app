@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
-import { colors } from '../../../styles'
+import { breakPoints, colors } from '../../../styles'
 import { categoryColors, categoryLightColors } from '../../../styles/colors'
 
 interface Props {
@@ -64,6 +64,12 @@ const Container = styled(motion.div)`
   border-style: solid;
   border-color: #fff;
   background-color: #fff;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    width: 160px;
+    padding: 8px;
+    grid-row-gap: 4px;
+  }
 `
 
 const Pill = styled.div<{ color: string }>`

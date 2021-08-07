@@ -17,10 +17,10 @@ const pillsDesktop: PillProps[] = [
 ]
 
 const pillsMobile: PillProps[] = [
-  { color: 'yellow', top: -9, left: -6 },
-  { color: 'blue', top: 46, left: 100 },
-  { color: 'pink', top: -5, left: 200 },
-  { color: 'green', top: 96, left: 140 },
+  { color: 'yellow', top: -7, left: -5 },
+  { color: 'blue', top: 38, left: 156 },
+  { color: 'pink', top: -2, left: 195 },
+  { color: 'green', top: 65, left: 45 },
 ]
 
 const TitleLogo = () => {
@@ -62,6 +62,7 @@ const titleStyle = css`
 
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1;
+    font-size: ${fontSizesString.xl};
   }
 `
 

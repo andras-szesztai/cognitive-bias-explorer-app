@@ -5,6 +5,7 @@ const SmallCardsContainer = styled.div`
   position: relative;
 
   place-self: stretch;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, min-content);
   justify-content: space-between;
@@ -23,7 +24,8 @@ const SmallCardsContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    padding-right: 0px;
+    grid-template-columns: repeat(2, min-content);
+    grid-row-gap: 8px;
   }
 `
 
