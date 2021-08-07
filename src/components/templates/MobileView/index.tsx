@@ -34,7 +34,7 @@ const MobileView = ({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [ref, { height }] = useMeasure()
   const drawerHeight = height + 24
-  const [isClicked, setIsClicked] = useState(false)
+  const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
   return (
     <MobileMainContainer>
@@ -44,8 +44,8 @@ const MobileView = ({
           <BigCard
             selectedBias={selectedBias}
             filteredBiasData={filteredBiasData}
-            layoutId="card"
-            onClick={() => setIsClicked(true)}
+            layoutId="bigCard"
+            onClick={() => setIsBigCardExpanded(true)}
           />
           <SmallCardsContainerContent
             filteredBiasData={filteredBiasData}
@@ -55,13 +55,14 @@ const MobileView = ({
           />
         </CardsContainer>
         <AnimatePresence>
-          {isClicked && (
-            <FixedBigCard layoutId="card">
+          {isBigCardExpanded && (
+            <FixedBigCard layoutId="bigCard" layout>
               <BigCard
                 selectedBias={selectedBias}
                 filteredBiasData={filteredBiasData}
                 autoHeight
-                onClick={() => setIsClicked(false)}
+                onClick={() => setIsBigCardExpanded(false)}
+                isExpanded
               />
             </FixedBigCard>
           )}
@@ -97,7 +98,7 @@ const FixedBigCard = styled(motion.div)`
   top: 16px;
   left: 16px;
   width: calc(100vw - 32px);
-  height: calc(100vh - 72px);
+  height: calc(100vh - 88px);
 
   display: grid;
 `

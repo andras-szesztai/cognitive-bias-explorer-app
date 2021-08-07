@@ -28,18 +28,35 @@ export const MainContainer = styled(motion.div)<{ autoHeight?: boolean }>`
     height: ${({ autoHeight }) => (autoHeight ? '100%' : '200px')};
   }
 `
-
-export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
-  font-size: ${fontSizesString.lg};
-  line-height: 1.3;
-  padding: 4px 8px;
+export const TitleContainer = styled(motion.div)<{ noBorder?: boolean }>`
   border: 1px solid
     ${({ noBorder }) => (noBorder ? 'transparent' : colors.darkGray)};
+  padding: 4px 8px;
   border-radius: 4px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding: 2px 4px;
+  }
+`
+
+export const ExpandIconContainer = styled.div`
+  height: 20px;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Title = styled.h2`
+  font-size: ${fontSizesString.lg};
+  line-height: 1.3;
 
   @media (max-width: ${breakPoints.fifth}) {
     font-size: ${fontSizesString.default};
-    padding: 2px 4px;
+
     line-height: 1.2;
   }
 `

@@ -11,7 +11,13 @@ import {
   ArrowMainContainer,
   ArrowSubContainer,
 } from './containers'
-import { ChevronIcon, SearchIcon, KeyboardIcon } from './icons'
+import {
+  ChevronIcon,
+  SearchIcon,
+  KeyboardIcon,
+  CollapseIcon,
+  ExpandIcon,
+} from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
 export { default as Checkbox } from './Checkbox'
@@ -34,4 +40,6 @@ export {
   MobileFiltersContainer,
   ArrowMainContainer,
   ArrowSubContainer,
+  CollapseIcon,
+  ExpandIcon,
 }

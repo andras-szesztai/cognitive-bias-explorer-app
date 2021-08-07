@@ -1,17 +1,19 @@
-import { isMobile } from 'react-device-detect'
+import { isMobile, isMobileOnly } from 'react-device-detect'
 
-import { KeyboardIcon } from '../icons'
+import { CollapseIcon, ExpandIcon, KeyboardIcon } from '../icons'
 
 import { useActiveKeys } from '../../../hooks'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
 import {
+  ExpandIconContainer,
   IconContainer,
   MainContainer,
   Paragraph,
   SubTitle,
   Title,
+  TitleContainer,
 } from './styles'
 import colors, {
   categoryColors,
@@ -24,6 +26,7 @@ interface IProps {
   autoHeight?: boolean
   layoutId?: string
   onClick?: () => void
+  isExpanded?: boolean
 }
 
 const BigCard = ({
@@ -32,6 +35,7 @@ const BigCard = ({
   autoHeight,
   layoutId,
   onClick,
+  isExpanded,
 }: IProps) => {
   const color = selectedBias
     ? categoryColors[selectedBias.category]
@@ -58,7 +62,7 @@ const BigCard = ({
     >
       {selectedBias ? (
         <>
-          <Title
+          <TitleContainer
             initial={{
               backgroundColor: color,
             }}
@@ -66,8 +70,11 @@ const BigCard = ({
               backgroundColor: color,
             }}
           >
-            {selectedBias.cognitiveBias}
-          </Title>
+            <Title>{selectedBias.cognitiveBias}</Title>
+            <ExpandIconContainer>
+              {isMobileOnly && (isExpanded ? <CollapseIcon /> : <ExpandIcon />)}
+            </ExpandIconContainer>
+          </TitleContainer>
           <SubTitle>{selectedBias.subCategory}</SubTitle>
           <Paragraph color={color}>{selectedBias.definition}</Paragraph>
           {!isMobile && (
@@ -78,7 +85,10 @@ const BigCard = ({
         </>
       ) : (
         <>
-          <Title noBorder>Welcome to the Cognitive Bias Explorer!</Title>
+          <TitleContainer noBorder>
+            <Title>Welcome to the Cognitive Bias Explorer!</Title>
+            {isMobileOnly && (isExpanded ? <CollapseIcon /> : <ExpandIcon />)}
+          </TitleContainer>
           <SubTitle>What are cognitive biases?</SubTitle>
           <Paragraph>
             Inherent thinking "blind spots" that reduce thinking accuracy and
