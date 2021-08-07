@@ -1,7 +1,12 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
-import { colors, fontSizesString, fontWeights } from '../../../styles'
+import {
+  breakPoints,
+  colors,
+  fontSizesString,
+  fontWeights,
+} from '../../../styles'
 
 export const MainContainer = styled(motion.div)`
   position: relative;
@@ -17,6 +22,11 @@ export const MainContainer = styled(motion.div)`
   grid-row-gap: 8px;
 
   color: ${colors.darkGray};
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding: 8px;
+    max-height: 200px;
+  }
 `
 
 export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
@@ -26,6 +36,11 @@ export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
   border: 1px solid
     ${({ noBorder }) => (noBorder ? 'transparent' : colors.darkGray)};
   border-radius: 6px;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    font-size: ${fontSizesString.md};
+    padding: 2px 4px;
+  }
 `
 
 export const SubTitle = styled.h4`
@@ -34,6 +49,11 @@ export const SubTitle = styled.h4`
   font-style: italic;
   font-weight: ${fontWeights.default};
   font-size: ${fontSizesString.sm};
+
+  @media (max-width: ${breakPoints.fifth}) {
+    line-height: 1.4;
+    padding: 0px 4px;
+  }
 `
 
 export const Paragraph = styled.p<{ color?: string }>`
@@ -42,6 +62,11 @@ export const Paragraph = styled.p<{ color?: string }>`
   line-height: 1.7;
   overflow-y: auto;
   max-height: 360px;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    line-height: 1.5;
+    padding: 0px 4px;
+  }
 
   a {
     color: ${colors.blue};

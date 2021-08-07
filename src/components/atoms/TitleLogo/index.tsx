@@ -2,7 +2,12 @@ import { css } from '@emotion/css'
 import styled from '@emotion/styled'
 import { isMobileOnly } from 'react-device-detect'
 
-import { colors, fontSizesString, fontWeights } from '../../../styles'
+import {
+  breakPoints,
+  colors,
+  fontSizesString,
+  fontWeights,
+} from '../../../styles'
 
 const pillsDesktop: PillProps[] = [
   { color: 'yellow', top: -11, left: -8 },
@@ -12,10 +17,10 @@ const pillsDesktop: PillProps[] = [
 ]
 
 const pillsMobile: PillProps[] = [
-  { color: 'yellow', top: -11, left: -8 },
-  { color: 'blue', top: 42, left: 175 },
-  { color: 'pink', top: -20, left: 300 },
-  { color: 'green', top: 50, left: 466 },
+  { color: 'yellow', top: -9, left: -6 },
+  { color: 'blue', top: 46, left: 100 },
+  { color: 'pink', top: -5, left: 200 },
+  { color: 'green', top: 96, left: 140 },
 ]
 
 const TitleLogo = () => {
@@ -24,7 +29,7 @@ const TitleLogo = () => {
     <div className={containerStyle}>
       <div className={pillContainerStyle}>
         {pillsArray.map((pill) => (
-          <Pill {...pill} />
+          <Pill key={pill.color} {...pill} />
         ))}
       </div>
       <div className={titleContainerStyle}>
@@ -38,6 +43,10 @@ const containerStyle = css`
   display: flex;
   justify-content: flex-start;
   padding-left: 8px;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding-left: 0px;
+  }
 `
 
 const titleContainerStyle = css`
@@ -50,6 +59,10 @@ const titleStyle = css`
   color: ${colors.darkGray};
   line-height: 0.8;
   user-select: none;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    line-height: 1;
+  }
 `
 
 const pillContainerStyle = css`

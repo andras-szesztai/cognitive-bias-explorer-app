@@ -23,6 +23,13 @@ const CardsContainer = styled.div`
     grid-template-columns: 1fr min-content;
     grid-column-gap: 16px;
   }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-template-columns: 1fr;
+    grid-column-gap: 0px;
+    grid-template-rows: min-content 1fr;
+    grid-row-gap: 16px;
+  }
 `
 
 export default CardsContainer

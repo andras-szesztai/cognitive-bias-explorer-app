@@ -6,6 +6,7 @@ import {
   DisplayContainer,
   CardsContainer,
   SmallCardsContainer,
+  MobileMainContainer,
 } from './containers'
 import { ChevronIcon, SearchIcon, KeyboardIcon } from './icons'
 
@@ -25,4 +26,5 @@ export {
   SmallCardsContainer,
   SearchIcon,
   KeyboardIcon,
+  MobileMainContainer,
 }

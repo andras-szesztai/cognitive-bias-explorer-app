@@ -13,6 +13,10 @@ const ContentContainer = styled.div`
   @media (max-width: ${breakPoints.second}) {
     grid-row-gap: 24px;
   }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-row-gap: 16px;
+  }
 `
 
 export default ContentContainer

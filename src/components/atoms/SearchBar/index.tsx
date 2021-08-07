@@ -6,7 +6,7 @@ import { SearchIcon } from '../icons'
 
 import { usePrevious } from '../../../hooks'
 
-import { colors } from '../../../styles'
+import { breakPoints, colors } from '../../../styles'
 
 interface IProps {
   onBlur?: () => void
@@ -36,7 +36,6 @@ const SearchBar = ({
   }, [blurFromParent, prevBlurFromParent])
   return (
     <div style={{ position: 'relative' }}>
-      {}
       <IconContainer>
         <SearchIcon />
       </IconContainer>
@@ -61,6 +60,10 @@ const Input = styled.input`
   padding: 4px 16px 4px 32px;
   border-radius: 4px;
   border: 1px solid ${colors.darkGray};
+
+  @media (max-width: ${breakPoints.fifth}) {
+    width: 100%;
+  }
 
   :focus-visible {
     outline: none;

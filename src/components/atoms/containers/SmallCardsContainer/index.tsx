@@ -12,7 +12,6 @@ const SmallCardsContainer = styled.div`
   align-content: start;
 
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
   padding-right: 12px;
 
   @media (max-width: ${breakPoints.second}) {
@@ -21,6 +20,10 @@ const SmallCardsContainer = styled.div`
 
   @media (max-width: ${breakPoints.third}) {
     grid-template-columns: min-content;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding-right: 0px;
   }
 `
 
