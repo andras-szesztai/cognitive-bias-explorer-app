@@ -47,7 +47,7 @@ const MobileView = ({
           />
         </CardsContainer>
       </ContentContainer>
-      <MobileFiltersContainer>
+      {/* <MobileFiltersContainer>
         <MobileFiltersButton />
         <ButtonWithDropdownControls
           filters={filters}
@@ -55,7 +55,7 @@ const MobileView = ({
           setFilters={setFilters}
           fullWidth
         />
-      </MobileFiltersContainer>
+      </MobileFiltersContainer> */}
     </MobileMainContainer>
   )
 }

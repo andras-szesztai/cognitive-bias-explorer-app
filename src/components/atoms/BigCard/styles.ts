@@ -13,8 +13,8 @@ export const MainContainer = styled(motion.div)`
 
   place-self: start;
   border: 1px solid ${colors.darkGray};
-  border-radius: 8px;
-  padding: 36px;
+  border-radius: 4px;
+  padding: 24px;
   padding-bottom: 64px;
 
   display: grid;
@@ -26,7 +26,6 @@ export const MainContainer = styled(motion.div)`
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px;
     height: 180px;
-    border-radius: 4px;
   }
 `
 
@@ -36,13 +35,12 @@ export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
   padding: 4px 8px;
   border: 1px solid
     ${({ noBorder }) => (noBorder ? 'transparent' : colors.darkGray)};
-  border-radius: 6px;
+  border-radius: 4px;
 
   @media (max-width: ${breakPoints.fifth}) {
     font-size: ${fontSizesString.default};
     padding: 2px 4px;
     line-height: 1.2;
-    border-radius: 4px;
   }
 `
 
