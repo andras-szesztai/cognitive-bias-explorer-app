@@ -27,6 +27,10 @@ export const MainContainer = styled(motion.div)<{
 
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px 8px 12px 8px;
+    height: ${({ maxExpandedCardHeight }) =>
+      maxExpandedCardHeight ? 'auto' : '180px'};
+    min-height: ${({ maxExpandedCardHeight }) =>
+      maxExpandedCardHeight ? 276 : 180}px;
     max-height: ${({ maxExpandedCardHeight }) =>
       maxExpandedCardHeight ? maxExpandedCardHeight : 180}px;
   }
@@ -129,4 +133,12 @@ export const IconContainer = styled.div`
   position: absolute;
   right: 16px;
   bottom: 8px;
+`
+
+export const FixedBigCard = styled(motion.div)<{ maxHeight: number }>`
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: calc(100vw - 32px);
+  max-height: ${({ maxHeight }) => maxHeight}px;
 `

@@ -49,6 +49,7 @@ export const MainButton = styled(motion.button)<{
   cursor: pointer;
   border: none;
   position: relative;
+  overflow: hidden;
 
   :focus-visible {
     outline: none;

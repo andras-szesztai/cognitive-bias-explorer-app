@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
-import styled from '@emotion/styled'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 import {
   BigCard,
@@ -11,15 +11,16 @@ import {
   MobileFiltersContainer,
   MobileFiltersButton,
 } from '../../atoms'
+import { FixedBigCard } from '../../atoms/BigCard/styles'
 import {
   ButtonWithDropdownControls,
   SmallCardsContainerContent,
 } from '../../organisms'
 
 import { IViewProps } from '../../../types/views'
+
 import { durations } from '../../../styles'
 import { eases } from '../../../styles/animations'
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 
 const MobileView = ({
   setSearchString,
@@ -98,14 +99,5 @@ const MobileView = ({
     </MobileMainContainer>
   )
 }
-
-const FixedBigCard = styled(motion.div)<{ maxHeight: number }>`
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  width: calc(100vw - 32px);
-
-  max-height: ${({ maxHeight }) => maxHeight}px;
-`
 
 export default MobileView
