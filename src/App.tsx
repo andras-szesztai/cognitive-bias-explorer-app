@@ -1,31 +1,21 @@
-import { css } from '@emotion/css'
+import styled from '@emotion/styled'
 import { useState } from 'react'
+import { isMobileOnly } from 'react-device-detect'
 
-import {
-  MainContainer,
-  TitleLogo,
-  ContentContainer,
-  SearchCardsContainer,
-  CardsContainer,
-  SearchBar,
-  BigCard,
-} from './components/atoms'
-import {
-  ButtonWithDropdownControls,
-  SmallCardsContainerContent,
-} from './components/organisms'
+import { DesktopTabletView, MobileView } from './components/templates'
 
 import { getSubcategoriesPerCategory } from './utils/dataHelpers'
 
-import { useKeyboardNavigation, useMakeFilteredData } from './hooks'
+import { useMakeFilteredData } from './hooks'
 
-import { ISelectedBiasData } from './types/data'
 import {
   NEED_TO_ACT_FAST,
   NOT_ENOUGH_MEANING,
   TOO_MUCH_INFORMATION,
   WHAT_DO_WE_REMEMBER,
 } from './constants/categories'
+
+import { ISelectedBiasData } from './types/data'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
@@ -51,51 +41,37 @@ function App() {
     setSelectedBias,
   })
 
-  const [keyboardNavigationIsEnabled, setKeyboardNavigationIsEnabled] =
-    useKeyboardNavigation({
-      selectedBias,
-      setSelectedBias,
-      filteredBiasData,
-    })
-
   return (
-    <div className={style}>
-      <MainContainer>
-        <TitleLogo />
-        <ContentContainer>
-          <ButtonWithDropdownControls
-            filters={filters}
-            subCategoriesPerCategory={subCategoriesPerCategory}
-            setFilters={setFilters}
-          />
-          <SearchCardsContainer>
-            <SearchBar
-              onFocus={() => setKeyboardNavigationIsEnabled(false)}
-              onBlur={() => setKeyboardNavigationIsEnabled(true)}
-              blurFromParent={keyboardNavigationIsEnabled}
-              onChange={(val) => setSearchString(val)}
-              value={searchString}
-            />
-            <CardsContainer>
-              <BigCard
-                selectedBias={selectedBias}
-                filteredBiasData={filteredBiasData}
-              />
-              <SmallCardsContainerContent
-                filteredBiasData={filteredBiasData}
-                setSelectedBias={setSelectedBias}
-                selectedBias={selectedBias}
-                searchString={searchString}
-              />
-            </CardsContainer>
-          </SearchCardsContainer>
-        </ContentContainer>
-      </MainContainer>
-    </div>
+    <Container>
+      {!isMobileOnly && (
+        <DesktopTabletView
+          selectedBias={selectedBias}
+          setSelectedBias={setSelectedBias}
+          filteredBiasData={filteredBiasData}
+          subCategoriesPerCategory={subCategoriesPerCategory}
+          filters={filters}
+          setFilters={setFilters}
+          setSearchString={setSearchString}
+          searchString={searchString}
+        />
+      )}
+      {isMobileOnly && (
+        <MobileView
+          selectedBias={selectedBias}
+          setSelectedBias={setSelectedBias}
+          filteredBiasData={filteredBiasData}
+          subCategoriesPerCategory={subCategoriesPerCategory}
+          filters={filters}
+          setFilters={setFilters}
+          setSearchString={setSearchString}
+          searchString={searchString}
+        />
+      )}
+    </Container>
   )
 }
 
-const style = css`
+const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;

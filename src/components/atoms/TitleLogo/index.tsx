@@ -1,16 +1,31 @@
 import { css } from '@emotion/css'
 import styled from '@emotion/styled'
+import { isMobileOnly } from 'react-device-detect'
 
 import { colors, fontSizesString, fontWeights } from '../../../styles'
 
+const pillsDesktop: PillProps[] = [
+  { color: 'yellow', top: -11, left: -8 },
+  { color: 'blue', top: 42, left: 175 },
+  { color: 'pink', top: -20, left: 300 },
+  { color: 'green', top: 50, left: 466 },
+]
+
+const pillsMobile: PillProps[] = [
+  { color: 'yellow', top: -11, left: -8 },
+  { color: 'blue', top: 42, left: 175 },
+  { color: 'pink', top: -20, left: 300 },
+  { color: 'green', top: 50, left: 466 },
+]
+
 const TitleLogo = () => {
+  const pillsArray = isMobileOnly ? pillsMobile : pillsDesktop
   return (
     <div className={containerStyle}>
       <div className={pillContainerStyle}>
-        <Pill color="yellow" top={-11} left={-8} />
-        <Pill color="blue" top={42} left={175} />
-        <Pill color="pink" top={-20} left={300} />
-        <Pill color="green" top={50} left={466} />
+        {pillsArray.map((pill) => (
+          <Pill {...pill} />
+        ))}
       </div>
       <div className={titleContainerStyle}>
         <h1 className={titleStyle}>Cognitive Bias Explorer</h1>

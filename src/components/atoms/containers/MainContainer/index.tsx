@@ -4,9 +4,6 @@ import { breakPoints } from '../../../../styles'
 
 const topMargin = 64
 const topMarginMd = 36
-// const topMarginSm = 24
-
-// TODO fix scroll on safari
 
 const MainContainer = styled.div`
   position: relative;
