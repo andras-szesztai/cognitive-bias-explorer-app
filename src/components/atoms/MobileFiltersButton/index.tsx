@@ -16,7 +16,7 @@ const MobileFiltersButton = ({ onClick, value }: IProps) => {
       <span>Search and filters</span>
       <ArrowMainContainer>
         <ArrowSubContainer animate={{ rotate: value ? 0 : 180 }}>
-          <ChevronIcon />
+          <ChevronIcon height={6} />
         </ArrowSubContainer>
       </ArrowMainContainer>
     </Button>
@@ -34,7 +34,6 @@ const Button = styled.button`
   width: 100%;
   display: grid;
   grid-auto-flow: column;
-  column-gap: 4px;
   justify-content: start;
   align-items: center;
 `

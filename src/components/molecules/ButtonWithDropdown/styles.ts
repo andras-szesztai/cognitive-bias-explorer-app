@@ -11,6 +11,7 @@ export const Container = styled.div<{ color: string; zIndexAdjust: number }>`
   position: relative;
   display: grid;
   place-self: stretch;
+  height: 100%;
   grid-auto-flow: column;
   grid-column-gap: 0;
 
@@ -37,7 +38,7 @@ export const MainButton = styled(motion.button)<{
   border-radius: 3px 0 0 3px;
   white-space: nowrap;
 
-  width: ${({ width }) => (width ? width - colorLegendWidth - 1 : 250)}px;
+  width: ${({ width }) => (width ? width - colorLegendWidth - 3 : 250)}px;
   text-align: left;
 
   font-weight: ${fontWeights.bold};

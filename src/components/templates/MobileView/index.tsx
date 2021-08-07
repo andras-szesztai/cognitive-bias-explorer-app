@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useMeasure from 'react-use-measure'
 
 import {
   BigCard,
@@ -16,8 +17,6 @@ import {
 
 import { IViewProps } from '../../../types/views'
 
-const drawerHeight = 215
-
 const MobileView = ({
   setSearchString,
   searchString,
@@ -29,6 +28,8 @@ const MobileView = ({
   setFilters,
 }: IViewProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const [ref, { height }] = useMeasure()
+  const drawerHeight = height + 24
 
   return (
     <MobileMainContainer>
@@ -50,17 +51,19 @@ const MobileView = ({
         animate={{ y: isDrawerOpen ? 0 : drawerHeight }}
       >
         <MobileFiltersButton onClick={setIsDrawerOpen} value={isDrawerOpen} />
-        <SearchBar
-          onChange={(val) => setSearchString(val)}
-          value={searchString}
-          blurFromParent={false}
-        />
-        <ButtonWithDropdownControls
-          filters={filters}
-          subCategoriesPerCategory={subCategoriesPerCategory}
-          setFilters={setFilters}
-          fullWidth
-        />
+        <div ref={ref}>
+          <SearchBar
+            onChange={(val) => setSearchString(val)}
+            value={searchString}
+            blurFromParent={false}
+          />
+          <ButtonWithDropdownControls
+            filters={filters}
+            subCategoriesPerCategory={subCategoriesPerCategory}
+            setFilters={setFilters}
+            fullWidth
+          />
+        </div>
       </MobileFiltersContainer>
     </MobileMainContainer>
   )
