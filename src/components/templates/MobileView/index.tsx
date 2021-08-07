@@ -33,11 +33,13 @@ const MobileView = ({
 }: IViewProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [ref, { height }] = useMeasure()
+  const [containerRef, { height: fullHeight }] = useMeasure()
+  console.log('🚀 ~ file: index.tsx ~ line 37 ~ testHeight', fullHeight)
   const drawerHeight = height + 24
   const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
   return (
-    <MobileMainContainer>
+    <MobileMainContainer ref={containerRef}>
       <TitleLogo />
       <AnimateSharedLayout type="crossfade">
         <CardsContainer>
@@ -56,7 +58,7 @@ const MobileView = ({
         </CardsContainer>
         <AnimatePresence>
           {isBigCardExpanded && (
-            <FixedBigCard layoutId="bigCard" layout>
+            <FixedBigCard layoutId="bigCard" layout height={fullHeight}>
               <BigCard
                 selectedBias={selectedBias}
                 filteredBiasData={filteredBiasData}
@@ -93,7 +95,7 @@ const MobileView = ({
   )
 }
 
-const FixedBigCard = styled(motion.div)`
+const FixedBigCard = styled(motion.div)<{ height: number }>`
   position: fixed;
   top: 16px;
   left: 16px;
