@@ -5,13 +5,8 @@ import {
   CardsContainer,
   ContentContainer,
   MobileMainContainer,
-  MobileFiltersContainer,
-  MobileFiltersButton,
 } from '../../atoms'
-import {
-  ButtonWithDropdownControls,
-  SmallCardsContainerContent,
-} from '../../organisms'
+import { SmallCardsContainerContent } from '../../organisms'
 
 import { IViewProps } from '../../../types/views'
 
