@@ -100,7 +100,7 @@ const FixedBigCard = styled(motion.div)<{ height: number }>`
   top: 16px;
   left: 16px;
   width: calc(100vw - 32px);
-  height: calc(100vh - 88px);
+  height: ${({ height }) => height}px;
 
   display: grid;
 `
