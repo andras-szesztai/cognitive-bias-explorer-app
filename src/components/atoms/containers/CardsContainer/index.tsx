@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { breakPoints } from '../../../../styles'
 
-const CardsContainer = styled.div`
+const CardsContainer = styled.div<{ isMobileOnly?: boolean }>`
   height: 100%;
   max-height: 100%;
   min-height: 100%;
@@ -20,7 +20,8 @@ const CardsContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.third}) {
-    grid-template-columns: 1fr min-content;
+    grid-template-columns: ${({ isMobileOnly }) =>
+      isMobileOnly ? '5fr 6fr' : '1fr min-content'};
     grid-column-gap: 16px;
   }
 

@@ -48,6 +48,13 @@ const BigCard = ({
     filteredBiasData,
     selectedBias,
   })
+
+  const renderIcon = () =>
+    isMobileOnly ? (
+      <ExpandIconContainer>
+        {isExpanded ? <CollapseIcon /> : <ExpandIcon />}
+      </ExpandIconContainer>
+    ) : null
   return (
     <MainContainer
       layoutId={layoutId}
@@ -71,9 +78,7 @@ const BigCard = ({
             }}
           >
             <Title>{selectedBias.cognitiveBias}</Title>
-            <ExpandIconContainer>
-              {isMobileOnly && (isExpanded ? <CollapseIcon /> : <ExpandIcon />)}
-            </ExpandIconContainer>
+            {renderIcon()}
           </TitleContainer>
           <SubTitle>{selectedBias.subCategory}</SubTitle>
           <Paragraph color={color}>{selectedBias.definition}</Paragraph>
@@ -87,7 +92,7 @@ const BigCard = ({
         <>
           <TitleContainer noBorder>
             <Title>Welcome to the Cognitive Bias Explorer!</Title>
-            {isMobileOnly && (isExpanded ? <CollapseIcon /> : <ExpandIcon />)}
+            {renderIcon()}
           </TitleContainer>
           <SubTitle>What are cognitive biases?</SubTitle>
           <Paragraph>

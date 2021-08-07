@@ -41,7 +41,7 @@ const MobileView = ({
     <MobileMainContainer ref={containerRef}>
       <TitleLogo />
       <AnimateSharedLayout type="crossfade">
-        <CardsContainer>
+        <CardsContainer isMobileOnly>
           <BigCard
             selectedBias={selectedBias}
             filteredBiasData={filteredBiasData}
@@ -99,7 +99,7 @@ const FixedBigCard = styled(motion.div)<{ height: number }>`
   top: 16px;
   left: 16px;
   width: calc(100vw - 32px);
-  height: ${({ height }) => height - 160}px;
+  height: ${({ height }) => height - 148}px;
 
   display: grid;
 `

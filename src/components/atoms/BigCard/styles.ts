@@ -86,7 +86,7 @@ export const Paragraph = styled.p<{ color?: string }>`
     line-height: 1.4;
     padding: 0px 4px;
     font-size: ${fontSizesString.sm};
-    max-height: none;
+    max-height: 100%;
   }
 
   a {
