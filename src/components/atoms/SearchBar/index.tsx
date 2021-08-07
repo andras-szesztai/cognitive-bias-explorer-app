@@ -35,7 +35,7 @@ const SearchBar = ({
     }
   }, [blurFromParent, prevBlurFromParent])
   return (
-    <div style={{ position: 'relative' }}>
+    <Container>
       <IconContainer>
         <SearchIcon />
       </IconContainer>
@@ -52,9 +52,17 @@ const SearchBar = ({
         type="text"
         placeholder="Search for biases"
       />
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  position: relative;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    margin-bottom: 16px;
+  }
+`
 
 const Input = styled.input`
   padding: 4px 16px 4px 32px;

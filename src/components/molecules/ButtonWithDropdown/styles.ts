@@ -99,22 +99,6 @@ export const DropdownButton = styled.button<{ color: string }>`
   }
 `
 
-export const ArrowMainContainer = styled(motion.div)`
-  place-self: stretch;
-  padding: 8px;
-  display: grid;
-  place-items: center;
-  border-radius: 0 3px 3px 0;
-  position: relative;
-`
-
-export const ArrowSubContainer = styled(motion.span)`
-  height: 100%;
-  display: grid;
-  place-items: center;
-  width: 14px;
-`
-
 export const DropdownContainer = styled(motion.div)`
   position: absolute;
   width: 100%;

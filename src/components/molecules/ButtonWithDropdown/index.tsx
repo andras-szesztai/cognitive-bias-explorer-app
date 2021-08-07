@@ -3,7 +3,13 @@ import { AnimatePresence } from 'framer-motion'
 import { useDetectClickOutside } from 'react-detect-click-outside'
 import { isMobileOnly } from 'react-device-detect'
 
-import { ChevronIcon, DisplayContainer, Checkbox } from '../../atoms'
+import {
+  ChevronIcon,
+  DisplayContainer,
+  Checkbox,
+  ArrowMainContainer,
+  ArrowSubContainer,
+} from '../../atoms'
 
 import { useMainButtonStatus } from './hooks'
 
@@ -14,8 +20,6 @@ import {
   Divider,
   MainButton,
   DropdownButton,
-  ArrowMainContainer,
-  ArrowSubContainer,
   DropdownContainer,
   ListContainer,
   MobileColorLegend,

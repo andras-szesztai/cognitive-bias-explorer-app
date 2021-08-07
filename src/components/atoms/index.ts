@@ -8,6 +8,8 @@ import {
   SmallCardsContainer,
   MobileMainContainer,
   MobileFiltersContainer,
+  ArrowMainContainer,
+  ArrowSubContainer,
 } from './containers'
 import { ChevronIcon, SearchIcon, KeyboardIcon } from './icons'
 
@@ -30,4 +32,6 @@ export {
   KeyboardIcon,
   MobileMainContainer,
   MobileFiltersContainer,
+  ArrowMainContainer,
+  ArrowSubContainer,
 }

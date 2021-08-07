@@ -77,6 +77,7 @@ const Container = styled.div`
   display: grid;
   place-items: center;
   position: relative;
+  overflow: hidden;
 `
 
 export default App

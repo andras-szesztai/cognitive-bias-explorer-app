@@ -1,14 +1,22 @@
+import { useState } from 'react'
+
 import {
   BigCard,
   SearchBar,
   TitleLogo,
   CardsContainer,
-  ContentContainer,
   MobileMainContainer,
+  MobileFiltersContainer,
+  MobileFiltersButton,
 } from '../../atoms'
-import { SmallCardsContainerContent } from '../../organisms'
+import {
+  ButtonWithDropdownControls,
+  SmallCardsContainerContent,
+} from '../../organisms'
 
 import { IViewProps } from '../../../types/views'
+
+const drawerHeight = 215
 
 const MobileView = ({
   setSearchString,
@@ -20,37 +28,40 @@ const MobileView = ({
   subCategoriesPerCategory,
   setFilters,
 }: IViewProps) => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
   return (
     <MobileMainContainer>
       <TitleLogo />
-      <ContentContainer>
+      <CardsContainer>
+        <BigCard
+          selectedBias={selectedBias}
+          filteredBiasData={filteredBiasData}
+        />
+        <SmallCardsContainerContent
+          filteredBiasData={filteredBiasData}
+          setSelectedBias={setSelectedBias}
+          selectedBias={selectedBias}
+          searchString={searchString}
+        />
+      </CardsContainer>
+      <MobileFiltersContainer
+        initial={{ y: drawerHeight }}
+        animate={{ y: isDrawerOpen ? 0 : drawerHeight }}
+      >
+        <MobileFiltersButton onClick={setIsDrawerOpen} value={isDrawerOpen} />
         <SearchBar
           onChange={(val) => setSearchString(val)}
           value={searchString}
           blurFromParent={false}
         />
-        <CardsContainer>
-          <BigCard
-            selectedBias={selectedBias}
-            filteredBiasData={filteredBiasData}
-          />
-          <SmallCardsContainerContent
-            filteredBiasData={filteredBiasData}
-            setSelectedBias={setSelectedBias}
-            selectedBias={selectedBias}
-            searchString={searchString}
-          />
-        </CardsContainer>
-      </ContentContainer>
-      {/* <MobileFiltersContainer>
-        <MobileFiltersButton />
         <ButtonWithDropdownControls
           filters={filters}
           subCategoriesPerCategory={subCategoriesPerCategory}
           setFilters={setFilters}
           fullWidth
         />
-      </MobileFiltersContainer> */}
+      </MobileFiltersContainer>
     </MobileMainContainer>
   )
 }

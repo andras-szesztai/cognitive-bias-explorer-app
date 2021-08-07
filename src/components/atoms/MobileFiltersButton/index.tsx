@@ -1,15 +1,42 @@
 import styled from '@emotion/styled'
 
-const MobileFiltersButton = () => {
+import { ArrowMainContainer, ArrowSubContainer } from '../containers'
+import { ChevronIcon } from '../icons'
+
+import { fontSizesString } from '../../../styles'
+
+interface IProps {
+  onClick: React.Dispatch<React.SetStateAction<boolean>>
+  value: boolean
+}
+
+const MobileFiltersButton = ({ onClick, value }: IProps) => {
   return (
-    <Container>
-      <button>Filters</button>
-    </Container>
+    <Button onClick={() => onClick((prev) => !prev)}>
+      <span>Search and filters</span>
+      <ArrowMainContainer>
+        <ArrowSubContainer animate={{ rotate: value ? 0 : 180 }}>
+          <ChevronIcon />
+        </ArrowSubContainer>
+      </ArrowMainContainer>
+    </Button>
   )
 }
 
-const Container = styled.div`
-  margin-bottom: 8px;
+const Button = styled.button`
+  margin-bottom: 16px;
+  padding: 2px 8px;
+  font-size: ${fontSizesString.default};
+  line-height: 1;
+  border: none;
+  background: none;
+
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 4px;
+  justify-content: start;
+  align-items: center;
 `
 
 export default MobileFiltersButton
