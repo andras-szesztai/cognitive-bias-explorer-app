@@ -922,6 +922,462 @@ const data: IBiasData[] = [
     definition:
       "The tendency to falsely project current preferences onto a future event. When people are trying to estimate their emotional state in the future they attempt to give an unbiased estimate. However, people's assessments are contaminated by their current emotional state and thus it may be difficult for them to predict their emotional state in the future. Related: Empathy Gap",
   },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Moral Credential Effect',
+    definition:
+      "A bias that occurs when a person's track record as a good egalitarian establishes in them an unconscious ethical certification, endorsement, or license that increases the likelihood of less egalitarian decisions later.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Denomination Effect',
+    definition:
+      'A form of cognitive bias relating to currency, whereby people are less likely to spend larger bills than their equivalent value in smaller bills.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Risk Compensation',
+    definition:
+      'A theory which suggests that people typically adjust their behavior in response to the perceived level of risk, becoming more careful where they sense greater risk and less careful if they feel more protected. Example 1: It is observed that motorists drive faster when wearing seatbelts and closer to the vehicle in front when the vehicles were fitted with anti-lock brakes. Example 2: Booth\'s rule#2: "The safer skydiving gear becomes, the more chances skydivers will take, in order to keep the fatality rate constant" Related: Peltzman Effect',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Optimism Bias',
+    definition:
+      'A cognitive bias that causes a person to believe that they are at a lesser risk of experiencing a negative event compared to others.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Pro-Innovation Bias',
+    definition:
+      'The belief that an innovation should be adopted by whole society without the need of its alteration. The innovation\'s "champion" has such strong bias in favor of the innovation, that he may not see its limitations or weaknesses and continues to promote it nonetheless.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: "Magic Number 7 + 2 (Miller's Law)",
+    definition:
+      'The number of objects an average human can hold in working memory is 7 +/- 2.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Not Invented Here',
+    definition:
+      'An unwillingness to adopt an idea or product because it originates from another culture; a form of tribalism.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Just-World Hypothesis',
+    definition:
+      "The assumption that a person's actions are inherently inclined to bring morally fair and fitting consequences to that person; to the end of all noble actions being eventually rewarded and all evil actions eventually punished. In other words, the just-world hypothesis is the tendency to attribute consequences to, or expect\nconsequences the result of a universal force that restores moral balance.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Egocentric Bias',
+    definition:
+      "The tendency to rely too heavily on one's own perspective and/or have a higher opinion of oneself than reality.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Reactive Devaluation',
+    definition:
+      'A cognitive bias that occurs when a proposal is devalued if it appears to originate from an antagonist.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias:
+      "Argument from Fallacy (Argument to Logic, Argumentum ad Logicam, The Fallacy Fallacy, The Fallacist's Fallacy, The Bad Reasons Fallacy)",
+    definition:
+      'The formal fallacy of analyzing an argument and inferring that, since it contains a fallacy, its conclusion must be false.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Effort Justification',
+    definition:
+      'People\'s tendency to attribute a greater value (greater than the objective value) to an outcome they had to put effort into acquiring or achieving. With effort justification, there is a dissonance between the amount of effort exerted into achieving a goal or completing a task (high effort equaling high"cost") and the subjective reward for that effort (lower than was expected for such an effort). By adjusting and increasing one\'s attitude or subjective value of the goal, this dissonance is resolved.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Dunning-Kruger Effect',
+    definition:
+      'A cognitive bias, wherein persons of low ability suffer from Illusory Superiority when they mistakenly assess their cognitive ability as greater than it is. The cognitive bias of illusory superiority derives from the metacognitive inability of low-ability persons to recognize their own ineptitude. Without the self-awareness of metacognition, low-ability people cannot objectively evaluate their actual competence or incompetence. Related: Lake Wobegon Effect',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Time-Saving Bias',
+    definition:
+      "People's tendency to mis-estimate the time that could be saved (or lost) when increasing (or decreasing) speed. In general, people underestimate the time that could be saved when increasing from a relatively low speed (e.g. 25 mph or 40 km/h) and overestimate the time that could be saved when increasing from a relatively high speed (e.g., 55 mph or 90 km/h).",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias:
+      "Illusion of Transparency (Observer's Illusion of Transparency)",
+    definition:
+      "A tendency for people to overestimate the degree to which their personal mental state is known by others. Another manifestation of the illusion of transparency is a tendency for people to overestimate how well they understand others' personal mental states. Related: Illusion of Asymmetric Insight",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Well-Travelled Road Effect',
+    definition:
+      'A cognitive bias in which travelers will estimate the time taken to traverse routes differently depending on their familiarity with the route. Frequently travelled routes are assessed as taking a shorter time than unfamiliar routes. The effect is most salient when subjects are driving, but is still detectable for pedestrians\nand users of public transport.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Authority Bias',
+    definition:
+      'The tendency to attribute greater accuracy to the opinion of an authority figure (unrelated to its content) and be more influenced by that opinion.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Planning Fallacy',
+    definition:
+      'A phenomenon in which predictions about how much time will be needed to complete a future task display an optimism bias and underestimate the time needed. Related: Optimism Bias',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Automation Bias',
+    definition:
+      'The propensity for humans to favor suggestions from automated decision-making systems and to ignore contradictory information made without automation even if it is correct. Errors of automation bias tend to occur when decision-making involves a degree of dependence on computers or other automated aids and\nthe human element is largely confined to monitoring the tasks underway. Examples of such situations can involve not only such urgent matters as flying on automatic pilot but also such mundane matters as the use of spell-checking programs.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Trait Ascription Bias',
+    definition:
+      'The tendency for people to view themselves as relatively variable in terms of personality, behavior, and mood while viewing others as much more predictable in their personal traits across different situations. Related: Fundamental Attribution Error',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias:
+      'Lake Wobegon Effect (Illusory Superiority, Above-Average Effect, Superiority Bias, Leniency Error, Sense of Relative Superiority, Primus inter Pares Effect)',
+    definition:
+      'A cognitive bias whereby a person overestimates his or her own qualities and abilities, in relation to the same qualities and abilities of other persons. Related: Dunning-Kruger Effect',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias: 'Curse of Knowledge',
+    definition:
+      'A cognitive bias that occurs when an individual, communicating with other individuals, unknowingly assumes that the others have the background to understand. For example, in a classroom setting, teachers have difficulty teaching novices because they cannot put themselves in the position of the student.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Pessimism Bias',
+    definition:
+      "An effect in which people exaggerate the likelihood that negative things will happen to them. It contrasts with optimism bias. The difference is that we are in an improbable way worried about our society's future. Related: Optimism Bias",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias: 'Spotlight Effect',
+    definition:
+      'The phenomenon in which people tend to believe they are being noticed more than they really are.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Mental Accounting (Psychological Accounting)',
+    definition:
+      'The process whereby people code, categorize, and evaluate economic outcomes. People may have multiple mental accounts for the same kind of resource. A person may use different monthly budgets for grocery shopping and eating out at restaurants, for example, and constrain one kind of purchase when its budget has run out while not constraining the other kind of purchase, even though both expenditures draw on the same fungible resource (income).',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Hard-Easy Effect',
+    definition:
+      "A tendency to overestimate the probability of one's success at a task perceived as hard, and to underestimate the likelihood of one's success at a task perceived easy. The hard-easy effect takes place, for example, when individuals exhibit a degree of under-confidence in answering relatively easy questions and a of overconfidence in answering relatively difficult questions.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Defensive Attribution Hypothesis',
+    definition:
+      'A set of beliefs used as a shield against the fear that one will be the victim or cause of a serious calamity. Attributions of blame to the victim will decrease the more similar the observer is to the person and/or situation involved in the mishap. Assigning responsibility to someone or something other than the victim allows the observer to believe that the mishap wasn\'t the victim\'s fault or that it wasn\'t just pure random chance; neither of which are psychologically palatable conclusions due to the similarity of observer and victim. The use of defensive attributions is considered a cognitive bias because an individual will change their beliefs about a situation based upon their psychological motives rather than the factual characteristics of the situation. Example: Often times, in this case of a woman who has not been raped hearing about the rape of another women, the very commonly heard responses are, "She must have been wearing provocative clothing," or "She was probably walking in a very sketchy part of town late at night". These attributions of causal factors to something other than the victim or random chance serve to shield the observer from acknowledging they could be a similar victim to a similar calamity.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Bandwagon Effect',
+    definition:
+      'A phenomenon whereby the rate of uptake of beliefs, ideas, fads, and trends increases the more that they have already been adopted others. In other words, the bandwagon effect is characterized by the probability of individual adoption increasing with respect to the proportion that have already done so.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias: 'Extrinsic Incentive Error (Bias)',
+    definition:
+      'An attributional bias according to which people attribute relatively more to "extrinsic incentives" (such as monetary reward) than to "intrinsic incentives" (such as learning a new skill) when weighing the motives of others rather than themselves.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Impact Bias',
+    definition:
+      'The tendency for people to overestimate the length or the intensity of future feeling states.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Appeal to Probability Fallacy (Appeal to Possibility)',
+    definition:
+      "The logical fallacy of taking something for granted because it would probably be the case (or might possibly be the case). Special Case: Murphy's Law stating anything that can go wrong, will.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'False Consensus Effect (Bias)',
+    definition:
+      'People tend to overestimate the extent to which their opinions, beliefs, preferences, values, and habits are normal and typical of those of others (i.e, that others also think the same way that they do). This cognitive bias tends to lead to the perception of a consensus that does not exist; a "false consensus".',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We fill characteristics from stereotypes, generalities and prior histories',
+    cognitiveBias: 'Placebo Effect',
+    definition:
+      'The psychological phenomenon in which the recipient perceives an improvement in condition due to personal expectations rather than treatment itself.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Declinism',
+    definition:
+      'The belief that a society or institution is tending towards decline. Particularly, it is the predisposition, due rosy retrospection, to view the past favourably and future negatively. Related: Rosy Retrospection',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias: 'Illusion of External Agency',
+    definition:
+      "People typically underestimate their capacity to generate satisfaction with future outcomes. When people experience such self-generated satisfaction, they may mistakenly conclude that it was caused by an influential, insightful, and benevolent external agent. When outcomes are unchangeable, people are more likely to turn truly mediocre' into 'falsely great'. This subjective transformation is often termed a psychological immune response, in that it is our brain kicking in to protect us from the emotional consequences of undesirable outcomes. The illusion of external agency is thought to arise from this undetected transformation of truly mediocre' outcomes to 'falsely great' ones.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Out-Group Homogeneity Bias (Effect)',
+    definition:
+      'The perception that out-group members are more similar to one another than are in-group members, i.e. "they are alike; we are diverse".',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Third-Person Effect',
+    definition:
+      "People tend to perceive that mass media messages have a greater effect on others than on themselves. The Third-person effect manifests itself through an individual's overestimation of the effect of a mass communicated message on the generalized other, or an underestimation of the effect of a mass communicated message on themselves.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Fundamental Attribution Error',
+    definition:
+      'The claim that in contrast to interpretations of their own behavior, people place undue emphasis on internal characteristics of the agent (character or intention), rather than external factors, in explaining other people\'s behavior. The effect can be described as "the tendency to believe that what people do reflects who they are. Related: Ultimate Attribution Error, Actor-Observer Bias, Positivity Effect',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Moral Luck',
+    definition:
+      'Moral luck describes circumstances whereby a moral agent is assigned moral blame or praise for an action or its consequences even if it is clear that said agent did not have full control over either the action or its consequences. Example: There are two people driving cars, Driver A and Driver B. They are alike in every way. Driver A is driving down a road and in a moment of inattention runs a red light as a child is crossing the street. Driver A slams the brakes, swerves, and does everything to try to avoid hitting the child. Alas, the car hits and kills the child. Driver B in the meantime also runs a red light, but since no one is crossing, gets a traffic ticket but nothing more. If it is given that moral responsibility should only be relevant when the agent voluntarily performed or failed to perform some action, Drivers A and B should be blamed equally, or praised equally, as may be the case. However, due to the effect of Moral Luck, if a bystander were asked to morally evaluate Drivers A and B. there is very good reason to expect them to say that Driver A is due more moral blame than Driver B.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias:
+      'Cross-Race Effect (Cross-Race Bias, Other-Race Bias, Own-Race Bias)',
+    definition:
+      "The tendency to more easily recognize faces of the race that one is most familiar with (which is most often one's own race).",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory: 'We think we know what other people are thinking',
+    cognitiveBias: 'Illusion of Asymmetric Insight',
+    definition:
+      "A cognitive bias whereby people perceive their knowledge of others to surpass other people's knowledge. For example: Person A knows Person A better than Person B knows Person B or Person A.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Social Desirability Bias',
+    definition:
+      'A type of response bias that is the tendency of survey respondents to answer questions in a manner that will be viewed favorably by others. It can take the form of over-reporting "good behavior" or under-reporting "bad", or undesirable behavior.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias:
+      'In-Group Bias (In-Group Favoritism, In-Group-Out-Group Bias, Intergroup Bias)',
+    definition:
+      "A pattern of favoring members of one's in-group over out-group members.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Illusion of Control',
+    definition:
+      'The tendency for people to overestimate their ability to control events that they demonstrably do not influence.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Zero Sum Bias',
+    definition:
+      "A general belief system about the antagonistic nature of social relations shared by people in a society or culture and based on the implicit assumption that a finite amount of goods exists in the world. Therefore one person's winning makes others the losers, and vice versa which leads to a relatively permanent and general conviction that social relations are like a zero-sum game. People who share this conviction believe that success, especially economic success, is possible only at the expense of other people's failures.",
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Actor-Observer Bias',
+    definition:
+      'When people judge their own behavior, and they are the actor, they are more likely to attribute their actions to the particular situation than to a generalization about their personality. Yet when an observer is explaining the behavior of another person (the actor), they are more likely to attribute this behavior to the actors\noverall disposition rather than to situational factors. Related: Ultimate Attribution Error, Fundamental Attribution Error, Positivity Effect',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Over-Confidence Effect',
+    definition:
+      "A well-established bias in which a person's subjective confidence in his or her judgements is reliably greater than the objective accuracy of those judgements, especially when confidence is relatively high.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Telescoping Effect',
+    definition:
+      'The temporal displacement of an event whereby people perceive recent events as being more remote than they are and distant events as being more recent than they are. The former is known as backward telescoping or time expansion, and the latter as is known as forward telescoping. Three years is approximately the time frame in which events switch from being displaced backward in time to forward in time.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Halo Effect (Horns and Halo effect)',
+    definition:
+      "This refers to an observer's overall impression of a person, company, brand, or product influencing the observer's feelings and thoughts about that entity's character or properties. The halo effect is a specific type of confirmation bias, wherein positive feelings in one area cause ambiguous or neutral traits to be viewed positively. The effect works in both positive and negative directions. If the observer likes one aspect of something, they will have a positive predisposition toward everything about it. If the observer dislikes one aspect something, they will have a negative predisposition toward everything about it.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Outcome Bias',
+    definition:
+      'An error made in evaluating the quality of a decision when the outcome of that decision is already known, instead of on the information known at the time of the decision. While similar to Hindsight Bias, the two phenomena are markedly different. Hindsight Bias: focuses on memory distortion to favor the actor, while outcome bias focuses exclusively on weighting the outcome more heavily than other pieces of information in deciding if a past decision was correct.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We simplify probabilities and numbers to make them easier to think about',
+    cognitiveBias: 'Survivorship Bias ',
+    definition:
+      'The logical error of concentrating on the people or things that made it past some selection process and overlooking those that did not, typically because of their lack of visibility, Survivorship bias can lead to overly optimistic beliefs because failures are ignored, such as when companies that no longer exist are excluded\nfrom analyses of financial performance. It can also lead to the false belief that the successes in a group have some special property, rather than just coincidence (correlation proves causality). Example: If three of the five students with the best college grades went to the same high school, that can lead one to believe that the high school must offer an excellent education. This could be true, but the question cannot be answered without looking at the grades of all the other students from that high school, not just the ones who "survived" the top-five selection process.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Self-Consistency Bias',
+    definition:
+      'The commonly held idea that we are more consistent in our attitudes, opinions, and beliefs than we actually are.',
+  },
+  {
+    category: 'Need to act fast',
+    subCategory:
+      'To act, we must be confident we can make an impact and feel what we do is important',
+    cognitiveBias: 'Self-Serving Bias',
+    definition:
+      "Any cognitive or perceptual process that is distorted by the need to maintain and enhance self-esteem, or the tendency to perceive oneself in an overly favorable manner. It is the belief that individuals tend to ascribe success to their own abilities and efforts, but ascribe failure to external factors. Example: A student who attributes earning a good grade on an exam to their own intelligence and preparation but attributes earning a poor grade to the teacher's poor teaching ability or unfair test questions.",
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Rosy Retrospection',
+    definition:
+      'The psychological phenomenon of people sometimes judging the past disproportionately more positively than they judge the present. Related: Declinism',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We imagine things and people we’re familiar with or fond of as better',
+    cognitiveBias: 'Cheerleader Effect',
+    definition:
+      'The cognitive bias which causes people to think individuals are more attractive when they are in a group. This effect occurs with male-only, female-only and mixed gender groups and both small and large groups. The effect occurs to the same extent with groups of four and 16 people. Participants in studies looked\nmore at the attractive people than the unattractive people in the group. The effect does not occur because group photos give the impression that individuals have more social or emotional intelligence. This was shown to be the case by a study which used individual photos grouped together in a single image, rather than photos taken of people in a group. The study generated the same effect.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias:
+      'Hindsight Bias (Knew-It-All-Along Effect, Creeping Determinism)',
+    definition:
+      'The inclination, after an event has occurred to see the event as having been predictable, despite there having been little or no objective basis for predicting it.',
+  },
+  {
+    category: 'Not enough meaning',
+    subCategory:
+      'We project our current mindset and assumptions onto the past and future',
+    cognitiveBias: 'Restraint Bias',
+    definition:
+      'The tendency for people to overestimate their ability to control impulsive behavior.',
+  },
 ]
 
 export default data

@@ -25,7 +25,7 @@ const MobileFiltersButton = ({ onClick, value }: IProps) => {
 
 const Button = styled.button`
   margin-bottom: 16px;
-  padding: 2px 8px;
+  padding: 2px 8px 2px 0px;
   font-size: ${fontSizesString.default};
   line-height: 1;
   border: none;

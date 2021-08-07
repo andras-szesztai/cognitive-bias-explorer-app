@@ -65,9 +65,10 @@ const Container = styled.div`
 `
 
 const Input = styled.input`
-  padding: 4px 16px 4px 32px;
+  padding: 5px 16px 5px 32px;
   border-radius: 4px;
   border: 1px solid ${colors.darkGray};
+  width: 282px;
 
   @media (max-width: ${breakPoints.fifth}) {
     width: 100%;
