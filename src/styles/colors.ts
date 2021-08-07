@@ -20,6 +20,7 @@ const colors = {
   pinkLight: '#FF7092',
   pinkOpaque: 'rgba(255, 51, 99, 0.15)',
   darkGray: '#1F1F1F',
+  darkGrayOpaque: 'rgba(31, 31, 31, .15)',
   white: '#FFF',
 }
 

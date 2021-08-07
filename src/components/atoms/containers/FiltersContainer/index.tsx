@@ -23,6 +23,10 @@ const FiltersContainer = styled.div`
     grid-auto-flow: row;
     grid-row-gap: 8px;
   }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-row-gap: 4px;
+  }
 `
 
 export default FiltersContainer

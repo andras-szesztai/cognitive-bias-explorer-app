@@ -5,10 +5,12 @@ import colors from '../../../styles/colors'
 import { fontSizesString, fontWeights, zIndexes } from '../../../styles'
 
 const space = 8
+const colorLegendWidth = 36
 
 export const Container = styled.div<{ color: string; zIndexAdjust: number }>`
   position: relative;
   display: grid;
+  place-self: stretch;
   grid-auto-flow: column;
   grid-column-gap: 0;
 
@@ -27,19 +29,15 @@ export const Divider = styled.span`
   background: ${colors.darkGray};
 `
 
-export const MainButtonContainer = styled.div`
-  place-self: stretch;
-  overflow: hidden;
-  border-radius: 4px;
-`
-
-export const MainButton = styled(motion.button)<{ color: string }>`
-  place-self: stretch;
+export const MainButton = styled(motion.button)<{
+  color: string
+  width: number
+}>`
   padding: 8px 16px;
   border-radius: 3px 0 0 3px;
   white-space: nowrap;
 
-  width: 250px;
+  width: ${({ width }) => (width ? width - colorLegendWidth - 1 : 250)}px;
   text-align: left;
 
   font-weight: ${fontWeights.bold};
@@ -135,4 +133,8 @@ export const ListContainer = styled.div`
   position: relative;
   display: grid;
   row-gap: ${space}px;
+`
+
+export const MobileColorLegend = styled.div`
+  width: ${colorLegendWidth}px;
 `

@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
+import useMeasure from 'react-use-measure'
 
 import { FiltersContainer } from '../../atoms'
 
@@ -11,15 +12,18 @@ interface Props {
   subCategoriesPerCategory: TSubCategories
   filters: TSubCategories
   setFilters: Dispatch<SetStateAction<TSubCategories>>
+  fullWidth?: boolean
 }
 
 const ButtonWithDropdownControls = ({
   filters,
   setFilters,
   subCategoriesPerCategory,
+  fullWidth,
 }: Props) => {
+  const [ref, { width }] = useMeasure()
   return (
-    <FiltersContainer>
+    <FiltersContainer ref={ref}>
       {CATEGORIES_ARRAY.map((category, index) => {
         const selectedSubCategories = filters[category]
         const allSubcategories = subCategoriesPerCategory[category]
@@ -27,6 +31,7 @@ const ButtonWithDropdownControls = ({
           <ButtonWithDropdown
             key={category}
             zIndexAdjust={index + 1}
+            parentWidth={fullWidth ? width : 0}
             category={category}
             selectedSubCategories={selectedSubCategories}
             allSubCategories={allSubcategories}

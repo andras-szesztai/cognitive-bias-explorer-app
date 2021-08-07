@@ -5,7 +5,7 @@ import kebabCase from 'lodash/kebabCase'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
-import { breakPoints, colors } from '../../../styles'
+import { breakPoints, colors, fontSizesString } from '../../../styles'
 import { categoryColors, categoryLightColors } from '../../../styles/colors'
 
 interface Props {
@@ -81,10 +81,14 @@ const Pill = styled.div<{ color: string }>`
 `
 
 const Title = styled.span`
-  font-size: 16px;
+  font-size: ${fontSizesString.default};
   color: ${colors.darkGray};
   padding: 0 2px;
   user-select: none;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    font-size: ${fontSizesString.sm};
+  }
 `
 
 export default SmallCard

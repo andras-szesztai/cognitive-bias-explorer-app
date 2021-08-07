@@ -25,7 +25,8 @@ export const MainContainer = styled(motion.div)`
 
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px;
-    height: 220px;
+    height: 180px;
+    border-radius: 4px;
   }
 `
 
@@ -38,9 +39,10 @@ export const Title = styled(motion.h2)<{ noBorder?: boolean }>`
   border-radius: 6px;
 
   @media (max-width: ${breakPoints.fifth}) {
-    font-size: ${fontSizesString.md};
+    font-size: ${fontSizesString.default};
     padding: 2px 4px;
     line-height: 1.2;
+    border-radius: 4px;
   }
 `
 
@@ -66,7 +68,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   max-height: 360px;
 
   @media (max-width: ${breakPoints.fifth}) {
-    line-height: 1.5;
+    line-height: 1.45;
     padding: 0px 4px;
     font-size: ${fontSizesString.sm};
   }

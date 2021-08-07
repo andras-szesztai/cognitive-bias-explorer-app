@@ -15,7 +15,7 @@ const ContentContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    grid-row-gap: 16px;
+    grid-row-gap: 12px;
   }
 `
 

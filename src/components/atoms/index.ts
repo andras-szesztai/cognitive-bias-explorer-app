@@ -7,6 +7,7 @@ import {
   CardsContainer,
   SmallCardsContainer,
   MobileMainContainer,
+  MobileFiltersContainer,
 } from './containers'
 import { ChevronIcon, SearchIcon, KeyboardIcon } from './icons'
 
@@ -15,6 +16,7 @@ export { default as Checkbox } from './Checkbox'
 export { default as SmallCard } from './SmallCard'
 export { default as BigCard } from './BigCard'
 export { default as SearchBar } from './SearchBar'
+export { default as MobileFiltersButton } from './MobileFiltersButton'
 export {
   MainContainer,
   ContentContainer,
@@ -27,4 +29,5 @@ export {
   SearchIcon,
   KeyboardIcon,
   MobileMainContainer,
+  MobileFiltersContainer,
 }

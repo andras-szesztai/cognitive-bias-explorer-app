@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { useDetectClickOutside } from 'react-detect-click-outside'
+import { isMobileOnly } from 'react-device-detect'
 
 import { ChevronIcon, DisplayContainer, Checkbox } from '../../atoms'
 
@@ -17,6 +18,7 @@ import {
   ArrowSubContainer,
   DropdownContainer,
   ListContainer,
+  MobileColorLegend,
 } from './styles'
 import colors, {
   categoryColors,
@@ -31,6 +33,7 @@ export interface Props {
   onMainClick: () => void
   onCheckboxClick: (subCategory: string) => void
   zIndexAdjust: number
+  parentWidth: number
 }
 
 const ButtonWithDropdown = ({
@@ -40,6 +43,7 @@ const ButtonWithDropdown = ({
   onMainClick,
   onCheckboxClick,
   zIndexAdjust,
+  parentWidth,
 }: Props) => {
   const mainButtonStatus = useMainButtonStatus({
     selectedSubCategories,
@@ -64,47 +68,53 @@ const ButtonWithDropdown = ({
           animate={{ background: mainButtonColor }}
           onClick={onMainClick}
           color={color}
+          width={parentWidth}
         >
           {category}
         </MainButton>
         <Divider />
-        <DropdownButton
-          onMouseEnter={() => setIsSecondaryHovered(true)}
-          onMouseLeave={() => setIsSecondaryHovered(false)}
-          onClick={() => {
-            setIsSecondaryClicked((prev) => !prev)
-          }}
-          color={color}
-        >
-          <ArrowMainContainer
-            initial={{ background: secondaryButtonColor }}
-            animate={{ background: secondaryButtonColor }}
-          >
-            <ArrowSubContainer
-              animate={{ rotate: isSecondaryClicked ? 180 : 0 }}
+        {!isMobileOnly && (
+          <>
+            <DropdownButton
+              onMouseEnter={() => setIsSecondaryHovered(true)}
+              onMouseLeave={() => setIsSecondaryHovered(false)}
+              onClick={() => {
+                setIsSecondaryClicked((prev) => !prev)
+              }}
+              color={color}
             >
-              <ChevronIcon />
-            </ArrowSubContainer>
-          </ArrowMainContainer>
-        </DropdownButton>
-        <AnimatePresence>
-          {isSecondaryClicked && (
-            <DropdownContainer {...getOpacityInOut()}>
-              <ListContainer>
-                {allSubCategories.map((subCategory) => (
-                  <Checkbox
-                    key={subCategory}
-                    label={subCategory}
-                    checked={selectedSubCategories.includes(subCategory)}
-                    onClick={() => {
-                      onCheckboxClick(subCategory)
-                    }}
-                  />
-                ))}
-              </ListContainer>
-            </DropdownContainer>
-          )}
-        </AnimatePresence>
+              <ArrowMainContainer
+                initial={{ background: secondaryButtonColor }}
+                animate={{ background: secondaryButtonColor }}
+              >
+                <ArrowSubContainer
+                  animate={{ rotate: isSecondaryClicked ? 180 : 0 }}
+                >
+                  <ChevronIcon />
+                </ArrowSubContainer>
+              </ArrowMainContainer>
+            </DropdownButton>
+            <AnimatePresence>
+              {isSecondaryClicked && (
+                <DropdownContainer {...getOpacityInOut()}>
+                  <ListContainer>
+                    {allSubCategories.map((subCategory) => (
+                      <Checkbox
+                        key={subCategory}
+                        label={subCategory}
+                        checked={selectedSubCategories.includes(subCategory)}
+                        onClick={() => {
+                          onCheckboxClick(subCategory)
+                        }}
+                      />
+                    ))}
+                  </ListContainer>
+                </DropdownContainer>
+              )}
+            </AnimatePresence>
+          </>
+        )}
+        {isMobileOnly && <MobileColorLegend onClick={onMainClick} />}
       </Container>
     </DisplayContainer>
   )
