@@ -10,6 +10,10 @@ const SearchCardsContainer = styled.div`
   grid-row-gap: 24px;
   grid-template-rows: min-content 1fr;
 
+  @media (max-width: ${breakPoints.second}) {
+    position: relative;
+  }
+
   @media (max-width: ${breakPoints.fifth}) {
     grid-row-gap: 16px;
   }

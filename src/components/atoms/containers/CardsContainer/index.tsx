@@ -1,10 +1,13 @@
 import styled from '@emotion/styled'
 import { breakPoints } from '../../../../styles'
 
-const CardsContainer = styled.div<{ isMobileOnly?: boolean }>`
-  height: 100%;
-  max-height: 100%;
-  min-height: 100%;
+const CardsContainer = styled.div<{
+  isMobileOnly?: boolean
+  isSafari?: boolean
+}>`
+  height: ${({ isSafari }) => (isSafari ? '600px' : '100%')};
+  max-height: ${({ isSafari }) => (isSafari ? 'auto' : '100%')};
+  min-height: ${({ isSafari }) => (isSafari ? 'auto' : '100%')};
 
   position: relative;
 
@@ -15,6 +18,7 @@ const CardsContainer = styled.div<{ isMobileOnly?: boolean }>`
   grid-column-gap: 36px;
 
   @media (max-width: ${breakPoints.second}) {
+    position: relative;
     grid-template-columns: 5fr 6fr;
     grid-column-gap: 24px;
   }
