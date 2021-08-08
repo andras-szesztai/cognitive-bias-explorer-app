@@ -1,5 +1,5 @@
 import { isMobileOnly } from 'react-device-detect'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { DesktopTabletNavbar } from './components/molecules'
 import { Explore } from './pages'

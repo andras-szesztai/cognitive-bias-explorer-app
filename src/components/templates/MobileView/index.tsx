@@ -64,6 +64,7 @@ const MobileView = ({
             setSelectedBias={setSelectedBias}
             selectedBias={selectedBias}
             searchString={searchString}
+            isFiltered={isClearable}
           />
         </ExploreCardsContainer>
         <AnimatePresence>

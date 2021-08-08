@@ -34,9 +34,10 @@ const DesktopTabletView = ({
       filteredBiasData,
     })
 
+  const isFiltered = !!Object.values(filters).flat().length || !!searchString
+
   return (
     <DesktopExploreMainContainer>
-      <div />
       <DesktopExploreContentContainer>
         <ButtonWithDropdownControls
           filters={filters}
@@ -61,6 +62,7 @@ const DesktopTabletView = ({
               setSelectedBias={setSelectedBias}
               selectedBias={selectedBias}
               searchString={searchString}
+              isFiltered={isFiltered}
             />
           </ExploreCardsContainer>
         </ExploreSearchCardsContainer>

@@ -13,6 +13,7 @@ interface IProps {
   selectedBias: ISelectedBiasData | undefined
   setSelectedBias: Dispatch<SetStateAction<ISelectedBiasData | undefined>>
   searchString: string
+  isFiltered: boolean
 }
 
 const SmallCardsContainerContent = ({
@@ -20,6 +21,7 @@ const SmallCardsContainerContent = ({
   selectedBias,
   setSelectedBias,
   searchString,
+  isFiltered,
 }: IProps) => {
   return (
     <ExploreSmallCardsContainer justifyStart={filteredBiasData.length === 2}>
@@ -35,12 +37,17 @@ const SmallCardsContainerContent = ({
         )
       })}
       <AnimatePresence>
-        {!filteredBiasData.length && (
+        {!filteredBiasData.length && isFiltered && (
           <MessageContainer initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             Sorry, there is no result{' '}
             {searchString ? `for "${searchString}"` : ''} with your current
             filter selection
           </MessageContainer>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {!filteredBiasData.length && !isFiltered && (
+          <LoadingOverLay initial={{ opacity: 1 }} exit={{ opacity: 0 }} />
         )}
       </AnimatePresence>
     </ExploreSmallCardsContainer>
@@ -50,6 +57,12 @@ const SmallCardsContainerContent = ({
 const MessageContainer = styled(motion.div)`
   grid-column: 1 / -1;
   color: ${colors.darkGray};
+`
+const LoadingOverLay = styled(motion.div)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: ${colors.white};
 `
 
 export default SmallCardsContainerContent
