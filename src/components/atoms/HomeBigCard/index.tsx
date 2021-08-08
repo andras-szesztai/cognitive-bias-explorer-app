@@ -1,7 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { isBoolean, isString } from 'lodash'
+import { isBoolean } from 'lodash'
 
 import {
   breakPoints,
