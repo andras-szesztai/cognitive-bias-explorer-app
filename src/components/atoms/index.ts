@@ -17,6 +17,7 @@ import {
   KeyboardIcon,
   CollapseIcon,
   ExpandIcon,
+  CloseIcon,
 } from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
@@ -42,4 +43,5 @@ export {
   ArrowSubContainer,
   CollapseIcon,
   ExpandIcon,
+  CloseIcon,
 }

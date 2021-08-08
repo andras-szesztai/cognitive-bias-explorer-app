@@ -22,7 +22,7 @@ const SmallCardsContainerContent = ({
   searchString,
 }: IProps) => {
   return (
-    <SmallCardsContainer>
+    <SmallCardsContainer justifyStart={filteredBiasData.length === 2}>
       {filteredBiasData.map((bias, index) => {
         return (
           <SmallCard

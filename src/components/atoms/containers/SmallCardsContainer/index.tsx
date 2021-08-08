@@ -1,14 +1,23 @@
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { breakPoints, colors } from '../../../../styles'
 
-const SmallCardsContainer = styled.div`
+const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
   position: relative;
 
   place-self: stretch;
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, min-content);
-  justify-content: space-between;
+  ${({ justifyStart }) =>
+    justifyStart
+      ? css`
+          justify-content: start;
+          grid-column-gap: 16px;
+        `
+      : css`
+          justify-content: space-between;
+        `}
   grid-row-gap: 16px;
   align-content: start;
 

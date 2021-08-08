@@ -1123,7 +1123,7 @@ const data: IBiasData[] = [
       'The process whereby people code, categorize, and evaluate economic outcomes. People may have multiple mental accounts for the same kind of resource. A person may use different monthly budgets for grocery shopping and eating out at restaurants, for example, and constrain one kind of purchase when its budget has run out while not constraining the other kind of purchase, even though both expenditures draw on the same fungible resource (income).',
   },
   {
-    category: 'Not enough meaning',
+    category: 'Need to act fast',
     subCategory:
       'To act, we must be confident we can make an impact and feel what we do is important',
     cognitiveBias: 'Hard-Easy Effect',
@@ -1266,7 +1266,7 @@ const data: IBiasData[] = [
       "A pattern of favoring members of one's in-group over out-group members.",
   },
   {
-    category: 'Not enough meaning',
+    category: 'Need to act fast',
     subCategory:
       'To act, we must be confident we can make an impact and feel what we do is important',
     cognitiveBias: 'Illusion of Control',

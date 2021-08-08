@@ -1,8 +1,10 @@
 import { ChangeEvent, useEffect, useRef } from 'react'
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 import { isBoolean } from 'lodash'
+import { isMobileOnly } from 'react-device-detect'
 
-import { SearchIcon } from '../icons'
+import { CloseIcon, SearchIcon } from '../icons'
 
 import { usePrevious } from '../../../hooks'
 
@@ -36,11 +38,12 @@ const SearchBar = ({
       inputRef.current?.blur()
     }
   }, [blurFromParent, prevBlurFromParent])
+
   return (
     <Container withMarginBottom={withMarginBottom}>
-      <IconContainer>
+      <SearchIconContainer>
         <SearchIcon />
-      </IconContainer>
+      </SearchIconContainer>
       <Input
         ref={inputRef}
         autoComplete="off"
@@ -54,6 +57,14 @@ const SearchBar = ({
         type="text"
         placeholder="Search for biases"
       />
+      {!!value && (
+        <CloseIconContainer
+          isMobileOnly={isMobileOnly}
+          onClick={() => onChange('')}
+        >
+          <CloseIcon />
+        </CloseIconContainer>
+      )}
     </Container>
   )
 }
@@ -65,7 +76,7 @@ const Container = styled.div<{ withMarginBottom?: boolean }>`
 `
 
 const Input = styled.input`
-  padding: 4px 16px 4px 32px;
+  padding: 5px 16px 5px 32px;
   border-radius: 4px;
   border: 1px solid ${colors.darkGray};
   width: 282px;
@@ -85,10 +96,28 @@ const Input = styled.input`
   }
 `
 
-const IconContainer = styled.div`
+const SearchIconContainer = styled.div`
   position: absolute;
   top: 8px;
   left: 10px;
+`
+
+const CloseIconContainer = styled.button<{ isMobileOnly: boolean }>`
+  position: absolute;
+  top: 6px;
+  ${({ isMobileOnly }) =>
+    !isMobileOnly
+      ? css`
+          left: 260px;
+        `
+      : css`
+          right: 10px;
+        `}
+
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 `
 
 export default SearchBar
