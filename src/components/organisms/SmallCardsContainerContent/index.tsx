@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import styled from '@emotion/styled'
 
-import { SmallCard, SmallCardsContainer } from '../../atoms'
+import { SmallCard, ExploreSmallCardsContainer } from '../../atoms'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
@@ -22,7 +22,7 @@ const SmallCardsContainerContent = ({
   searchString,
 }: IProps) => {
   return (
-    <SmallCardsContainer justifyStart={filteredBiasData.length === 2}>
+    <ExploreSmallCardsContainer justifyStart={filteredBiasData.length === 2}>
       {filteredBiasData.map((bias, index) => {
         return (
           <SmallCard
@@ -43,7 +43,7 @@ const SmallCardsContainerContent = ({
           </MessageContainer>
         )}
       </AnimatePresence>
-    </SmallCardsContainer>
+    </ExploreSmallCardsContainer>
   )
 }
 

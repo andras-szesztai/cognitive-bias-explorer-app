@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { breakPoints } from '../../../../styles'
+import { breakPoints } from '../../../../../styles'
 
-const ContentContainer = styled.div`
+const ExploreContentContainer = styled.div`
   height: 100%;
   max-height: 100%;
   min-height: 100%;
@@ -19,4 +19,4 @@ const ContentContainer = styled.div`
   }
 `
 
-export default ContentContainer
+export default ExploreContentContainer

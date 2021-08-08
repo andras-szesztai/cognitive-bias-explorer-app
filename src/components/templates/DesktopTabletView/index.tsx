@@ -2,12 +2,12 @@ import { isSafari, isMobileSafari } from 'react-device-detect'
 
 import {
   BigCard,
-  CardsContainer,
-  ContentContainer,
+  ExploreCardsContainer,
+  DesktopExploreContentContainer,
   SearchBar,
-  SearchCardsContainer,
+  ExploreSearchCardsContainer,
   TitleLogo,
-  MainContainer,
+  DesktopExploreMainContainer,
 } from '../../atoms'
 import {
   ButtonWithDropdownControls,
@@ -36,15 +36,15 @@ const DesktopTabletView = ({
     })
 
   return (
-    <MainContainer>
+    <DesktopExploreMainContainer>
       <TitleLogo />
-      <ContentContainer>
+      <DesktopExploreContentContainer>
         <ButtonWithDropdownControls
           filters={filters}
           subCategoriesPerCategory={subCategoriesPerCategory}
           setFilters={setFilters}
         />
-        <SearchCardsContainer>
+        <ExploreSearchCardsContainer>
           <SearchBar
             onFocus={() => setKeyboardNavigationIsEnabled(false)}
             onBlur={() => setKeyboardNavigationIsEnabled(true)}
@@ -52,7 +52,7 @@ const DesktopTabletView = ({
             onChange={(val) => setSearchString(val)}
             value={searchString}
           />
-          <CardsContainer isSafari={isSafari && !isMobileSafari}>
+          <ExploreCardsContainer isSafari={isSafari && !isMobileSafari}>
             <BigCard
               selectedBias={selectedBias}
               filteredBiasData={filteredBiasData}
@@ -63,10 +63,10 @@ const DesktopTabletView = ({
               selectedBias={selectedBias}
               searchString={searchString}
             />
-          </CardsContainer>
-        </SearchCardsContainer>
-      </ContentContainer>
-    </MainContainer>
+          </ExploreCardsContainer>
+        </ExploreSearchCardsContainer>
+      </DesktopExploreContentContainer>
+    </DesktopExploreMainContainer>
   )
 }
 

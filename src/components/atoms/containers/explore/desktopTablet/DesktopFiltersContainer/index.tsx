@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { breakPoints } from '../../../../styles'
+import { breakPoints } from '../../../../../../styles'
 
 const FiltersContainer = styled.div`
   place-self: stretch;

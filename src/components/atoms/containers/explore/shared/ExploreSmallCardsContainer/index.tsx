@@ -1,6 +1,7 @@
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { breakPoints, colors } from '../../../../styles'
+
+import { breakPoints, colors } from '../../../../../../styles'
 
 const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
   position: relative;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-import { breakPoints } from '../../../../styles'
+import { breakPoints } from '../../../../../../styles'
 
 const topMargin = 64
 const topMarginMd = 36

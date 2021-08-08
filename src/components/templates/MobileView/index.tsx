@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
-import styled from '@emotion/styled'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 import {
   BigCard,
   SearchBar,
   TitleLogo,
-  CardsContainer,
-  MobileMainContainer,
+  ExploreCardsContainer,
+  MobileExploreMainContainer,
   MobileFiltersContainer,
   MobileFiltersButton,
 } from '../../atoms'
@@ -20,9 +19,10 @@ import {
 
 import { IViewProps } from '../../../types/views'
 
-import { defaultFilters } from '../../../App'
+import { defaultFilters } from '../../../constants/filters'
 
-import { colors, durations, eases } from '../../../styles'
+import { durations, eases } from '../../../styles'
+import { ClearButton, MainButtonsContainer } from './styles'
 
 const MobileView = ({
   setSearchString,
@@ -49,10 +49,10 @@ const MobileView = ({
   const maxExpandedCardHeight = fullHeight - 148
 
   return (
-    <MobileMainContainer ref={containerRef}>
+    <MobileExploreMainContainer ref={containerRef}>
       <TitleLogo isMobileOnly />
       <AnimateSharedLayout type="crossfade">
-        <CardsContainer isMobileOnly>
+        <ExploreCardsContainer isMobileOnly>
           <BigCard
             selectedBias={selectedBias}
             filteredBiasData={filteredBiasData}
@@ -65,7 +65,7 @@ const MobileView = ({
             selectedBias={selectedBias}
             searchString={searchString}
           />
-        </CardsContainer>
+        </ExploreCardsContainer>
         <AnimatePresence>
           {isBigCardExpanded && (
             <FixedBigCard
@@ -119,31 +119,8 @@ const MobileView = ({
           />
         </div>
       </MobileFiltersContainer>
-    </MobileMainContainer>
+    </MobileExploreMainContainer>
   )
 }
-
-const MainButtonsContainer = styled.div`
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: 1fr min-content;
-  grid-column-gap: 8px;
-`
-
-const ClearButton = styled(motion.button)`
-  background: ${colors.darkGray};
-  padding: 4px 16px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-
-  display: grid;
-  place-content: center;
-
-  line-height: 1;
-  color: ${colors.white};
-
-  margin-bottom: 16px;
-`
 
 export default MobileView

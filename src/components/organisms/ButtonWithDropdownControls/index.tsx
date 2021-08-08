@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import useMeasure from 'react-use-measure'
 
-import { FiltersContainer } from '../../atoms'
+import { DesktopFiltersContainer } from '../../atoms'
 
 import { CATEGORIES_ARRAY } from '../../../constants/categories'
 
@@ -23,7 +23,7 @@ const ButtonWithDropdownControls = ({
 }: Props) => {
   const [ref, { width }] = useMeasure()
   return (
-    <FiltersContainer ref={ref}>
+    <DesktopFiltersContainer ref={ref}>
       {CATEGORIES_ARRAY.map((category, index) => {
         const selectedSubCategories = filters[category]
         const allSubcategories = subCategoriesPerCategory[category]
@@ -62,7 +62,7 @@ const ButtonWithDropdownControls = ({
           />
         )
       })}
-    </FiltersContainer>
+    </DesktopFiltersContainer>
   )
 }
 

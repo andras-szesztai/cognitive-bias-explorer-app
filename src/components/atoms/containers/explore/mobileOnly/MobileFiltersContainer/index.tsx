@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
-import { colors } from '../../../../styles'
+import { colors } from '../../../../../../styles'
 
 const MobileFiltersContainer = styled(motion.div)`
   position: fixed;

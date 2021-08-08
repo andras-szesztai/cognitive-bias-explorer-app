@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
-import { breakPoints } from '../../../../styles'
+import { breakPoints } from '../../../../../../styles'
 
-const CardsContainer = styled.div<{
+const ExploreCardsContainer = styled.div<{
   isMobileOnly?: boolean
   isSafari?: boolean
 }>`
@@ -38,4 +38,4 @@ const CardsContainer = styled.div<{
   }
 `
 
-export default CardsContainer
+export default ExploreCardsContainer

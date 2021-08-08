@@ -5,12 +5,16 @@ import {
   ExploreCardsContainer,
   ExploreSmallCardsContainer,
   ExploreSearchCardsContainer,
+} from './shared'
+import {
   DesktopExploreContentContainer,
   DesktopExploreMainContainer,
   DesktopFiltersContainer,
+} from './desktopTablet'
+import {
   MobileFiltersContainer,
   MobileExploreMainContainer,
-} from './explore'
+} from './mobileOnly'
 
 export {
   ArrowMainContainer,
