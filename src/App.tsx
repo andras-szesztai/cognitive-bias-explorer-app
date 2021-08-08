@@ -1,3 +1,4 @@
+import { isMobileOnly } from 'react-device-detect'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { DesktopTabletNavbar } from './components/molecules'
@@ -6,7 +7,7 @@ import { Explore } from './pages'
 function App() {
   return (
     <Router>
-      <DesktopTabletNavbar />
+      {!isMobileOnly && <DesktopTabletNavbar />}
       <Switch>
         <Route path="/explorer">
           <Explore />
