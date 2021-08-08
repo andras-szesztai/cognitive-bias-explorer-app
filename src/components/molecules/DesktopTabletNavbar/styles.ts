@@ -5,18 +5,38 @@ import { Link } from 'react-router-dom'
 
 import { heights } from '../../../constants/dimensions'
 
-import { colors } from '../../../styles'
+import { breakPoints, colors } from '../../../styles'
 
-export const Navbar = styled.nav`
+export const NavbarContainer = styled.div`
   width: 100vw;
   height: ${heights.navbar}px;
-  border-bottom: 1px solid ${colors.darkGray};
+  border-bottom: 2px solid ${colors.darkGray};
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+`
+
+export const Navbar = styled.nav`
+  width: 100%;
+  max-width: 1770px;
+  min-width: 700px;
+  height: ${heights.navbar}px;
+
   padding: 0 80px;
 
   display: grid;
   justify-content: space-between;
   align-items: center;
   grid-auto-flow: column;
+
+  @media (max-width: ${breakPoints.second}) {
+    padding: 0 64px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    padding: 0 48px;
+  }
 `
 
 export const List = styled.ul`

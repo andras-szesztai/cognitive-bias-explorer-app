@@ -1,3 +1,3 @@
 export const heights = {
-  navbar: 72,
+  navbar: 80,
 }

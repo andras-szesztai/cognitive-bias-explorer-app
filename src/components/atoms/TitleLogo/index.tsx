@@ -1,5 +1,6 @@
 import { css } from '@emotion/css'
 import styled from '@emotion/styled'
+import { useHistory } from 'react-router-dom'
 
 import {
   breakPoints,
@@ -9,10 +10,10 @@ import {
 } from '../../../styles'
 
 const pillsDesktop: PillProps[] = [
-  { color: 'yellow', top: -11, left: -8 },
-  { color: 'blue', top: 42, left: 175 },
-  { color: 'pink', top: -20, left: 300 },
-  { color: 'green', top: 50, left: 466 },
+  { color: 'yellow', top: -11, left: -9 },
+  { color: 'blue', top: 28, left: 28 },
+  { color: 'pink', top: -21, left: 114 },
+  { color: 'green', top: 21, left: 180 },
 ]
 
 const pillsMobile: PillProps[] = [
@@ -27,9 +28,10 @@ interface IProps {
 }
 
 const TitleLogo = ({ isMobileOnly }: IProps) => {
+  let history = useHistory()
   const pillsArray = isMobileOnly ? pillsMobile : pillsDesktop
   return (
-    <div className={containerStyle}>
+    <Container onClick={() => history.push('/')}>
       <div className={pillContainerStyle}>
         {pillsArray.map((pill) => (
           <Pill key={pill.color} {...pill} />
@@ -38,14 +40,15 @@ const TitleLogo = ({ isMobileOnly }: IProps) => {
       <div className={titleContainerStyle}>
         <Title isMobileOnly={isMobileOnly}>Cognitive Bias Explorer</Title>
       </div>
-    </div>
+    </Container>
   )
 }
 
-const containerStyle = css`
+const Container = styled.div`
   display: flex;
   justify-content: flex-start;
   padding-left: 8px;
+  cursor: pointer;
 
   @media (max-width: ${breakPoints.fifth}) {
     padding-left: 0px;
@@ -58,7 +61,7 @@ const titleContainerStyle = css`
 
 const Title = styled.h1<{ isMobileOnly?: boolean }>`
   font-size: ${({ isMobileOnly }) =>
-    isMobileOnly ? fontSizesString.xl : fontSizesString.xxl};
+    isMobileOnly ? fontSizesString.xl : fontSizesString.md};
   line-height: ${({ isMobileOnly }) => (isMobileOnly ? 1 : 0.8)};
   font-weight: ${fontWeights.bold};
   color: ${colors.darkGray};
@@ -78,8 +81,8 @@ interface PillProps {
 }
 
 const Pill = styled.span<PillProps>`
-  width: 80px;
-  height: 8px;
+  width: 60px;
+  height: 7px;
   border-radius: 4px;
   position: absolute;
   border: 1px solid ${colors.darkGray};
