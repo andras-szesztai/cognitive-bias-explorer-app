@@ -12,7 +12,6 @@ const MainContainer = styled.div`
   max-height: calc(100% - ${topMargin}px);
   min-height: calc(100% - ${topMargin}px);
   margin-top: ${topMargin}px;
-  grid-row-gap: ${topMargin}px;
 
   @media (max-width: ${breakPoints.first}) {
     width: 1040px;
@@ -33,7 +32,7 @@ const MainContainer = styled.div`
   }
 
   display: grid;
-  grid-template-rows: min-content 1fr;
+  grid-template-rows: 1fr;
 `
 
 export default MainContainer

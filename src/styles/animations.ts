@@ -15,3 +15,9 @@ export const getOpacityInOut = (duration = durations.sm) => ({
 export const eases = {
   easeInOutCubic: [0.65, 0, 0.35, 1],
 }
+
+export const pillSpring = {
+  type: 'spring',
+  stiffness: 500,
+  damping: 30,
+}

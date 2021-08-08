@@ -6,7 +6,6 @@ import {
   DesktopExploreContentContainer,
   SearchBar,
   ExploreSearchCardsContainer,
-  TitleLogo,
   DesktopExploreMainContainer,
 } from '../../atoms'
 import {
@@ -37,7 +36,7 @@ const DesktopTabletView = ({
 
   return (
     <DesktopExploreMainContainer>
-      <TitleLogo />
+      <div />
       <DesktopExploreContentContainer>
         <ButtonWithDropdownControls
           filters={filters}
