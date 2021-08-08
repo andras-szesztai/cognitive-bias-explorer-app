@@ -1,2 +1,4 @@
-export { default as DesktopTabletView } from './DesktopTabletView'
-export { default as MobileView } from './MobileView'
+import { DesktopTabletExploreView, MobileExploreView } from './explore'
+import { DesktopTabletHomeView } from './home'
+
+export { DesktopTabletExploreView, MobileExploreView, DesktopTabletHomeView }

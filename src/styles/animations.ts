@@ -21,3 +21,9 @@ export const pillSpring = {
   stiffness: 500,
   damping: 30,
 }
+
+export const cardSpring = {
+  type: 'spring',
+  stiffness: 240,
+  damping: 20,
+}

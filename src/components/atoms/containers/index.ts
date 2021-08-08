@@ -6,11 +6,12 @@ import {
   ExploreSmallCardsContainer,
   ExploreSearchCardsContainer,
   DesktopExploreContentContainer,
-  DesktopExploreMainContainer,
   DesktopFiltersContainer,
   MobileFiltersContainer,
   MobileExploreMainContainer,
 } from './explore'
+import { DesktopExploreMainContainer } from './shared'
+import { DesktopHomeContentContainer } from './home'
 
 export {
   ArrowMainContainer,
@@ -24,4 +25,5 @@ export {
   ExploreSmallCardsContainer,
   ExploreSearchCardsContainer,
   MobileExploreMainContainer,
+  DesktopHomeContentContainer,
 }

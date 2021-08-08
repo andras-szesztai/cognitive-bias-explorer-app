@@ -1,21 +1,21 @@
 import { isSafari, isMobileSafari } from 'react-device-detect'
 
 import {
-  BigCard,
+  ExplorerBigCard,
   ExploreCardsContainer,
   DesktopExploreContentContainer,
   SearchBar,
   ExploreSearchCardsContainer,
   DesktopExploreMainContainer,
-} from '../../atoms'
+} from '../../../atoms'
 import {
   ButtonWithDropdownControls,
   SmallCardsContainerContent,
-} from '../../organisms'
+} from '../../../organisms'
 
-import { useKeyboardNavigation } from '../../../hooks'
+import { useKeyboardNavigation } from '../../../../hooks'
 
-import { IViewProps } from '../../../types/views'
+import { IViewProps } from '../../../../types/views'
 
 const DesktopTabletView = ({
   selectedBias,
@@ -53,7 +53,7 @@ const DesktopTabletView = ({
             value={searchString}
           />
           <ExploreCardsContainer isSafari={isSafari && !isMobileSafari}>
-            <BigCard
+            <ExplorerBigCard
               selectedBias={selectedBias}
               filteredBiasData={filteredBiasData}
             />

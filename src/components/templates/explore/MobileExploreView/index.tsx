@@ -3,25 +3,25 @@ import useMeasure from 'react-use-measure'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
 import {
-  BigCard,
+  ExplorerBigCard,
   SearchBar,
   TitleLogo,
   ExploreCardsContainer,
   MobileExploreMainContainer,
   MobileFiltersContainer,
   MobileFiltersButton,
-} from '../../atoms'
-import { FixedBigCard } from '../../atoms/BigCard/styles'
+} from '../../../atoms'
+import { FixedBigCard } from '../../../atoms/ExplorerBigCard/styles'
 import {
   ButtonWithDropdownControls,
   SmallCardsContainerContent,
-} from '../../organisms'
+} from '../../../organisms'
 
-import { IViewProps } from '../../../types/views'
+import { IViewProps } from '../../../../types/views'
 
-import { defaultFilters } from '../../../constants/filters'
+import { defaultFilters } from '../../../../constants/filters'
 
-import { durations, eases } from '../../../styles'
+import { durations, eases } from '../../../../styles'
 import { ClearButton, MainButtonsContainer } from './styles'
 
 const MobileView = ({
@@ -53,7 +53,7 @@ const MobileView = ({
       <TitleLogo isMobileOnly />
       <AnimateSharedLayout type="crossfade">
         <ExploreCardsContainer isMobileOnly>
-          <BigCard
+          <ExplorerBigCard
             selectedBias={selectedBias}
             filteredBiasData={filteredBiasData}
             layoutId="bigCard"
@@ -74,7 +74,7 @@ const MobileView = ({
               layout
               maxHeight={maxExpandedCardHeight}
             >
-              <BigCard
+              <ExplorerBigCard
                 selectedBias={selectedBias}
                 filteredBiasData={filteredBiasData}
                 onClick={() => setIsBigCardExpanded(false)}

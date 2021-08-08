@@ -20,7 +20,7 @@ export const NavbarContainer = styled.div`
 export const Navbar = styled.nav`
   width: 100%;
   max-width: 1770px;
-  min-width: 700px;
+  min-width: 600px;
   height: ${heights.navbar}px;
 
   padding: 0 80px;
@@ -37,12 +37,28 @@ export const Navbar = styled.nav`
   @media (max-width: ${breakPoints.third}) {
     padding: 0 48px;
   }
+
+  @media (max-width: ${breakPoints.fourth}) {
+    padding: 0 24px;
+  }
 `
 
 export const List = styled.ul`
   display: grid;
   grid-auto-flow: column;
   grid-column-gap: 64px;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-column-gap: 64px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-column-gap: 48px;
+  }
+
+  @media (max-width: ${breakPoints.fourth}) {
+    grid-column-gap: 24px;
+  }
 `
 
 export const ListItem = styled.li`

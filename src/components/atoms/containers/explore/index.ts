@@ -8,7 +8,6 @@ import {
 } from './shared'
 import {
   DesktopExploreContentContainer,
-  DesktopExploreMainContainer,
   DesktopFiltersContainer,
 } from './desktopTablet'
 import {
@@ -20,7 +19,6 @@ export {
   ArrowMainContainer,
   ArrowSubContainer,
   DesktopExploreContentContainer,
-  DesktopExploreMainContainer,
   DesktopFiltersContainer,
   MobileFiltersContainer,
   DisplayContainer,

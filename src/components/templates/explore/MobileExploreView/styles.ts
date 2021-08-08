@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import styled from '@emotion/styled'
-import { colors } from '../../../styles'
+import { colors } from '../../../../styles'
 
 export const MainButtonsContainer = styled.div`
   display: grid;

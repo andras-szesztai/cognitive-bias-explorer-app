@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { isMobileOnly } from 'react-device-detect'
 
-import { DesktopTabletView, MobileView } from '../../components/templates'
+import {
+  DesktopTabletExploreView,
+  MobileExploreView,
+} from '../../components/templates/explore'
 
 import { getSubcategoriesPerCategory } from '../../utils/dataHelpers'
 
@@ -33,7 +36,7 @@ const Explore = () => {
   return (
     <Container>
       {!isMobileOnly && (
-        <DesktopTabletView
+        <DesktopTabletExploreView
           selectedBias={selectedBias}
           setSelectedBias={setSelectedBias}
           filteredBiasData={filteredBiasData}
@@ -45,7 +48,7 @@ const Explore = () => {
         />
       )}
       {isMobileOnly && (
-        <MobileView
+        <MobileExploreView
           selectedBias={selectedBias}
           setSelectedBias={setSelectedBias}
           filteredBiasData={filteredBiasData}

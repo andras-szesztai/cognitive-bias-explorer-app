@@ -1,10 +1,12 @@
+import { useState } from 'react'
 import { isMobileOnly } from 'react-device-detect'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 import { DesktopTabletNavbar } from './components/molecules'
-import { Explore } from './pages'
+import { Explore, Home } from './pages'
 
 function App() {
+  const [isFirstRender, setIsFirstRender] = useState(true)
   return (
     <Router>
       {!isMobileOnly && <DesktopTabletNavbar />}
@@ -16,7 +18,10 @@ function App() {
           <div>Quiz</div>
         </Route>
         <Route path="/">
-          <div>Home</div>
+          <Home
+            onFirstRender={() => setIsFirstRender(false)}
+            isFirstRender={isFirstRender}
+          />
         </Route>
       </Switch>
     </Router>
