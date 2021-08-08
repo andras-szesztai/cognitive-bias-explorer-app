@@ -14,7 +14,7 @@ import { defaultFilters } from '../../constants/filters'
 
 import { ISelectedBiasData } from '../../types/data'
 
-import { Container } from './styles'
+import { ContainerDesktop, ContainerMobile } from './styles'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
@@ -34,32 +34,36 @@ const Explore = () => {
   })
 
   return (
-    <Container>
+    <>
       {!isMobileOnly && (
-        <DesktopTabletExploreView
-          selectedBias={selectedBias}
-          setSelectedBias={setSelectedBias}
-          filteredBiasData={filteredBiasData}
-          subCategoriesPerCategory={subCategoriesPerCategory}
-          filters={filters}
-          setFilters={setFilters}
-          setSearchString={setSearchString}
-          searchString={searchString}
-        />
+        <ContainerDesktop>
+          <DesktopTabletExploreView
+            selectedBias={selectedBias}
+            setSelectedBias={setSelectedBias}
+            filteredBiasData={filteredBiasData}
+            subCategoriesPerCategory={subCategoriesPerCategory}
+            filters={filters}
+            setFilters={setFilters}
+            setSearchString={setSearchString}
+            searchString={searchString}
+          />
+        </ContainerDesktop>
       )}
       {isMobileOnly && (
-        <MobileExploreView
-          selectedBias={selectedBias}
-          setSelectedBias={setSelectedBias}
-          filteredBiasData={filteredBiasData}
-          subCategoriesPerCategory={subCategoriesPerCategory}
-          filters={filters}
-          setFilters={setFilters}
-          setSearchString={setSearchString}
-          searchString={searchString}
-        />
+        <ContainerMobile>
+          <MobileExploreView
+            selectedBias={selectedBias}
+            setSelectedBias={setSelectedBias}
+            filteredBiasData={filteredBiasData}
+            subCategoriesPerCategory={subCategoriesPerCategory}
+            filters={filters}
+            setFilters={setFilters}
+            setSearchString={setSearchString}
+            searchString={searchString}
+          />
+        </ContainerMobile>
       )}
-    </Container>
+    </>
   )
 }
 

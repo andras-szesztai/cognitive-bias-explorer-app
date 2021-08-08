@@ -3,7 +3,7 @@ import { isMobileOnly } from 'react-device-detect'
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
 
 import { DesktopTabletNavbar } from './components/molecules'
-import { Explore, Home } from './pages'
+import { Explore, Home, Quiz } from './pages'
 
 function App() {
   const [isFirstRender, setIsFirstRender] = useState(true)
@@ -23,7 +23,7 @@ function App() {
           <Explore />
         </Route>
         <Route path="/quiz">
-          <div>Quiz</div>
+          <Quiz />
         </Route>
         <Route path="/">
           <Home
