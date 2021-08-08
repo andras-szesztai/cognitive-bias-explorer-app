@@ -29,7 +29,7 @@ const homeCards = [
         objective input, may dictate their behavior in the world. Thus,
         cognitive biases may sometimes lead to perceptual distortion, inaccurate
         judgment, illogical interpretation, or what is broadly called
-        irrationality. The biases on this site together with their definitions
+        irrationality. The biases on this site, together with their definitions,
         come directly from the{' '}
         <a
           href="https://commons.wikimedia.org/wiki/File:Cognitive_Bias_Codex_With_Definitions,_an_Extension_of_the_work_of_John_Manoogian_by_Brian_Morrissette.jpg"
@@ -65,7 +65,7 @@ const homeCards = [
     paragraph: () => (
       <>
         There is over 170 cognitive biases that we have collected for you to
-        browse amongst, are you interested to see their definitions and
+        browse amongst. Are you interested to see their definitions and
         categories? Please{' '}
         <StyledLink to="/explorer">visit the Explorer page</StyledLink> to find
         out more!
