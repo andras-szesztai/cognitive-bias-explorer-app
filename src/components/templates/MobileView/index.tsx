@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import styled from '@emotion/styled'
 
 import {
   BigCard,
@@ -19,8 +20,9 @@ import {
 
 import { IViewProps } from '../../../types/views'
 
-import { durations } from '../../../styles'
-import { eases } from '../../../styles/animations'
+import { defaultFilters } from '../../../App'
+
+import { colors, durations, eases } from '../../../styles'
 
 const MobileView = ({
   setSearchString,
@@ -38,7 +40,14 @@ const MobileView = ({
   const drawerHeight = height + 24
   const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
+  const handleClear = () => {
+    setFilters(defaultFilters)
+    setSearchString('')
+  }
+
+  const isClearable = !!searchString || !!Object.values(filters).flat().length
   const maxExpandedCardHeight = fullHeight - 148
+
   return (
     <MobileMainContainer ref={containerRef}>
       <TitleLogo isMobileOnly />
@@ -80,7 +89,21 @@ const MobileView = ({
         animate={{ y: isDrawerOpen ? 0 : drawerHeight }}
         transition={{ ease: eases.easeInOutCubic, duration: durations.md }}
       >
-        <MobileFiltersButton onClick={setIsDrawerOpen} value={isDrawerOpen} />
+        <MainButtonsContainer>
+          <MobileFiltersButton onClick={setIsDrawerOpen} value={isDrawerOpen} />
+          <AnimatePresence>
+            {isClearable && (
+              <ClearButton
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { delay: durations.md } }}
+                onClick={handleClear}
+              >
+                <span>Clear</span>
+              </ClearButton>
+            )}
+          </AnimatePresence>
+        </MainButtonsContainer>
         <div ref={ref}>
           <SearchBar
             onChange={(val) => setSearchString(val)}
@@ -99,5 +122,28 @@ const MobileView = ({
     </MobileMainContainer>
   )
 }
+
+const MainButtonsContainer = styled.div`
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr min-content;
+  grid-column-gap: 8px;
+`
+
+const ClearButton = styled(motion.button)`
+  background: ${colors.darkGray};
+  padding: 4px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  display: grid;
+  place-content: center;
+
+  line-height: 1;
+  color: ${colors.white};
+
+  margin-bottom: 16px;
+`
 
 export default MobileView

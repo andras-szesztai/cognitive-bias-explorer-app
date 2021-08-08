@@ -11,6 +11,8 @@ const MobileFiltersContainer = styled(motion.div)`
   background-color: ${colors.white};
   box-shadow: 0px -2px 5px ${colors.darkGrayOpaque},
     0px -4px 10px ${colors.darkGrayOpaque};
+
+  display: grid;
 `
 
 export default MobileFiltersContainer

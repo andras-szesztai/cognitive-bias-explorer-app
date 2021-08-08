@@ -19,7 +19,7 @@ import { ISelectedBiasData } from './types/data'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
-const defaultFilters = {
+export const defaultFilters = {
   [WHAT_DO_WE_REMEMBER]: [] as string[],
   [NEED_TO_ACT_FAST]: [] as string[],
   [NOT_ENOUGH_MEANING]: [] as string[],

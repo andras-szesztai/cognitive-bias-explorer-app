@@ -24,6 +24,7 @@ const MobileFiltersButton = ({ onClick, value }: IProps) => {
 }
 
 const Button = styled.button`
+  place-self: stretch;
   margin-bottom: 16px;
   padding: 2px 8px 2px 0px;
   font-size: ${fontSizesString.default};
