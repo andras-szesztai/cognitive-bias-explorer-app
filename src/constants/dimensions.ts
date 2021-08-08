@@ -14,3 +14,7 @@ export const widths = {
   maxContentXs: 640,
   maxContentXxs: 560,
 }
+
+export const paddings = {
+  cardPadding: 24,
+}

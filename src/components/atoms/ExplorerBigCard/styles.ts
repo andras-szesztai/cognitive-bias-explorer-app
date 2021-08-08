@@ -85,7 +85,7 @@ export const SubTitle = styled.h4`
 export const Paragraph = styled.p<{ color?: string }>`
   font-size: ${fontSizesString.default};
   padding: 0px 8px;
-  line-height: 1.7;
+  line-height: 1.6;
   overflow-y: auto;
   max-height: 360px;
 
