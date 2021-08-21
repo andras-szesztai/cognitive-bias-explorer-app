@@ -1,5 +1,6 @@
 export const heights = {
   navbar: 80,
+  navbarMobile: 48,
 }
 
 export const margins = {

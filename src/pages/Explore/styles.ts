@@ -11,7 +11,6 @@ export const ContainerDesktop = styled.div`
   overflow: hidden;
 `
 
-// TODO: remove
 export const ContainerMobile = styled.div`
   width: 100vw;
   height: 100vh;

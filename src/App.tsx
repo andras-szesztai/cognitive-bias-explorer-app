@@ -1,19 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { isMobileOnly } from 'react-device-detect'
-import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 
-import { DesktopTabletNavbar } from './components/molecules'
+import { DesktopTabletNavbar, MobileNavbar } from './components/molecules'
 import { Explore, Home, Quiz } from './pages'
 
 function App() {
   const [isFirstRender, setIsFirstRender] = useState(true)
-  const location = useLocation()
-  const history = useHistory()
-  useEffect(() => {
-    if (isMobileOnly && location.pathname !== '/explorer') {
-      history.push('/explorer') // TODO: remove later
-    }
-  })
 
   return (
     <>
@@ -32,6 +25,7 @@ function App() {
           />
         </Route>
       </Switch>
+      {isMobileOnly && <MobileNavbar />}
     </>
   )
 }

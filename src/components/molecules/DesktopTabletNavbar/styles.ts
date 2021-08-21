@@ -10,7 +10,6 @@ import { breakPoints, colors } from '../../../styles'
 export const NavbarContainer = styled.div`
   width: 100vw;
   height: ${heights.navbar}px;
-  border-bottom: 2px solid ${colors.darkGray};
   position: relative;
 
   display: flex;
@@ -75,12 +74,14 @@ export const StyledLink = styled(Link)`
 export const Pill = styled(motion.span)<{
   color: string
   top: number
-  left: number
+  left?: number
+  right?: number
 }>`
   position: absolute;
-  ${({ top, left }) => css`
+  ${({ top, left, right }) => css`
     left: ${left}px;
     top: ${top}px;
+    right: ${right}px;
   `}
 
   height: 6px;

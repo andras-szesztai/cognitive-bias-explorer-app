@@ -1,17 +1,10 @@
 import { AnimateSharedLayout } from 'framer-motion'
 
-import {
-  List,
-  ListItem,
-  Navbar,
-  NavbarContainer,
-  Pill,
-  StyledLink,
-} from './styles'
 import { colors } from '../../../styles'
 import { pillSpring } from '../../../styles/animations'
-import { TitleLogo } from '../../atoms'
 import { useLocation } from 'react-router-dom'
+import { List, Navbar, NavbarContainer, Pill } from './styles'
+import { ListItem, StyledLink } from '../DesktopTabletNavbar/styles'
 
 const links = [
   { label: 'Home', to: '/' },
@@ -20,10 +13,10 @@ const links = [
 ]
 
 const pills = [
-  { color: colors.blue, top: -11, left: -18, delay: 0.1 },
-  { color: colors.pink, top: 19, right: -8, delay: 0.3 },
-  { color: colors.yellow, top: 27, left: -8, delay: 0.16 },
-  { color: colors.green, top: -4, right: -18, delay: 0.24 },
+  { color: colors.blue, top: -9, left: -11, delay: 0.1 },
+  { color: colors.pink, top: 17, right: -6, delay: 0.3 },
+  { color: colors.yellow, top: 24, left: -6, delay: 0.16 },
+  { color: colors.green, top: -4, right: -12, delay: 0.24 },
 ]
 
 const DesktopTabletNavBar = () => {
@@ -31,7 +24,6 @@ const DesktopTabletNavBar = () => {
   return (
     <NavbarContainer>
       <Navbar>
-        <TitleLogo />
         <AnimateSharedLayout>
           <List>
             {links.map(({ to, label }) => (
