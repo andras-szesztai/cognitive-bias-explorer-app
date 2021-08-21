@@ -2,9 +2,9 @@ import styled from '@emotion/styled'
 import { Link } from 'react-router-dom'
 
 import { colors } from '../styles'
-import { getDailyBias } from '../utils/dataHelpers'
+import { getRandomBias } from '../utils/dataHelpers'
 
-const dailyBias = getDailyBias()
+const randomBias = getRandomBias()
 
 const StyledLink = styled(Link)`
   color: ${colors.darkGray};
@@ -40,8 +40,8 @@ export const homeCardsShared = {
   yellow: {
     color: colors.yellowLight,
     colorDark: colors.yellow,
-    title: `Daily bias: ${dailyBias.cognitiveBias}`,
-    paragraph: dailyBias.definition,
+    title: `Random bias: ${randomBias.cognitiveBias}`,
+    paragraph: randomBias.definition,
   },
   blue: {
     color: colors.blueLight,

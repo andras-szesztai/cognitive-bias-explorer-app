@@ -19,23 +19,8 @@ export const getSubcategoriesPerCategory = () =>
     }
   }, {} as TSubCategories)
 
-export const getDailyBias = () => {
-  //"Sunk Cost Fallacy" 161
-  const randomSorted = [...data].sort(
-    (a, b) => a.definition.length - b.definition.length
-  )
-
-  const now = new Date()
-  const start = new Date(now.getFullYear(), 0, 0).getTime()
-  const diff = now.getTime() - start
-  const oneDay = 1000 * 60 * 60 * 24
-  const day = Math.floor(diff / oneDay)
-  const biasIndex =
-    Math.floor(day / 2) > data.length
-      ? Math.floor(day / 3)
-      : Math.floor(day / 2)
-
-  return randomSorted[biasIndex]
+export const getRandomBias = () => {
+  return data[random(0, data.length)]
 }
 
 export const getRandomQuestionAnswers = () => {
