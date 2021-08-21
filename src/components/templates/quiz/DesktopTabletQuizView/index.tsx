@@ -5,12 +5,10 @@ import { isUndefined } from 'lodash'
 
 import {
   ChevronIcon,
-  CloseIcon,
-  CorrectMark,
   DesktopMainContainer,
   HomeBigCard,
-  QuestionMark,
   QuizCard,
+  QuizResults,
 } from '../../../atoms'
 
 import { alphabet, quizTypes } from '../../../../constants/quiz'
@@ -25,10 +23,9 @@ import {
   getOpacityInOut,
 } from '../../../../styles'
 
-import { QuestionTypes } from '../../../../types/quiz'
+import { IQuizResult, QuestionTypes } from '../../../../types/quiz'
 import { IBiasData } from '../../../../types/data'
 import { IRandomQuizQuestions } from '../../../../hooks/useRandomQuizQuestions'
-import { IQuizResult } from '../../../../hooks/useManageQuiz'
 
 export interface IQuizViewProps {
   isQuizOut: boolean
@@ -81,9 +78,9 @@ const DesktopTabletQuizView = ({
       >
         {!quizType && isQuizOut && (
           <ContentContainer
-            initial={{ opacity: 0, y: -400 }}
+            initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0, transition: { delay: durations.md } }}
-            exit={{ opacity: 0, y: 400 }}
+            exit={{ opacity: 0, y: 100 }}
             transition={cardSpring}
           >
             <MainText>Please select quiz type:</MainText>
@@ -94,7 +91,7 @@ const DesktopTabletQuizView = ({
                   text={text}
                   handleClick={() => setQuizType(type)}
                   isActive={false}
-                  color={colors.darkGray}
+                  color={colors.lightGray}
                   colorLight={colors.lightGray}
                 />
               ))}
@@ -122,20 +119,7 @@ const DesktopTabletQuizView = ({
             transition={cardSpring}
           >
             <TopTextContainer>
-              <ResultsContainer>
-                {results.map((result, i) => (
-                  <Result key={i}>
-                    {i + 1}.
-                    {isUndefined(result) ? (
-                      <QuestionMark height={14} />
-                    ) : result.result ? (
-                      <CorrectMark fill={result.color} height={14} />
-                    ) : (
-                      <CloseIcon fill={result.color} height={14} />
-                    )}
-                  </Result>
-                ))}
-              </ResultsContainer>
+              <QuizResults results={results} />
               <FeedbackContainer>
                 {isUndefined(currentResult) ? (
                   <p>
@@ -245,7 +229,7 @@ const ContentContainer = styled(motion.div)`
   }
 `
 
-const MainText = styled.h2`
+export const MainText = styled.h2`
   font-size: ${fontSizesString.md};
   line-height: 1.3;
   user-select: none;
@@ -256,7 +240,7 @@ const MainText = styled.h2`
   }
 `
 
-const SmallCardsContainer = styled.div`
+export const SmallCardsContainer = styled.div`
   place-self: stretch;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -271,7 +255,6 @@ const SmallCardsContainer = styled.div`
 
   @media (max-width: ${breakPoints.third}) {
     grid-column-gap: 16px;
-    grid-row-gap: 8px;
   }
 
   @media (max-width: ${breakPoints.fifth}) {
@@ -279,50 +262,13 @@ const SmallCardsContainer = styled.div`
   }
 `
 
-const TopTextContainer = styled.div`
+export const TopTextContainer = styled.div`
   display: grid;
   grid-row-gap: 16px;
   grid-template-rows: min-content 28px min-content;
 
   @media (max-width: ${breakPoints.second}) {
     grid-row-gap: 8px;
-  }
-`
-
-const ResultsContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(10, 24px);
-  grid-column-gap: 36px;
-  align-items: center;
-  margin-bottom: 8px;
-
-  @media (max-width: ${breakPoints.second}) {
-    grid-column-gap: 24px;
-  }
-
-  @media (max-width: ${breakPoints.third}) {
-    grid-column-gap: 16px;
-  }
-
-  @media (max-width: ${breakPoints.fifth}) {
-    grid-column-gap: 8px;
-    justify-content: center;
-  }
-`
-
-const Result = styled.div`
-  display: grid;
-  align-content: center;
-  align-items: center;
-  grid-auto-flow: column;
-  grid-column-gap: 8px;
-
-  @media (max-width: ${breakPoints.second}) {
-    grid-column-gap: 4px;
-  }
-
-  @media (max-width: ${breakPoints.third}) {
-    grid-column-gap: 2px;
   }
 `
 

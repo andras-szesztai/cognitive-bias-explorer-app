@@ -3,8 +3,7 @@ import { usePrevious } from 'rooks'
 import { shuffle } from 'lodash'
 
 import { IBiasData } from '../../types/data'
-import { QuestionTypes } from '../../types/quiz'
-import { IQuizResult } from '../useManageQuiz'
+import { IQuizResult, QuestionTypes } from '../../types/quiz'
 import { IRandomQuizQuestions } from '../useRandomQuizQuestions'
 
 interface IParams {

@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import { isMobileOnly } from 'react-device-detect'
 
-import { DesktopTabletQuizView } from '../../components/templates'
+import {
+  DesktopTabletQuizView,
+  MobileQuizView,
+} from '../../components/templates'
+
 import {
   useCurrentQuizValues,
   useManageQuiz,
   useRandomQuizQuestions,
 } from '../../hooks'
+
 import { categoryColors } from '../../styles/colors'
 import { IBiasData } from '../../types/data'
 import { QuestionTypes } from '../../types/quiz'
@@ -81,6 +86,7 @@ const Quiz = () => {
   return (
     <Container>
       {!isMobileOnly && <DesktopTabletQuizView {...viewProps} />}
+      {isMobileOnly && <MobileQuizView {...viewProps} />}
     </Container>
   )
 }

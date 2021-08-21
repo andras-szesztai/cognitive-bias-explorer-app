@@ -1,6 +1,6 @@
 import { DesktopTabletExploreView, MobileExploreView } from './explore'
 import { DesktopTabletHomeView, MobileHomeView } from './home'
-import { DesktopTabletQuizView } from './quiz'
+import { DesktopTabletQuizView, MobileQuizView } from './quiz'
 
 export {
   DesktopTabletExploreView,
@@ -8,4 +8,5 @@ export {
   DesktopTabletHomeView,
   DesktopTabletQuizView,
   MobileHomeView,
+  MobileQuizView,
 }

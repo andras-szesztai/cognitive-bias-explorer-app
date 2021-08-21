@@ -32,6 +32,7 @@ export { default as ExplorerBigCard } from './ExplorerBigCard'
 export { default as HomeBigCard } from './HomeBigCard'
 export { default as SearchBar } from './SearchBar'
 export { default as MobileFiltersButton } from './MobileFiltersButton'
+export { default as QuizResults } from './QuizResults'
 export {
   DesktopMainContainer,
   DesktopExploreContentContainer,

@@ -1,9 +1,6 @@
 import { useState } from 'react'
 
-export interface IQuizResult {
-  result: boolean
-  color: string
-}
+import { IQuizResult } from '../../types/quiz'
 
 const useManageQuiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
