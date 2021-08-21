@@ -1,4 +1,4 @@
-import { isBoolean, isString } from 'lodash'
+import { isString } from 'lodash'
 import { useEffect, useState } from 'react'
 import useMeasure from 'react-use-measure'
 
@@ -21,7 +21,6 @@ export interface IProps {
   title: string
   paragraph: (() => React.ReactNode) | string
   isFirstRender?: boolean
-  onFirstRender?: (() => void) | boolean
   gridArea?: string
   alignContent?: string
   x?: number
@@ -42,7 +41,6 @@ const HomeBigCard = ({
   y = 0,
   delay = 0,
   isFirstRender,
-  onFirstRender,
   title,
   subtitle,
   paragraph,
@@ -74,7 +72,6 @@ const HomeBigCard = ({
       }}
       animate={{ x: 0, y: 0, opacity: 1 }}
       transition={{ ...cardSpring, delay }}
-      onAnimationComplete={() => !isBoolean(onFirstRender) && onFirstRender?.()}
     >
       <CardContainer color={color} withSubtitle={!!subtitle}>
         <TitleContainer ref={titleRef} colorDark={colorDark}>

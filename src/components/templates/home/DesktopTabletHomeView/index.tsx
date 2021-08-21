@@ -1,6 +1,6 @@
-import { homeCardsDesktop } from '../../../../constants/homeCards'
+import { useDidMount } from 'rooks'
 
-import { colors } from '../../../../styles'
+import { homeCardsDesktop } from '../../../../constants/homeCards'
 
 import {
   DesktopMainContainer,
@@ -14,6 +14,8 @@ interface IProps {
 }
 
 const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
+  useDidMount(onFirstRender)
+
   return (
     <DesktopMainContainer>
       <DesktopHomeContentContainer>
@@ -22,9 +24,6 @@ const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
             key={card.color}
             {...card}
             isFirstRender={isFirstRender}
-            onFirstRender={
-              !!(card.color === colors.greenLight) && onFirstRender
-            }
           />
         ))}
       </DesktopHomeContentContainer>

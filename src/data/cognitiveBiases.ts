@@ -1,6 +1,6 @@
 import { IBiasData } from '../types/data'
 
-const data: IBiasData[] = [
+export const data: IBiasData[] = [
   {
     category: 'What should we remember?',
     subCategory: 'We reduce events and lists to their key elements',
@@ -1380,4 +1380,6 @@ const data: IBiasData[] = [
   },
 ]
 
-export default data
+export const sortedBiasData = [
+  ...data.sort((a, b) => a.cognitiveBias.localeCompare(b.cognitiveBias)),
+]

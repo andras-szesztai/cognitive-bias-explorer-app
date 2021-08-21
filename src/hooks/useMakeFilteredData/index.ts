@@ -1,15 +1,11 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce/lib'
+import { isNull } from 'lodash'
+import { usePrevious } from 'rooks'
 
-import usePrevious from '../usePrevious'
-
-import biasData from '../../data/cognitiveBiases'
+import { sortedBiasData } from '../../data/cognitiveBiases'
 
 import { IBiasData, ISelectedBiasData, TSubCategories } from '../../types/data'
-
-const sortedBiasData = biasData.sort((a, b) =>
-  a.cognitiveBias.localeCompare(b.cognitiveBias)
-)
 
 interface IParams {
   filters: TSubCategories
@@ -24,25 +20,44 @@ const useMakeFilteredData = ({
   selectedBias,
   setSelectedBias,
 }: IParams) => {
-  const [filteredBiasData, setFilteredBiasData] = useState<IBiasData[]>([])
+  const [filteredBiasData, setFilteredBiasData] =
+    useState<IBiasData[]>(sortedBiasData)
   const [debouncedSearchString] = useDebounce(searchString, 300)
+  const prevDebouncedSearchString = usePrevious(debouncedSearchString)
+  const stringifiedFilters = JSON.stringify(filters)
+  const prevStringifiedFilters = usePrevious(stringifiedFilters)
 
   useEffect(() => {
-    const subCategories = Object.values(filters).flat()
-    const newFilteredBiasData = sortedBiasData.filter((d) => {
-      let isIn = true
-      if (debouncedSearchString) {
-        isIn = d.cognitiveBias
-          .toLowerCase()
-          .includes(debouncedSearchString.toLowerCase())
-      }
-      if (subCategories.length) {
-        isIn = !!subCategories.includes(d.subCategory)
-      }
-      return isIn
-    })
-    setFilteredBiasData(newFilteredBiasData)
-  }, [filters, debouncedSearchString])
+    if (
+      (!isNull(prevStringifiedFilters) &&
+        prevStringifiedFilters !== stringifiedFilters) ||
+      (!isNull(prevDebouncedSearchString) &&
+        prevDebouncedSearchString !== debouncedSearchString)
+    ) {
+      const subCategories = Object.values(filters).flat()
+      const newFilteredBiasData = sortedBiasData.filter((d) => {
+        let isInSub = true
+        let isInSearch = true
+        if (subCategories.length) {
+          isInSub = !!subCategories.includes(d.subCategory)
+        }
+        if (debouncedSearchString) {
+          isInSearch = d.cognitiveBias
+            .toLowerCase()
+            .includes(debouncedSearchString.toLowerCase())
+        }
+        return isInSub && isInSearch
+      })
+      console.log(1)
+      setFilteredBiasData(newFilteredBiasData)
+    }
+  }, [
+    filters,
+    debouncedSearchString,
+    prevDebouncedSearchString,
+    prevStringifiedFilters,
+    stringifiedFilters,
+  ])
 
   // Updates position key in selectedBias if filteredBiasData is updated
   const prevFilteredBiasData = usePrevious(filteredBiasData)

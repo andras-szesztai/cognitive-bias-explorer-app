@@ -2,10 +2,10 @@ import { random, uniq } from 'lodash'
 
 import { TSubCategories } from '../types/data'
 
-import biasData from '../data/cognitiveBiases'
+import { data } from '../data/cognitiveBiases'
 
 export const getSubcategoriesPerCategory = () =>
-  biasData.reduce((acc, bias) => {
+  data.reduce((acc, bias) => {
     if (bias.category in acc) {
       if (!acc[bias.category].includes(bias.subCategory)) {
         return {
@@ -21,7 +21,7 @@ export const getSubcategoriesPerCategory = () =>
 
 export const getDailyBias = () => {
   //"Sunk Cost Fallacy" 161
-  const randomSorted = [...biasData].sort(
+  const randomSorted = [...data].sort(
     (a, b) => a.definition.length - b.definition.length
   )
 
@@ -31,7 +31,7 @@ export const getDailyBias = () => {
   const oneDay = 1000 * 60 * 60 * 24
   const day = Math.floor(diff / oneDay)
   const biasIndex =
-    Math.floor(day / 2) > biasData.length
+    Math.floor(day / 2) > data.length
       ? Math.floor(day / 3)
       : Math.floor(day / 2)
 
@@ -39,14 +39,14 @@ export const getDailyBias = () => {
 }
 
 export const getRandomQuestionAnswers = () => {
-  const questionIndex = random(0, biasData.length)
+  const questionIndex = random(0, data.length)
 
-  const questionBias = biasData[questionIndex]
+  const questionBias = data[questionIndex]
 
   const randomArray = uniq(
     Array.from(
-      { length: biasData.length },
-      () => biasData[random(0, biasData.length)]?.cognitiveBias
+      { length: data.length },
+      () => data[random(0, data.length)]?.cognitiveBias
     )
   ).filter(Boolean)
 

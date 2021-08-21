@@ -3,10 +3,9 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import { isBoolean } from 'lodash'
 import { isMobileOnly } from 'react-device-detect'
+import { usePrevious } from 'rooks'
 
 import { CloseIcon, SearchIcon } from '../icons'
-
-import { usePrevious } from '../../../hooks'
 
 import { breakPoints, colors } from '../../../styles'
 
