@@ -10,7 +10,7 @@ import {
   MobileFiltersContainer,
 } from './explore'
 import { DesktopMainContainer, MobileMainContainer } from './shared'
-import { DesktopHomeContentContainer } from './home'
+import { DesktopHomeContentContainer, MobileHomeContentContainer } from './home'
 
 export {
   ArrowMainContainer,
@@ -25,4 +25,5 @@ export {
   ExploreSearchCardsContainer,
   DesktopHomeContentContainer,
   MobileMainContainer,
+  MobileHomeContentContainer,
 }

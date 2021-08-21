@@ -1,14 +1,20 @@
-import { MobileMainContainer, TitleLogo } from '../../../atoms'
+import { homeCardsShared } from '../../../../constants/homeCards'
+import {
+  HomeBigCard,
+  MobileHomeContentContainer,
+  MobileMainContainer,
+  TitleLogo,
+} from '../../../atoms'
 
-interface IProps {
-  onFirstRender: () => void
-  isFirstRender: boolean
-}
-
-const MobileHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
+const MobileHomeView = () => {
   return (
     <MobileMainContainer>
       <TitleLogo isMobileOnly />
+      <MobileHomeContentContainer>
+        {Object.values(homeCardsShared).map((card) => (
+          <HomeBigCard key={card.color} {...card} noMaxHeight />
+        ))}
+      </MobileHomeContentContainer>
     </MobileMainContainer>
   )
 }

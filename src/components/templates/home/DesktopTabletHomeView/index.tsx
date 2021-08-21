@@ -1,4 +1,4 @@
-import homeCards from '../../../../constants/homeCards'
+import { homeCardsDesktop } from '../../../../constants/homeCards'
 
 import { colors } from '../../../../styles'
 
@@ -17,7 +17,7 @@ const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
   return (
     <DesktopMainContainer>
       <DesktopHomeContentContainer>
-        {homeCards.map((card) => (
+        {homeCardsDesktop.map((card) => (
           <HomeBigCard
             key={card.color}
             {...card}

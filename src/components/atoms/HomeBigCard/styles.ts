@@ -77,9 +77,17 @@ export const SubTitle = styled.h4`
   }
 `
 
-export const ParagraphContainer = styled.div<{ maxHeight: number }>`
+export const ParagraphContainer = styled.div<{
+  maxHeight: number
+  noMaxHeight?: boolean
+}>`
   place-self: start;
-  max-height: ${({ maxHeight }) => maxHeight || 0}px;
+  ${({ noMaxHeight, maxHeight }) =>
+    !noMaxHeight &&
+    css`
+      max-height: ${maxHeight || 0}px;
+    `}
+
   overflow-y: auto;
 
   ::-webkit-scrollbar {
@@ -128,7 +136,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1.4;
     padding: 0px 4px;
-    font-size: ${fontSizesString.xs};
     max-height: 100%;
+    font-size: ${fontSizesString.sm};
   }
 `

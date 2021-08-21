@@ -16,18 +16,19 @@ import {
 } from './styles'
 
 export interface IProps {
-  gridArea: string
-  alignContent: string
   color: string
   colorDark: string
-  x: number
-  y: number
-  delay: number
-  isFirstRender: boolean
-  onFirstRender: (() => void) | boolean
   title: string
-  subtitle?: string
   paragraph: (() => React.ReactNode) | string
+  isFirstRender?: boolean
+  onFirstRender?: (() => void) | boolean
+  gridArea?: string
+  alignContent?: string
+  x?: number
+  y?: number
+  delay?: number
+  subtitle?: string
+  noMaxHeight?: boolean
 }
 
 const heightAdjust = 12
@@ -37,14 +38,15 @@ const HomeBigCard = ({
   alignContent,
   color,
   colorDark,
-  x,
-  y,
-  delay,
+  x = 0,
+  y = 0,
+  delay = 0,
   isFirstRender,
   onFirstRender,
   title,
   subtitle,
   paragraph,
+  noMaxHeight,
 }: IProps) => {
   const [containerRef, { height: containerHeight }] = useMeasure()
   const [titleRef, { height: titleHeight }] = useMeasure()
@@ -72,15 +74,18 @@ const HomeBigCard = ({
       }}
       animate={{ x: 0, y: 0, opacity: 1 }}
       transition={{ ...cardSpring, delay }}
-      onAnimationComplete={() => !isBoolean(onFirstRender) && onFirstRender()}
+      onAnimationComplete={() => !isBoolean(onFirstRender) && onFirstRender?.()}
     >
       <CardContainer color={color} withSubtitle={!!subtitle}>
         <TitleContainer ref={titleRef} colorDark={colorDark}>
           <Title>{title}</Title>
         </TitleContainer>
         {subtitle && <SubTitle>{subtitle}</SubTitle>}
-        <ParagraphContainer maxHeight={paragraphHeight}>
-          {paragraphHeight && (
+        <ParagraphContainer
+          maxHeight={paragraphHeight}
+          noMaxHeight={noMaxHeight}
+        >
+          {!!paragraphHeight && (
             <Paragraph>
               {isString(paragraph) ? paragraph : paragraph()}
             </Paragraph>

@@ -14,19 +14,14 @@ interface IProps {
 
 const Home = ({ onFirstRender, isFirstRender }: IProps) => {
   return (
-    <Container>
+    <Container isMobileOnly={isMobileOnly}>
       {!isMobileOnly && (
         <DesktopTabletHomeView
           isFirstRender={isFirstRender}
           onFirstRender={onFirstRender}
         />
       )}
-      {isMobileOnly && (
-        <MobileHomeView
-          isFirstRender={isFirstRender}
-          onFirstRender={onFirstRender}
-        />
-      )}
+      {isMobileOnly && <MobileHomeView />}
     </Container>
   )
 }

@@ -10,15 +10,10 @@ const StyledLink = styled(Link)`
   color: ${colors.darkGray};
 `
 
-const homeCards = [
-  {
+export const homeCardsShared = {
+  pink: {
     color: colors.pinkLight,
     colorDark: colors.pink,
-    gridArea: '2 / 1 / 11 / 9',
-    alignContent: 'center',
-    delay: 0.4,
-    x: -400,
-    y: -0,
     title: 'Welcome to the Cognitive Bias Explorer!',
     subtitle: 'What is a cognitive bias?',
     paragraph: () => (
@@ -42,25 +37,15 @@ const homeCards = [
       </>
     ),
   },
-  {
+  yellow: {
     color: colors.yellowLight,
     colorDark: colors.yellow,
-    gridArea: '1 / 11 / 5 / 25',
-    alignContent: 'start',
-    delay: 1.2,
-    x: 100,
-    y: -400,
     title: `Daily bias: ${dailyBias.cognitiveBias}`,
     paragraph: dailyBias.definition,
   },
-  {
+  blue: {
     color: colors.blueLight,
     colorDark: colors.blue,
-    gridArea: '8 / 10 / 13 / 17',
-    alignContent: 'end',
-    delay: 2,
-    x: 0,
-    y: 250,
     title: 'Explore all',
     paragraph: () => (
       <>
@@ -72,14 +57,9 @@ const homeCards = [
       </>
     ),
   },
-  {
+  green: {
     color: colors.greenLight,
     colorDark: colors.green,
-    gridArea: '6 / 18 / 10 / 24',
-    alignContent: 'start',
-    delay: 3,
-    x: 370,
-    y: -0,
     title: 'Test your knowledge',
     paragraph: () => (
       <>
@@ -88,6 +68,35 @@ const homeCards = [
       </>
     ),
   },
-]
+}
 
-export default homeCards
+export const homeCardsDesktop = [
+  {
+    gridArea: '2 / 1 / 11 / 9',
+    alignContent: 'center',
+    delay: 0.4,
+    x: -400,
+    ...homeCardsShared.pink,
+  },
+  {
+    gridArea: '1 / 11 / 5 / 25',
+    alignContent: 'start',
+    delay: 0.8,
+    y: -400,
+    ...homeCardsShared.yellow,
+  },
+  {
+    gridArea: '8 / 10 / 13 / 17',
+    alignContent: 'end',
+    delay: 1.4,
+    y: 250,
+    ...homeCardsShared.blue,
+  },
+  {
+    gridArea: '6 / 18 / 10 / 24',
+    alignContent: 'start',
+    delay: 2,
+    x: 370,
+    ...homeCardsShared.green,
+  },
+]

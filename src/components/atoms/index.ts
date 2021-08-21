@@ -11,6 +11,7 @@ import {
   ExploreSearchCardsContainer,
   DesktopHomeContentContainer,
   MobileMainContainer,
+  MobileHomeContentContainer,
 } from './containers'
 import {
   ChevronIcon,
@@ -47,4 +48,5 @@ export {
   CloseIcon,
   ExploreSearchCardsContainer,
   DesktopHomeContentContainer,
+  MobileHomeContentContainer,
 }
