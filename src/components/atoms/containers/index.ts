@@ -8,22 +8,21 @@ import {
   DesktopExploreContentContainer,
   DesktopFiltersContainer,
   MobileFiltersContainer,
-  MobileExploreMainContainer,
 } from './explore'
-import { DesktopExploreMainContainer } from './shared'
+import { DesktopMainContainer, MobileMainContainer } from './shared'
 import { DesktopHomeContentContainer } from './home'
 
 export {
   ArrowMainContainer,
   ArrowSubContainer,
   DesktopExploreContentContainer,
-  DesktopExploreMainContainer,
+  DesktopMainContainer,
   DesktopFiltersContainer,
   MobileFiltersContainer,
   DisplayContainer,
   ExploreCardsContainer,
   ExploreSmallCardsContainer,
   ExploreSearchCardsContainer,
-  MobileExploreMainContainer,
   DesktopHomeContentContainer,
+  MobileMainContainer,
 }

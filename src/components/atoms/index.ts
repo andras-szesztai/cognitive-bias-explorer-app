@@ -1,16 +1,16 @@
 import {
-  DesktopExploreMainContainer,
+  DesktopMainContainer,
   DesktopExploreContentContainer,
   ExploreSmallCardsContainer,
   DesktopFiltersContainer,
   DisplayContainer,
   ExploreCardsContainer,
-  MobileExploreMainContainer,
   MobileFiltersContainer,
   ArrowMainContainer,
   ArrowSubContainer,
   ExploreSearchCardsContainer,
   DesktopHomeContentContainer,
+  MobileMainContainer,
 } from './containers'
 import {
   ChevronIcon,
@@ -29,7 +29,7 @@ export { default as HomeBigCard } from './HomeBigCard'
 export { default as SearchBar } from './SearchBar'
 export { default as MobileFiltersButton } from './MobileFiltersButton'
 export {
-  DesktopExploreMainContainer,
+  DesktopMainContainer,
   DesktopExploreContentContainer,
   ExploreSmallCardsContainer,
   DesktopFiltersContainer,
@@ -38,7 +38,7 @@ export {
   ExploreCardsContainer,
   SearchIcon,
   KeyboardIcon,
-  MobileExploreMainContainer,
+  MobileMainContainer,
   MobileFiltersContainer,
   ArrowMainContainer,
   ArrowSubContainer,

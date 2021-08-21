@@ -1,4 +1,5 @@
 import { AnimateSharedLayout } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 
 import {
   List,
@@ -11,9 +12,8 @@ import {
 import { colors } from '../../../styles'
 import { pillSpring } from '../../../styles/animations'
 import { TitleLogo } from '../../atoms'
-import { useLocation } from 'react-router-dom'
 
-const links = [
+export const links = [
   { label: 'Home', to: '/' },
   { label: 'Explorer', to: '/explorer' },
   { label: 'Quiz', to: '/quiz' },

@@ -1,6 +1,9 @@
 import { isMobileOnly } from 'react-device-detect'
 
-import { DesktopTabletHomeView } from '../../components/templates'
+import {
+  DesktopTabletHomeView,
+  MobileHomeView,
+} from '../../components/templates'
 
 import { Container } from './styles'
 
@@ -14,6 +17,12 @@ const Home = ({ onFirstRender, isFirstRender }: IProps) => {
     <Container>
       {!isMobileOnly && (
         <DesktopTabletHomeView
+          isFirstRender={isFirstRender}
+          onFirstRender={onFirstRender}
+        />
+      )}
+      {isMobileOnly && (
+        <MobileHomeView
           isFirstRender={isFirstRender}
           onFirstRender={onFirstRender}
         />

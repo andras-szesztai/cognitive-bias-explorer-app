@@ -3,7 +3,7 @@ import homeCards from '../../../../constants/homeCards'
 import { colors } from '../../../../styles'
 
 import {
-  DesktopExploreMainContainer,
+  DesktopMainContainer,
   DesktopHomeContentContainer,
   HomeBigCard,
 } from '../../../atoms'
@@ -15,7 +15,7 @@ interface IProps {
 
 const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
   return (
-    <DesktopExploreMainContainer>
+    <DesktopMainContainer>
       <DesktopHomeContentContainer>
         {homeCards.map((card) => (
           <HomeBigCard
@@ -28,7 +28,7 @@ const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
           />
         ))}
       </DesktopHomeContentContainer>
-    </DesktopExploreMainContainer>
+    </DesktopMainContainer>
   )
 }
 

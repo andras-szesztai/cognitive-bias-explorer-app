@@ -1,4 +1,3 @@
-import { css } from '@emotion/css'
 import styled from '@emotion/styled'
 import { useHistory } from 'react-router-dom'
 
@@ -17,10 +16,10 @@ const pillsDesktop: PillProps[] = [
 ]
 
 const pillsMobile: PillProps[] = [
-  { color: 'yellow', top: -7, left: -5 },
-  { color: 'blue', top: 38, left: 156 },
-  { color: 'pink', top: -2, left: 195 },
-  { color: 'green', top: 65, left: 45 },
+  { color: 'yellow', top: -12, left: -5 },
+  { color: 'blue', top: 28, left: 152 },
+  { color: 'pink', top: -6, left: 188 },
+  { color: 'green', top: 22, left: 45 },
 ]
 
 interface IProps {
@@ -32,14 +31,14 @@ const TitleLogo = ({ isMobileOnly }: IProps) => {
   const pillsArray = isMobileOnly ? pillsMobile : pillsDesktop
   return (
     <Container onClick={() => history.push('/')}>
-      <div className={pillContainerStyle}>
+      <RelativeContainer>
         {pillsArray.map((pill) => (
           <Pill key={pill.color} {...pill} />
         ))}
-      </div>
-      <div className={titleContainerStyle}>
+      </RelativeContainer>
+      <RelativeContainer>
         <Title isMobileOnly={isMobileOnly}>Cognitive Bias Explorer</Title>
-      </div>
+      </RelativeContainer>
     </Container>
   )
 }
@@ -55,21 +54,16 @@ const Container = styled.div`
   }
 `
 
-const titleContainerStyle = css`
+const RelativeContainer = styled.div`
   position: relative;
 `
 
 const Title = styled.h1<{ isMobileOnly?: boolean }>`
-  font-size: ${({ isMobileOnly }) =>
-    isMobileOnly ? fontSizesString.xl : fontSizesString.md};
+  font-size: ${fontSizesString.md};
   line-height: ${({ isMobileOnly }) => (isMobileOnly ? 1 : 0.8)};
   font-weight: ${fontWeights.bold};
   color: ${colors.darkGray};
   user-select: none;
-`
-
-const pillContainerStyle = css`
-  position: relative;
 `
 
 type colorTypes = 'blue' | 'yellow' | 'pink' | 'green'

@@ -6,7 +6,7 @@ import {
   DesktopExploreContentContainer,
   SearchBar,
   ExploreSearchCardsContainer,
-  DesktopExploreMainContainer,
+  DesktopMainContainer,
 } from '../../../atoms'
 import {
   ButtonWithDropdownControls,
@@ -37,7 +37,7 @@ const DesktopTabletView = ({
   const isFiltered = !!Object.values(filters).flat().length || !!searchString
 
   return (
-    <DesktopExploreMainContainer>
+    <DesktopMainContainer>
       <DesktopExploreContentContainer>
         <ButtonWithDropdownControls
           filters={filters}
@@ -67,7 +67,7 @@ const DesktopTabletView = ({
           </ExploreCardsContainer>
         </ExploreSearchCardsContainer>
       </DesktopExploreContentContainer>
-    </DesktopExploreMainContainer>
+    </DesktopMainContainer>
   )
 }
 

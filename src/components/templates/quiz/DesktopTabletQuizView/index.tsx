@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { DesktopExploreMainContainer } from '../../../atoms'
+import { DesktopMainContainer } from '../../../atoms'
 
 import { getRandomQuestionAnswers } from '../../../../utils/dataHelpers'
 
@@ -35,7 +35,7 @@ const DesktopTabletQuizView = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('')
 
   return (
-    <DesktopExploreMainContainer>
+    <DesktopMainContainer>
       <DesktopQuizContentContainer>
         <AnimatePresence>
           {!!selectedAnswer && (
@@ -79,7 +79,7 @@ const DesktopTabletQuizView = () => {
           </AnswerContainer>
         ))}
       </DesktopQuizContentContainer>
-    </DesktopExploreMainContainer>
+    </DesktopMainContainer>
   )
 }
 

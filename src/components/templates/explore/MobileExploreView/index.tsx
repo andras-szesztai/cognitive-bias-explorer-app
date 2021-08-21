@@ -7,7 +7,7 @@ import {
   SearchBar,
   TitleLogo,
   ExploreCardsContainer,
-  MobileExploreMainContainer,
+  MobileMainContainer,
   MobileFiltersContainer,
   MobileFiltersButton,
 } from '../../../atoms'
@@ -49,7 +49,7 @@ const MobileView = ({
   const maxExpandedCardHeight = fullHeight - 148
 
   return (
-    <MobileExploreMainContainer ref={containerRef}>
+    <MobileMainContainer ref={containerRef}>
       <TitleLogo isMobileOnly />
       <AnimateSharedLayout type="crossfade">
         <ExploreCardsContainer isMobileOnly>
@@ -120,7 +120,7 @@ const MobileView = ({
           />
         </div>
       </MobileFiltersContainer>
-    </MobileExploreMainContainer>
+    </MobileMainContainer>
   )
 }
 

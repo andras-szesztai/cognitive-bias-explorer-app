@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { margins, widths } from '../../../../../constants/dimensions'
 import { breakPoints } from '../../../../../styles'
 
-const MainContainer = styled.div`
+const DesktopMainContainer = styled.div`
   position: relative;
   width: ${widths.maxContentXl}px;
   height: calc(100% - ${margins.topMainXl}px);
@@ -32,4 +32,4 @@ const MainContainer = styled.div`
   display: grid;
 `
 
-export default MainContainer
+export default DesktopMainContainer

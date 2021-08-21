@@ -10,10 +10,7 @@ import {
   DesktopExploreContentContainer,
   DesktopFiltersContainer,
 } from './desktopTablet'
-import {
-  MobileFiltersContainer,
-  MobileExploreMainContainer,
-} from './mobileOnly'
+import { MobileFiltersContainer } from './mobileOnly'
 
 export {
   ArrowMainContainer,
@@ -25,5 +22,4 @@ export {
   ExploreCardsContainer,
   ExploreSmallCardsContainer,
   ExploreSearchCardsContainer,
-  MobileExploreMainContainer,
 }

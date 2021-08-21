@@ -94,7 +94,6 @@ const BigCard = ({
             <Title>Start exploring!</Title>
             {renderIcon()}
           </TitleContainer>
-          <SubTitle>What are cognitive biases?</SubTitle>
           <Paragraph>
             Click around, filter and search for biases you would like to find
             out more about!
