@@ -25,6 +25,7 @@ import {
 export { default as TitleLogo } from './TitleLogo'
 export { default as Checkbox } from './Checkbox'
 export { default as SmallCard } from './SmallCard'
+export { default as QuizCard } from './QuizCard'
 export { default as ExplorerBigCard } from './ExplorerBigCard'
 export { default as HomeBigCard } from './HomeBigCard'
 export { default as SearchBar } from './SearchBar'

@@ -6,7 +6,7 @@ const MobileHomeContentContainer = styled.div`
   display: grid;
   grid-row-gap: 16px;
   grid-template-rows: repeat(4, min-content);
-  padding-bottom: 36px;
+  padding-bottom: 48px;
 `
 
 export default MobileHomeContentContainer
