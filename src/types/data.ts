@@ -16,6 +16,7 @@ export interface IBiasData {
   subCategory: string
   cognitiveBias: string
   definition: string
+  questionDef: string
 }
 
 export interface ISelectedBiasData extends IBiasData {

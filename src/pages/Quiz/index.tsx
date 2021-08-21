@@ -22,7 +22,7 @@ const Quiz = () => {
   const [quizType, setQuizType] = useState<QuestionTypes | undefined>(undefined)
   const answerType =
     quizType === QuestionTypes.bias
-      ? QuestionTypes.definition
+      ? QuestionTypes.questionDef
       : QuestionTypes.bias
 
   const [isSelectOut, setIsSelectOut] = useState(false)
