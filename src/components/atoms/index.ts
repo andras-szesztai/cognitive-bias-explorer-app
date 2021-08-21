@@ -20,6 +20,8 @@ import {
   CollapseIcon,
   ExpandIcon,
   CloseIcon,
+  QuestionMark,
+  CorrectMark,
 } from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
@@ -50,4 +52,6 @@ export {
   ExploreSearchCardsContainer,
   DesktopHomeContentContainer,
   MobileHomeContentContainer,
+  QuestionMark,
+  CorrectMark,
 }

@@ -1,4 +1,4 @@
-import { random, uniq } from 'lodash'
+import { isUndefined, random, uniq } from 'lodash'
 
 import { TSubCategories } from '../types/data'
 
@@ -45,3 +45,12 @@ export const getRandomQuestionAnswers = () => {
     answers,
   }
 }
+
+export const getRandomQuizIndexes = (
+  base: number,
+  length: number,
+  filterOut?: number
+) =>
+  uniq([...new Array(base)].map(() => random(0, data.length)))
+    .filter((n) => (!isUndefined(filterOut) ? n !== filterOut : true))
+    .slice(0, length)

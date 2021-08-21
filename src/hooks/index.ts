@@ -1,3 +1,6 @@
 export { default as useKeyboardNavigation } from './useKeyboardNavigation'
 export { default as useMakeFilteredData } from './useMakeFilteredData'
 export { default as useActiveKeys } from './useActiveKeys'
+export { default as useRandomQuizQuestions } from './useRandomQuizQuestions'
+export { default as useManageQuiz } from './useManageQuiz'
+export { default as useCurrentQuizValues } from './useCurrentQuizValues'

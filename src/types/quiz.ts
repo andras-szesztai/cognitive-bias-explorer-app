@@ -2,5 +2,5 @@ export type TQuestion = 'definition' | 'bias' | undefined
 
 export enum QuestionTypes {
   definition = 'definition',
-  bias = 'bias',
+  bias = 'cognitiveBias',
 }
