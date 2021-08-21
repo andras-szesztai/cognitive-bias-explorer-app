@@ -4,37 +4,54 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { isUndefined } from 'lodash'
 
 import {
+  ChevronIcon,
   CloseIcon,
   CorrectMark,
   DesktopMainContainer,
+  HomeBigCard,
   QuestionMark,
+  QuizCard,
 } from '../../../atoms'
 
-import { QuestionTypes } from '../../../../types/quiz'
-
-import { quizTypes } from '../../../../constants/quiz'
-
-import { cardSpring, colors, fontSizesString } from '../../../../styles'
-import { QuizCard } from '../../../atoms'
-import { categoryColors, categoryLightColors } from '../../../../styles/colors'
 import {
   useCurrentQuizValues,
   useManageQuiz,
   useRandomQuizQuestions,
 } from '../../../../hooks'
 
+import { QuestionTypes } from '../../../../types/quiz'
+import { IBiasData } from '../../../../types/data'
+
+import { quizTypes } from '../../../../constants/quiz'
+
+import { categoryColors, categoryLightColors } from '../../../../styles/colors'
+import {
+  cardSpring,
+  colors,
+  durations,
+  fontSizesString,
+  getOpacityInOut,
+} from '../../../../styles'
 interface IQuizProps {
   quizType: QuestionTypes | undefined
   setQuizType: (type: QuestionTypes) => void
+  onReset: () => void
 }
 
-const DesktopTabletQuizView = ({ quizType, setQuizType }: IQuizProps) => {
+const alphabet = ['A', 'B', 'C', 'D']
+
+const DesktopTabletQuizView = ({
+  quizType,
+  setQuizType,
+  onReset,
+}: IQuizProps) => {
   const answerType =
     quizType === QuestionTypes.bias
       ? QuestionTypes.definition
       : QuestionTypes.bias
 
   const [isSelectOut, setIsSelectOut] = useState(false)
+  const [isQuizOut, setIsQuizOut] = useState(true)
   const { currentQuestionIndex, setCurrentQuestionIndex, results, setResults } =
     useManageQuiz()
   const questions = useRandomQuizQuestions({ quizType })
@@ -46,24 +63,42 @@ const DesktopTabletQuizView = ({ quizType, setQuizType }: IQuizProps) => {
       results,
     })
 
-  console.log({ shuffledAnswers })
+  const [moreInfoOption, setMoreInfoOption] = useState<IBiasData | undefined>(
+    undefined
+  )
 
   const handleQuestionClick = (answer: string) => {
     const newResults = results.map((result, i) =>
       i === currentQuestionIndex
-        ? answer === questions?.[currentQuestionIndex].correct[answerType]
+        ? {
+            result:
+              answer === questions![currentQuestionIndex].correct[answerType],
+            color: categoryColors[currentQuestion!.category],
+          }
         : result
     )
     setResults(newResults)
   }
+  const handleReset = () => {
+    onReset()
+    setCurrentQuestionIndex(0)
+    setResults([...new Array(10)].map(() => undefined))
+  }
+
+  const isLast = currentQuestionIndex === results.length - 1
 
   return (
     <DesktopMainContainer>
-      <AnimatePresence onExitComplete={() => setIsSelectOut(true)}>
-        {!quizType && (
+      <AnimatePresence
+        onExitComplete={() => {
+          setIsQuizOut(false)
+          setIsSelectOut(true)
+        }}
+      >
+        {!quizType && isQuizOut && (
           <ContentContainer
             initial={{ opacity: 0, y: -400 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: durations.md } }}
             exit={{ opacity: 0, y: 400 }}
             transition={cardSpring}
           >
@@ -83,7 +118,12 @@ const DesktopTabletQuizView = ({ quizType, setQuizType }: IQuizProps) => {
           </ContentContainer>
         )}
       </AnimatePresence>
-      <AnimatePresence>
+      <AnimatePresence
+        onExitComplete={() => {
+          setIsSelectOut(false)
+          setIsQuizOut(true)
+        }}
+      >
         {!!quizType &&
           questions &&
           isSelectOut &&
@@ -101,10 +141,10 @@ const DesktopTabletQuizView = ({ quizType, setQuizType }: IQuizProps) => {
                     <Result key={i}>
                       {isUndefined(result) ? (
                         <QuestionMark height={14} />
-                      ) : result ? (
-                        <CorrectMark height={14} />
+                      ) : result.result ? (
+                        <CorrectMark fill={result.color} height={14} />
                       ) : (
-                        <CloseIcon height={14} />
+                        <CloseIcon fill={result.color} height={14} />
                       )}
                     </Result>
                   ))}
@@ -118,35 +158,79 @@ const DesktopTabletQuizView = ({ quizType, setQuizType }: IQuizProps) => {
                         : 'definition'}
                       :
                     </p>
-                  ) : currentResult ? (
+                  ) : currentResult.result ? (
                     <p>Correct!</p>
                   ) : (
                     <p>
                       Incorrect! The correct answer was{' '}
-                      {currentQuestion[answerType]}
+                      {
+                        alphabet[
+                          shuffledAnswers.findIndex(
+                            (a) => a[answerType] === currentQuestion[answerType]
+                          )
+                        ]
+                      }
                     </p>
                   )}
-                  {!isUndefined(currentResult) && (
-                    <p>
-                      Click around to see find out more about the other options!
-                    </p>
-                  )}
-                  {!isUndefined(currentResult) && <button>Next?</button>}
+                  <AnimatePresence>
+                    {!isUndefined(currentResult) && (
+                      <NextButton
+                        {...getOpacityInOut()}
+                        onClick={() => {
+                          if (!isLast) {
+                            setCurrentQuestionIndex((prev) => prev + 1)
+                          } else {
+                            handleReset()
+                          }
+                        }}
+                      >
+                        {isLast ? (
+                          <p>New round?</p>
+                        ) : (
+                          <>
+                            <p>Next question</p>
+                            <IconContainer>
+                              <ChevronIcon height={6} fill={colors.white} />
+                            </IconContainer>
+                          </>
+                        )}
+                      </NextButton>
+                    )}
+                  </AnimatePresence>
                 </FeedbackContainer>
                 <MainText>{currentQuestion[quizType]}</MainText>
               </TopTextContainer>
               <SmallCardsContainer>
-                {shuffledAnswers.map((answer) => (
+                {shuffledAnswers.map((answer, i) => (
                   <QuizCard
                     key={answer[answerType]}
-                    text={answer[answerType]}
-                    handleClick={() => handleQuestionClick(answer[answerType])}
+                    text={`${alphabet[i]} • ${answer[answerType]}`}
+                    handleClick={() =>
+                      isUndefined(currentResult)
+                        ? handleQuestionClick(answer[answerType])
+                        : setMoreInfoOption(answer)
+                    }
                     isActive={false}
                     color={categoryColors[answer.category]}
                     colorLight={categoryLightColors[answer.category]}
                   />
                 ))}
               </SmallCardsContainer>
+              {!isUndefined(currentResult) &&
+                (!moreInfoOption ? (
+                  <p>
+                    Click around to see find out more about the other options!
+                  </p>
+                ) : (
+                  <HomeBigCard
+                    color={categoryLightColors[moreInfoOption.category]}
+                    colorDark={categoryColors[moreInfoOption.category]}
+                    title={moreInfoOption.cognitiveBias}
+                    subtitle={moreInfoOption.subCategory}
+                    paragraph={moreInfoOption.definition}
+                    noMaxHeight
+                  />
+                ))}
             </ContentContainer>
           )}
       </AnimatePresence>
@@ -180,6 +264,7 @@ const SmallCardsContainer = styled.div`
 const TopTextContainer = styled.div`
   display: grid;
   grid-row-gap: 8px;
+  grid-template-rows: min-content 28px min-content;
 `
 
 const ResultsContainer = styled.div`
@@ -197,9 +282,28 @@ const Result = styled.div`
 
 const FeedbackContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, max-content);
+  grid-template-columns: repeat(2, max-content);
   align-items: center;
-  grid-column-gap: 16px;
+  justify-content: space-between;
+`
+
+const NextButton = styled(motion.button)`
+  text-align: left;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 4px;
+  background-color: ${colors.darkGray};
+  color: ${colors.white};
+  cursor: pointer;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 4px;
+  align-items: center;
+`
+
+const IconContainer = styled.span`
+  transform: rotate(-90deg);
 `
 
 export default DesktopTabletQuizView

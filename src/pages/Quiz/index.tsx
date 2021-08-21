@@ -16,6 +16,7 @@ const Quiz = () => {
         <DesktopTabletQuizView
           quizType={quizType}
           setQuizType={(type: QuestionTypes) => setQuizType(type)}
+          onReset={() => setQuizType(undefined)}
         />
       )}
     </Container>

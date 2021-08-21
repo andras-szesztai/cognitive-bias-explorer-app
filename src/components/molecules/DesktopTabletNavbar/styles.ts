@@ -8,6 +8,7 @@ import { heights } from '../../../constants/dimensions'
 import { breakPoints, colors } from '../../../styles'
 
 export const NavbarContainer = styled.div`
+  user-select: none;
   width: 100vw;
   height: ${heights.navbar}px;
   position: relative;

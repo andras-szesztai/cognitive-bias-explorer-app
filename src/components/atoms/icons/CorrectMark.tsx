@@ -1,12 +1,8 @@
 import { colors } from '../../../styles'
 
-const CorrectMark = ({ height = 10 }) => {
+const CorrectMark = ({ height = 10, fill = colors.darkGray }) => {
   return (
-    <svg
-      viewBox="859.681 182.225 80.063 60"
-      height={height}
-      fill={colors.darkGray}
-    >
+    <svg viewBox="859.681 182.225 80.063 60" height={height} fill={fill}>
       <path
         clipRule="evenodd"
         fillRule="evenodd"

@@ -20,18 +20,18 @@ export const getSubcategoriesPerCategory = () =>
   }, {} as TSubCategories)
 
 export const getRandomBias = () => {
-  return data[random(0, data.length)]
+  return data[random(0, data.length - 1)]
 }
 
 export const getRandomQuestionAnswers = () => {
-  const questionIndex = random(0, data.length)
+  const questionIndex = random(0, data.length - 1)
 
   const questionBias = data[questionIndex]
 
   const randomArray = uniq(
     Array.from(
       { length: data.length },
-      () => data[random(0, data.length)]?.cognitiveBias
+      () => data[random(0, data.length - 1)]?.cognitiveBias
     )
   ).filter(Boolean)
 
@@ -51,6 +51,6 @@ export const getRandomQuizIndexes = (
   length: number,
   filterOut?: number
 ) =>
-  uniq([...new Array(base)].map(() => random(0, data.length)))
+  uniq([...new Array(base)].map(() => random(0, data.length - 1)))
     .filter((n) => (!isUndefined(filterOut) ? n !== filterOut : true))
     .slice(0, length)
