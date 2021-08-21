@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { isUndefined } from 'lodash'
 
@@ -13,82 +13,66 @@ import {
   QuizCard,
 } from '../../../atoms'
 
-import {
-  useCurrentQuizValues,
-  useManageQuiz,
-  useRandomQuizQuestions,
-} from '../../../../hooks'
-
-import { QuestionTypes } from '../../../../types/quiz'
-import { IBiasData } from '../../../../types/data'
-
-import { quizTypes } from '../../../../constants/quiz'
+import { alphabet, quizTypes } from '../../../../constants/quiz'
 
 import { categoryColors, categoryLightColors } from '../../../../styles/colors'
 import {
+  breakPoints,
   cardSpring,
   colors,
   durations,
   fontSizesString,
   getOpacityInOut,
 } from '../../../../styles'
-interface IQuizProps {
+
+import { QuestionTypes } from '../../../../types/quiz'
+import { IBiasData } from '../../../../types/data'
+import { IRandomQuizQuestions } from '../../../../hooks/useRandomQuizQuestions'
+import { IQuizResult } from '../../../../hooks/useManageQuiz'
+
+export interface IQuizViewProps {
+  isQuizOut: boolean
+  setIsQuizOut: Dispatch<SetStateAction<boolean>>
+  isSelectOut: boolean
+  setIsSelectOut: Dispatch<SetStateAction<boolean>>
+  answerType: QuestionTypes
   quizType: QuestionTypes | undefined
-  setQuizType: (type: QuestionTypes) => void
-  onReset: () => void
+  setQuizType: Dispatch<SetStateAction<QuestionTypes | undefined>>
+  questions: IRandomQuizQuestions[] | undefined
+  currentQuestion: IBiasData | undefined
+  setCurrentQuestionIndex: Dispatch<SetStateAction<number>>
+  shuffledAnswers: IBiasData[] | undefined
+  results: (IQuizResult | undefined)[]
+  currentResult: IQuizResult | undefined
+  setMoreInfoOption: Dispatch<SetStateAction<IBiasData | undefined>>
+  isLast: boolean
+  moreInfoOption: IBiasData | undefined
+  handleQuestionClick: (answer: string) => void
+  handleReset: () => void
 }
 
-const alphabet = ['A', 'B', 'C', 'D']
-
 const DesktopTabletQuizView = ({
+  isQuizOut,
+  setIsQuizOut,
+  isSelectOut,
+  setIsSelectOut,
   quizType,
   setQuizType,
-  onReset,
-}: IQuizProps) => {
-  const answerType =
-    quizType === QuestionTypes.bias
-      ? QuestionTypes.definition
-      : QuestionTypes.bias
-
-  const [isSelectOut, setIsSelectOut] = useState(false)
-  const [isQuizOut, setIsQuizOut] = useState(true)
-  const { currentQuestionIndex, setCurrentQuestionIndex, results, setResults } =
-    useManageQuiz()
-  const questions = useRandomQuizQuestions({ quizType })
-  const { currentQuestion, currentResult, shuffledAnswers } =
-    useCurrentQuizValues({
-      quizType,
-      questions,
-      currentQuestionIndex,
-      results,
-    })
-
-  const [moreInfoOption, setMoreInfoOption] = useState<IBiasData | undefined>(
-    undefined
-  )
-
-  const handleQuestionClick = (answer: string) => {
-    const newResults = results.map((result, i) =>
-      i === currentQuestionIndex
-        ? {
-            result:
-              answer === questions![currentQuestionIndex].correct[answerType],
-            color: categoryColors[currentQuestion!.category],
-          }
-        : result
-    )
-    setResults(newResults)
-  }
-  const handleReset = () => {
-    onReset()
-    setCurrentQuestionIndex(0)
-    setResults([...new Array(10)].map(() => undefined))
-  }
-
-  const isLast = currentQuestionIndex === results.length - 1
-
+  questions,
+  currentQuestion,
+  setCurrentQuestionIndex,
+  shuffledAnswers,
+  results,
+  currentResult,
+  setMoreInfoOption,
+  answerType,
+  isLast,
+  moreInfoOption,
+  handleQuestionClick,
+  handleReset,
+}: IQuizViewProps) => {
   return (
-    <DesktopMainContainer>
+    <DesktopMainContainer withMarginBottom>
       <AnimatePresence
         onExitComplete={() => {
           setIsQuizOut(false)
@@ -124,115 +108,117 @@ const DesktopTabletQuizView = ({
           setIsQuizOut(true)
         }}
       >
-        {!!quizType &&
+        {!!(
+          quizType &&
           questions &&
           isSelectOut &&
           currentQuestion &&
-          shuffledAnswers && (
-            <ContentContainer
-              initial={{ opacity: 0, y: -400 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 400 }}
-              transition={cardSpring}
-            >
-              <TopTextContainer>
-                <ResultsContainer>
-                  {results.map((result, i) => (
-                    <Result key={i}>
-                      {isUndefined(result) ? (
-                        <QuestionMark height={14} />
-                      ) : result.result ? (
-                        <CorrectMark fill={result.color} height={14} />
-                      ) : (
-                        <CloseIcon fill={result.color} height={14} />
-                      )}
-                    </Result>
-                  ))}
-                </ResultsContainer>
-                <FeedbackContainer>
-                  {isUndefined(currentResult) ? (
-                    <p>
-                      Please select an answer for the following{' '}
-                      {quizType === QuestionTypes.bias
-                        ? 'cognitive bias'
-                        : 'definition'}
-                      :
-                    </p>
-                  ) : currentResult.result ? (
-                    <p>Correct!</p>
-                  ) : (
-                    <p>
-                      Incorrect! The correct answer was{' '}
-                      {
-                        alphabet[
-                          shuffledAnswers.findIndex(
-                            (a) => a[answerType] === currentQuestion[answerType]
-                          )
-                        ]
-                      }
-                    </p>
-                  )}
-                  <AnimatePresence>
-                    {!isUndefined(currentResult) && (
-                      <NextButton
-                        {...getOpacityInOut()}
-                        onClick={() => {
-                          if (!isLast) {
-                            setCurrentQuestionIndex((prev) => prev + 1)
-                          } else {
-                            handleReset()
-                          }
-                        }}
-                      >
-                        {isLast ? (
-                          <p>New round?</p>
-                        ) : (
-                          <>
-                            <p>Next question</p>
-                            <IconContainer>
-                              <ChevronIcon height={6} fill={colors.white} />
-                            </IconContainer>
-                          </>
-                        )}
-                      </NextButton>
+          shuffledAnswers
+        ) && (
+          <ContentContainer
+            initial={{ opacity: 0, y: -400 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 400 }}
+            transition={cardSpring}
+          >
+            <TopTextContainer>
+              <ResultsContainer>
+                {results.map((result, i) => (
+                  <Result key={i}>
+                    {i + 1}.
+                    {isUndefined(result) ? (
+                      <QuestionMark height={14} />
+                    ) : result.result ? (
+                      <CorrectMark fill={result.color} height={14} />
+                    ) : (
+                      <CloseIcon fill={result.color} height={14} />
                     )}
-                  </AnimatePresence>
-                </FeedbackContainer>
-                <MainText>{currentQuestion[quizType]}</MainText>
-              </TopTextContainer>
-              <SmallCardsContainer>
-                {shuffledAnswers.map((answer, i) => (
-                  <QuizCard
-                    key={answer[answerType]}
-                    text={`${alphabet[i]} • ${answer[answerType]}`}
-                    handleClick={() =>
-                      isUndefined(currentResult)
-                        ? handleQuestionClick(answer[answerType])
-                        : setMoreInfoOption(answer)
-                    }
-                    isActive={false}
-                    color={categoryColors[answer.category]}
-                    colorLight={categoryLightColors[answer.category]}
-                  />
+                  </Result>
                 ))}
-              </SmallCardsContainer>
-              {!isUndefined(currentResult) &&
-                (!moreInfoOption ? (
+              </ResultsContainer>
+              <FeedbackContainer>
+                {isUndefined(currentResult) ? (
                   <p>
-                    Click around to see find out more about the other options!
+                    Please select an answer for the following{' '}
+                    {quizType === QuestionTypes.bias
+                      ? 'cognitive bias'
+                      : 'definition'}
+                    :
                   </p>
+                ) : currentResult.result ? (
+                  <p>Correct!</p>
                 ) : (
-                  <HomeBigCard
-                    color={categoryLightColors[moreInfoOption.category]}
-                    colorDark={categoryColors[moreInfoOption.category]}
-                    title={moreInfoOption.cognitiveBias}
-                    subtitle={moreInfoOption.subCategory}
-                    paragraph={moreInfoOption.definition}
-                    noMaxHeight
-                  />
-                ))}
-            </ContentContainer>
-          )}
+                  <p>
+                    Incorrect! The correct answer was{' '}
+                    {
+                      alphabet[
+                        shuffledAnswers.findIndex(
+                          (a) => a[answerType] === currentQuestion[answerType]
+                        )
+                      ]
+                    }
+                  </p>
+                )}
+                <AnimatePresence>
+                  {!isUndefined(currentResult) && (
+                    <NextButton
+                      {...getOpacityInOut()}
+                      onClick={() => {
+                        if (!isLast) {
+                          setCurrentQuestionIndex((prev) => prev + 1)
+                          setMoreInfoOption(undefined)
+                        } else {
+                          handleReset()
+                        }
+                      }}
+                    >
+                      {isLast ? (
+                        <p>New round?</p>
+                      ) : (
+                        <>
+                          <p>Next question</p>
+                          <IconContainer>
+                            <ChevronIcon height={6} fill={colors.white} />
+                          </IconContainer>
+                        </>
+                      )}
+                    </NextButton>
+                  )}
+                </AnimatePresence>
+              </FeedbackContainer>
+              <MainText>{currentQuestion[quizType]}</MainText>
+            </TopTextContainer>
+            <SmallCardsContainer>
+              {shuffledAnswers.map((answer, i) => (
+                <QuizCard
+                  key={answer[answerType]}
+                  text={`${alphabet[i]} • ${answer[answerType]}`}
+                  handleClick={() =>
+                    isUndefined(currentResult)
+                      ? handleQuestionClick(answer[answerType])
+                      : setMoreInfoOption(answer)
+                  }
+                  isActive={false}
+                  color={categoryColors[answer.category]}
+                  colorLight={categoryLightColors[answer.category]}
+                />
+              ))}
+            </SmallCardsContainer>
+            {!isUndefined(currentResult) &&
+              (!moreInfoOption ? (
+                <p>Click around to find out more about the options!</p>
+              ) : (
+                <HomeBigCard
+                  color={categoryLightColors[moreInfoOption.category]}
+                  colorDark={categoryColors[moreInfoOption.category]}
+                  title={moreInfoOption.cognitiveBias}
+                  subtitle={moreInfoOption.subCategory}
+                  paragraph={moreInfoOption.definition}
+                  noMaxHeight
+                />
+              ))}
+          </ContentContainer>
+        )}
       </AnimatePresence>
     </DesktopMainContainer>
   )
@@ -241,43 +227,103 @@ const DesktopTabletQuizView = ({
 const ContentContainer = styled(motion.div)`
   width: 100%;
   height: 100%;
+  max-height: 100%;
+  min-height: 100%;
 
   display: grid;
   grid-template-rows: repeat(3, min-content);
   grid-row-gap: 36px;
+
+  overflow-y: auto;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-row-gap: 24px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-row-gap: 16px;
+  }
 `
 
 const MainText = styled.h2`
   font-size: ${fontSizesString.md};
   line-height: 1.3;
   user-select: none;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    font-size: ${fontSizesString.default};
+    line-height: 1.4;
+  }
 `
 
 const SmallCardsContainer = styled.div`
+  place-self: stretch;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 36px;
   grid-template-rows: repeat(2, min-content);
   grid-row-gap: 24px;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-column-gap: 24px;
+    grid-row-gap: 16px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-column-gap: 16px;
+    grid-row-gap: 8px;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-template-columns: 1fr;
+  }
 `
 
 const TopTextContainer = styled.div`
   display: grid;
-  grid-row-gap: 8px;
+  grid-row-gap: 16px;
   grid-template-rows: min-content 28px min-content;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-row-gap: 8px;
+  }
 `
 
 const ResultsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(10, 24px);
-  grid-column-gap: 16px;
+  grid-column-gap: 36px;
   align-items: center;
   margin-bottom: 8px;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-column-gap: 24px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-column-gap: 16px;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-column-gap: 8px;
+    justify-content: center;
+  }
 `
 
 const Result = styled.div`
   display: grid;
   align-content: center;
+  align-items: center;
+  grid-auto-flow: column;
+  grid-column-gap: 8px;
+
+  @media (max-width: ${breakPoints.second}) {
+    grid-column-gap: 4px;
+  }
+
+  @media (max-width: ${breakPoints.third}) {
+    grid-column-gap: 2px;
+  }
 `
 
 const FeedbackContainer = styled.div`

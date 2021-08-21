@@ -6,6 +6,7 @@ export const heights = {
 export const margins = {
   topMainXl: 64,
   topMainMd: 36,
+  topMainSm: 16,
 }
 
 export const widths = {
@@ -14,6 +15,8 @@ export const widths = {
   maxContentSm: 800,
   maxContentXs: 640,
   maxContentXxs: 560,
+  mobile: 360,
+  mobileSm: 280,
 }
 
 export const paddings = {
