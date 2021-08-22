@@ -7,6 +7,7 @@ import { SmallCard, ExploreSmallCardsContainer } from '../../atoms'
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
 import { breakPoints, colors } from '../../../styles'
+import { isMobileOnly } from 'react-device-detect'
 
 interface IProps {
   filteredBiasData: IBiasData[]
@@ -36,7 +37,7 @@ const SmallCardsContainerContent = ({
           />
         )
       })}
-      <div style={{ height: 90 }} />
+      {isMobileOnly && <div style={{ height: 90 }} />}
       <AnimatePresence>
         {!filteredBiasData.length && isFiltered && (
           <MessageContainer
