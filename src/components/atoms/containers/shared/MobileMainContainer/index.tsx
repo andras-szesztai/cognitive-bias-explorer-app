@@ -12,6 +12,8 @@ const MobileMainContainer = styled.div`
   grid-template-rows: min-content 1fr;
   grid-row-gap: 24px;
 
+  border: 1px solid red;
+
   overflow-y: auto;
 `
 
