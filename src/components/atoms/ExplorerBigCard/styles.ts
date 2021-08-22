@@ -28,11 +28,11 @@ export const MainContainer = styled(motion.div)<{
   @media (max-width: ${breakPoints.fifth}) {
     padding: 8px 8px 12px 8px;
     height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 'auto' : '210px'};
+      maxExpandedCardHeight ? 'auto' : '180px'};
     min-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 306 : 210}px;
+      maxExpandedCardHeight ? 306 : 180}px;
     max-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? maxExpandedCardHeight : 210}px;
+      maxExpandedCardHeight ? maxExpandedCardHeight : 180}px;
   }
 `
 export const TitleContainer = styled(motion.div)<{ noBorder?: boolean }>`

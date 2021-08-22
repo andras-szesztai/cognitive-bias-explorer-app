@@ -94,7 +94,6 @@ const Input = styled.input`
 
   @media (max-width: ${breakPoints.fifth}) {
     width: 100%;
-    font-size: ${fontSizesString.sm};
 
     ::placeholder {
       line-height: 1.4;

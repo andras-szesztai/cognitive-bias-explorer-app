@@ -51,7 +51,6 @@ const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
     justify-content: start;
     grid-row-gap: 8px;
     grid-column-gap: 8px;
-    margin-bottom: 24px;
 
     ::-webkit-scrollbar {
       width: 4px;

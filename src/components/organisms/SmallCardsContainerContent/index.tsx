@@ -36,6 +36,7 @@ const SmallCardsContainerContent = ({
           />
         )
       })}
+
       <AnimatePresence>
         {!filteredBiasData.length && isFiltered && (
           <MessageContainer
@@ -54,6 +55,7 @@ const SmallCardsContainerContent = ({
           <LoadingOverLay initial={{ opacity: 1 }} exit={{ opacity: 0 }} />
         )}
       </AnimatePresence>
+      <div style={{ height: 90 }} />
     </ExploreSmallCardsContainer>
   )
 }
