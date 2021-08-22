@@ -33,6 +33,8 @@ export { default as HomeBigCard } from './HomeBigCard'
 export { default as SearchBar } from './SearchBar'
 export { default as MobileFiltersButton } from './MobileFiltersButton'
 export { default as QuizResults } from './QuizResults'
+export { default as QuizFeedback } from './QuizFeedback'
+export { default as QuizMoreInfoOption } from './QuizMoreInfoOption'
 export {
   DesktopMainContainer,
   DesktopExploreContentContainer,

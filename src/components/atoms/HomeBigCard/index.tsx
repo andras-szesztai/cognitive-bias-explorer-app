@@ -16,8 +16,8 @@ import {
 } from './styles'
 
 export interface IProps {
+  colorLight: string
   color: string
-  colorDark: string
   title: string
   paragraph: (() => React.ReactNode) | string
   isFirstRender?: boolean
@@ -35,8 +35,8 @@ const heightAdjust = 12
 const HomeBigCard = ({
   gridArea,
   alignContent,
+  colorLight,
   color,
-  colorDark,
   x = 0,
   y = 0,
   delay = 0,
@@ -73,8 +73,8 @@ const HomeBigCard = ({
       animate={{ x: 0, y: 0, opacity: 1 }}
       transition={{ ...cardSpring, delay }}
     >
-      <CardContainer color={color} withSubtitle={!!subtitle}>
-        <TitleContainer ref={titleRef} colorDark={colorDark}>
+      <CardContainer colorLight={colorLight} withSubtitle={!!subtitle}>
+        <TitleContainer ref={titleRef} color={color}>
           <Title>{title}</Title>
         </TitleContainer>
         {subtitle && <SubTitle>{subtitle}</SubTitle>}

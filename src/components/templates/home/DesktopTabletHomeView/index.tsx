@@ -21,7 +21,7 @@ const DesktopTabletHomeView = ({ onFirstRender, isFirstRender }: IProps) => {
       <DesktopHomeContentContainer>
         {homeCardsDesktop.map((card) => (
           <HomeBigCard
-            key={card.color}
+            key={card.colorLight}
             {...card}
             isFirstRender={isFirstRender}
           />

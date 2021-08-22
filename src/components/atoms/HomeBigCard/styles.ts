@@ -25,10 +25,10 @@ export const GridContainer = styled(motion.div)<
 `
 
 export const CardContainer = styled.div<
-  Pick<IProps, 'color'> & { withSubtitle: boolean }
+  Pick<IProps, 'colorLight'> & { withSubtitle: boolean }
 >`
-  ${({ color }) => css`
-    background: ${color};
+  ${({ colorLight }) => css`
+    background: ${colorLight};
   `}
 
   border-radius: 4px;
@@ -45,11 +45,11 @@ export const CardContainer = styled.div<
   color: ${colors.darkGray};
 `
 
-export const TitleContainer = styled.div<Pick<IProps, 'colorDark'>>`
+export const TitleContainer = styled.div<Pick<IProps, 'color'>>`
   border: 1px solid ${colors.darkGray};
   padding: 4px 8px;
   border-radius: 4px;
-  background: ${({ colorDark }) => colorDark};
+  background: ${({ color }) => color};
 `
 
 export const Title = styled.h2`

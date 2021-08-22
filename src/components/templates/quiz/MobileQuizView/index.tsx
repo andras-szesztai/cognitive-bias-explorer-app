@@ -1,9 +1,12 @@
 import styled from '@emotion/styled'
 import { AnimatePresence, motion } from 'framer-motion'
+import { isUndefined } from 'lodash'
 
 import {
   MobileMainContainer,
   QuizCard,
+  QuizFeedback,
+  QuizMoreInfoOption,
   QuizResults,
   TitleLogo,
 } from '../../../atoms'
@@ -15,8 +18,10 @@ import {
   TopTextContainer,
 } from '../DesktopTabletQuizView'
 
+import { alphabet, quizTypes } from '../../../../constants/quiz'
+
 import { cardSpring, colors, durations } from '../../../../styles'
-import { quizTypes } from '../../../../constants/quiz'
+import { categoryColors, categoryLightColors } from '../../../../styles/colors'
 
 const MobileQuizView = ({
   quizType,
@@ -28,7 +33,13 @@ const MobileQuizView = ({
   isSelectOut,
   currentQuestion,
   shuffledAnswers,
+  currentResult,
+  setMoreInfoOption,
+  answerType,
   results,
+  handleQuestionClick,
+  moreInfoOption,
+  ...restProps
 }: IQuizViewProps) => {
   return (
     <MobileMainContainer>
@@ -83,6 +94,36 @@ const MobileQuizView = ({
           >
             <TopTextContainer>
               <QuizResults results={results} />
+              <QuizFeedback
+                quizType={quizType}
+                currentQuestion={currentQuestion}
+                shuffledAnswers={shuffledAnswers}
+                currentResult={currentResult}
+                setMoreInfoOption={setMoreInfoOption}
+                answerType={answerType}
+                {...restProps}
+              />
+              <MainText>{currentQuestion[quizType]}</MainText>
+              <SmallCardsContainer>
+                {shuffledAnswers.map((answer, i) => (
+                  <QuizCard
+                    key={answer[answerType]}
+                    text={`${alphabet[i]} • ${answer[answerType]}`}
+                    handleClick={() =>
+                      isUndefined(currentResult)
+                        ? handleQuestionClick(answer[answerType])
+                        : setMoreInfoOption(answer)
+                    }
+                    isActive={false}
+                    color={categoryColors[answer.category]}
+                    colorLight={categoryLightColors[answer.category]}
+                  />
+                ))}
+              </SmallCardsContainer>
+              <QuizMoreInfoOption
+                currentResult={currentResult}
+                moreInfoOption={moreInfoOption}
+              />
             </TopTextContainer>
           </ContentContainer>
         )}

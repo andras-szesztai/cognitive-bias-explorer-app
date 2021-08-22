@@ -4,10 +4,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { isUndefined } from 'lodash'
 
 import {
-  ChevronIcon,
   DesktopMainContainer,
-  HomeBigCard,
   QuizCard,
+  QuizFeedback,
+  QuizMoreInfoOption,
   QuizResults,
 } from '../../../atoms'
 
@@ -20,7 +20,6 @@ import {
   colors,
   durations,
   fontSizesString,
-  getOpacityInOut,
 } from '../../../../styles'
 
 import { IQuizResult, QuestionTypes } from '../../../../types/quiz'
@@ -57,16 +56,14 @@ const DesktopTabletQuizView = ({
   setQuizType,
   questions,
   currentQuestion,
-  setCurrentQuestionIndex,
   shuffledAnswers,
   results,
   currentResult,
   setMoreInfoOption,
   answerType,
-  isLast,
   moreInfoOption,
   handleQuestionClick,
-  handleReset,
+  ...restProps
 }: IQuizViewProps) => {
   return (
     <DesktopMainContainer withMarginBottom>
@@ -78,9 +75,9 @@ const DesktopTabletQuizView = ({
       >
         {!quizType && isQuizOut && (
           <ContentContainer
-            initial={{ opacity: 0, y: -100 }}
+            initial={{ opacity: 0, y: -80 }}
             animate={{ opacity: 1, y: 0, transition: { delay: durations.md } }}
-            exit={{ opacity: 0, y: 100 }}
+            exit={{ opacity: 0, y: 80 }}
             transition={cardSpring}
           >
             <MainText>Please select quiz type:</MainText>
@@ -113,63 +110,22 @@ const DesktopTabletQuizView = ({
           shuffledAnswers
         ) && (
           <ContentContainer
-            initial={{ opacity: 0, y: -400 }}
+            initial={{ opacity: 0, y: -80 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 400 }}
+            exit={{ opacity: 0, y: 80 }}
             transition={cardSpring}
           >
             <TopTextContainer>
               <QuizResults results={results} />
-              <FeedbackContainer>
-                {isUndefined(currentResult) ? (
-                  <p>
-                    Please select an answer for the following{' '}
-                    {quizType === QuestionTypes.bias
-                      ? 'cognitive bias'
-                      : 'definition'}
-                    :
-                  </p>
-                ) : currentResult.result ? (
-                  <p>Correct!</p>
-                ) : (
-                  <p>
-                    Incorrect! The correct answer was{' '}
-                    {
-                      alphabet[
-                        shuffledAnswers.findIndex(
-                          (a) => a[answerType] === currentQuestion[answerType]
-                        )
-                      ]
-                    }
-                  </p>
-                )}
-                <AnimatePresence>
-                  {!isUndefined(currentResult) && (
-                    <NextButton
-                      {...getOpacityInOut()}
-                      onClick={() => {
-                        if (!isLast) {
-                          setCurrentQuestionIndex((prev) => prev + 1)
-                          setMoreInfoOption(undefined)
-                        } else {
-                          handleReset()
-                        }
-                      }}
-                    >
-                      {isLast ? (
-                        <p>New round?</p>
-                      ) : (
-                        <>
-                          <p>Next question</p>
-                          <IconContainer>
-                            <ChevronIcon height={6} fill={colors.white} />
-                          </IconContainer>
-                        </>
-                      )}
-                    </NextButton>
-                  )}
-                </AnimatePresence>
-              </FeedbackContainer>
+              <QuizFeedback
+                {...restProps}
+                quizType={quizType}
+                currentQuestion={currentQuestion}
+                shuffledAnswers={shuffledAnswers}
+                currentResult={currentResult}
+                setMoreInfoOption={setMoreInfoOption}
+                answerType={answerType}
+              />
               <MainText>{currentQuestion[quizType]}</MainText>
             </TopTextContainer>
             <SmallCardsContainer>
@@ -188,19 +144,10 @@ const DesktopTabletQuizView = ({
                 />
               ))}
             </SmallCardsContainer>
-            {!isUndefined(currentResult) &&
-              (!moreInfoOption ? (
-                <p>Click around to find out more about the options!</p>
-              ) : (
-                <HomeBigCard
-                  color={categoryLightColors[moreInfoOption.category]}
-                  colorDark={categoryColors[moreInfoOption.category]}
-                  title={moreInfoOption.cognitiveBias}
-                  subtitle={moreInfoOption.subCategory}
-                  paragraph={moreInfoOption.definition}
-                  noMaxHeight
-                />
-              ))}
+            <QuizMoreInfoOption
+              currentResult={currentResult}
+              moreInfoOption={moreInfoOption}
+            />
           </ContentContainer>
         )}
       </AnimatePresence>
@@ -270,32 +217,10 @@ export const TopTextContainer = styled.div`
   @media (max-width: ${breakPoints.second}) {
     grid-row-gap: 8px;
   }
-`
 
-const FeedbackContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, max-content);
-  align-items: center;
-  justify-content: space-between;
-`
-
-const NextButton = styled(motion.button)`
-  text-align: left;
-  padding: 2px 8px;
-  border: none;
-  border-radius: 4px;
-  background-color: ${colors.darkGray};
-  color: ${colors.white};
-  cursor: pointer;
-
-  display: grid;
-  grid-auto-flow: column;
-  grid-column-gap: 4px;
-  align-items: center;
-`
-
-const IconContainer = styled.span`
-  transform: rotate(-90deg);
+  @media (max-width: ${breakPoints.fifth}) {
+    grid-template-rows: min-content 72px min-content;
+  }
 `
 
 export default DesktopTabletQuizView

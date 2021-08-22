@@ -12,7 +12,7 @@ const MobileHomeView = () => {
       <TitleLogo isMobileOnly />
       <MobileHomeContentContainer>
         {Object.values(homeCardsShared).map((card) => (
-          <HomeBigCard key={card.color} {...card} noMaxHeight />
+          <HomeBigCard key={card.colorLight} {...card} noMaxHeight />
         ))}
       </MobileHomeContentContainer>
     </MobileMainContainer>

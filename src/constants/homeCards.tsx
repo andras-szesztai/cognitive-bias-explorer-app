@@ -12,8 +12,8 @@ const StyledLink = styled(Link)`
 
 export const homeCardsShared = {
   pink: {
-    color: colors.pinkLight,
-    colorDark: colors.pink,
+    colorLight: colors.pinkLight,
+    color: colors.pink,
     title: 'Welcome to the Cognitive Bias Explorer!',
     subtitle: 'What is a cognitive bias?',
     paragraph: () => (
@@ -38,14 +38,14 @@ export const homeCardsShared = {
     ),
   },
   yellow: {
-    color: colors.yellowLight,
-    colorDark: colors.yellow,
+    colorLight: colors.yellowLight,
+    color: colors.yellow,
     title: `Random bias: ${randomBias.cognitiveBias}`,
     paragraph: randomBias.definition,
   },
   blue: {
-    color: colors.blueLight,
-    colorDark: colors.blue,
+    colorLight: colors.blueLight,
+    color: colors.blue,
     title: 'Explore all',
     paragraph: () => (
       <>
@@ -58,8 +58,8 @@ export const homeCardsShared = {
     ),
   },
   green: {
-    color: colors.greenLight,
-    colorDark: colors.green,
+    colorLight: colors.greenLight,
+    color: colors.green,
     title: 'Test your knowledge',
     paragraph: () => (
       <>

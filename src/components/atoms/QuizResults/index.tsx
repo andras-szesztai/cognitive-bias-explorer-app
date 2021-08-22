@@ -40,7 +40,6 @@ const ResultsContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    justify-content: center;
     grid-template-columns: repeat(5, 24px);
     grid-template-rows: repeat(2, 24px);
     grid-row-gap: 8px;
