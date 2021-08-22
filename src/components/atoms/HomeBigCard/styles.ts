@@ -91,7 +91,7 @@ export const ParagraphContainer = styled.div<{
   overflow-y: auto;
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -104,10 +104,6 @@ export const ParagraphContainer = styled.div<{
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
     ::-webkit-scrollbar-thumb {
       background: ${colors.darkGray};
       border-radius: 4px;

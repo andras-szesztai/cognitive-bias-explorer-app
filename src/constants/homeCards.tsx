@@ -68,11 +68,28 @@ export const homeCardsShared = {
       </>
     ),
   },
+  white: {
+    colorLight: colors.white,
+    color: colors.lightGray,
+    title: 'About',
+    paragraph: () => (
+      <>
+        Built & designed by{' '}
+        <a
+          href="https://www.linkedin.com/in/andr%C3%A1s-szesztai-351a4379/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          András Szesztai
+        </a>
+      </>
+    ),
+  },
 }
 
 export const homeCardsDesktop = [
   {
-    gridArea: '2 / 1 / 11 / 9',
+    gridArea: '1 / 1 / 12 / 9',
     alignContent: 'center',
     delay: 0.4,
     x: -400,
@@ -87,7 +104,7 @@ export const homeCardsDesktop = [
   },
   {
     gridArea: '8 / 10 / 13 / 17',
-    alignContent: 'end',
+    alignContent: 'start',
     delay: 1.4,
     y: 250,
     ...homeCardsShared.blue,
@@ -98,5 +115,12 @@ export const homeCardsDesktop = [
     delay: 2,
     x: 370,
     ...homeCardsShared.green,
+  },
+  {
+    gridArea: '10 / 18 / 16 / 25',
+    alignContent: 'end',
+    delay: 3,
+    x: 100,
+    ...homeCardsShared.white,
   },
 ]

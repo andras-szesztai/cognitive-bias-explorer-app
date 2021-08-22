@@ -26,7 +26,7 @@ const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
   padding-right: 12px;
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -51,10 +51,6 @@ const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
     justify-content: start;
     grid-row-gap: 8px;
     grid-column-gap: 8px;
-
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
 
     ::-webkit-scrollbar-thumb {
       background: ${colors.darkGray};

@@ -18,11 +18,11 @@ import {
 export interface IProps {
   colorLight: string
   color: string
-  title: string
   paragraph: (() => React.ReactNode) | string
   isFirstRender?: boolean
   gridArea?: string
   alignContent?: string
+  title?: string
   x?: number
   y?: number
   delay?: number
@@ -74,9 +74,11 @@ const HomeBigCard = ({
       transition={{ ...cardSpring, delay }}
     >
       <CardContainer colorLight={colorLight} withSubtitle={!!subtitle}>
-        <TitleContainer ref={titleRef} color={color}>
-          <Title>{title}</Title>
-        </TitleContainer>
+        {title && (
+          <TitleContainer ref={titleRef} color={color}>
+            <Title>{title}</Title>
+          </TitleContainer>
+        )}
         {subtitle && <SubTitle>{subtitle}</SubTitle>}
         <ParagraphContainer
           maxHeight={paragraphHeight}

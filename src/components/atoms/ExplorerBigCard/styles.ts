@@ -103,7 +103,7 @@ export const Paragraph = styled.p<{ color?: string }>`
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 4px;
   }
 
   ::-webkit-scrollbar-track {
@@ -112,14 +112,10 @@ export const Paragraph = styled.p<{ color?: string }>`
 
   ::-webkit-scrollbar-thumb {
     background: ${({ color }) => color || colors.darkGray};
-    border-radius: 8px;
+    border-radius: 4px;
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
     ::-webkit-scrollbar-thumb {
       background: ${colors.darkGray};
       border-radius: 4px;
