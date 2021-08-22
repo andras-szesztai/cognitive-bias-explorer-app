@@ -8,7 +8,6 @@ export const ContainerDesktop = styled.div`
   display: grid;
   place-items: center;
   position: relative;
-  overflow: hidden;
 `
 
 export const ContainerMobile = styled.div`
@@ -17,5 +16,4 @@ export const ContainerMobile = styled.div`
   display: grid;
   place-items: center;
   position: relative;
-  overflow: hidden;
 `
