@@ -20,7 +20,7 @@ import {
 
 import { alphabet, quizTypes } from '../../../../constants/quiz'
 
-import { cardSpring, colors, durations } from '../../../../styles'
+import { breakPoints, cardSpring, colors, durations } from '../../../../styles'
 import { categoryColors, categoryLightColors } from '../../../../styles/colors'
 
 const MobileQuizView = ({
@@ -99,7 +99,6 @@ const MobileQuizView = ({
             <TopTextContainer>
               <QuizResults results={results} />
               <QuizFeedback
-                quizType={quizType}
                 currentQuestion={currentQuestion}
                 shuffledAnswers={shuffledAnswers}
                 currentResult={currentResult}
@@ -108,27 +107,27 @@ const MobileQuizView = ({
                 {...restProps}
               />
               <MainText>{currentQuestion[quizType]}</MainText>
-              <SmallCardsContainer>
-                {shuffledAnswers.map((answer, i) => (
-                  <QuizCard
-                    key={answer[answerType]}
-                    text={`${alphabet[i]} • ${answer[answerType]}`}
-                    handleClick={() =>
-                      isUndefined(currentResult)
-                        ? handleQuestionClick(answer[answerType])
-                        : setMoreInfoOption(answer)
-                    }
-                    isActive={false}
-                    color={categoryColors[answer.category]}
-                    colorLight={categoryLightColors[answer.category]}
-                  />
-                ))}
-              </SmallCardsContainer>
+            </TopTextContainer>
+            <SmallCardsContainer>
+              {shuffledAnswers.map((answer, i) => (
+                <QuizCard
+                  key={answer[answerType]}
+                  text={`${alphabet[i]} • ${answer[answerType]}`}
+                  handleClick={() =>
+                    isUndefined(currentResult)
+                      ? handleQuestionClick(answer[answerType])
+                      : setMoreInfoOption(answer)
+                  }
+                  isActive={false}
+                  color={categoryColors[answer.category]}
+                  colorLight={categoryLightColors[answer.category]}
+                />
+              ))}
               <QuizMoreInfoOption
                 currentResult={currentResult}
                 moreInfoOption={moreInfoOption}
               />
-            </TopTextContainer>
+            </SmallCardsContainer>
             <div style={{ height: 8 }} />
           </ContentContainer>
         )}
@@ -147,6 +146,10 @@ const ContentContainer = styled(motion.div)`
   grid-row-gap: 12px;
 
   overflow-y: auto;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding-top: 8px;
+  }
 `
 
 export default MobileQuizView

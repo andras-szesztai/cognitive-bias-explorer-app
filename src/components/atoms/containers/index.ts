@@ -12,6 +12,7 @@ import {
 import { DesktopMainContainer, MobileMainContainer } from './shared'
 import { DesktopHomeContentContainer, MobileHomeContentContainer } from './home'
 
+export { default as MainContentContainer } from './MainContentContainer'
 export {
   ArrowMainContainer,
   ArrowSubContainer,

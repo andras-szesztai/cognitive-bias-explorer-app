@@ -119,7 +119,6 @@ const DesktopTabletQuizView = ({
               <QuizResults results={results} />
               <QuizFeedback
                 {...restProps}
-                quizType={quizType}
                 currentQuestion={currentQuestion}
                 shuffledAnswers={shuffledAnswers}
                 currentResult={currentResult}
@@ -185,6 +184,10 @@ export const MainText = styled.h2`
     font-size: ${fontSizesString.default};
     line-height: 1.4;
   }
+
+  @media (max-width: ${breakPoints.sixth}) {
+    font-size: ${fontSizesString.sm};
+  }
 `
 
 export const SmallCardsContainer = styled.div`
@@ -219,7 +222,7 @@ export const TopTextContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
-    grid-template-rows: min-content 72px min-content;
+    grid-template-rows: min-content minmax(42px, max-content) min-content;
   }
 `
 

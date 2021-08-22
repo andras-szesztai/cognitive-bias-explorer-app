@@ -12,6 +12,7 @@ import {
   DesktopHomeContentContainer,
   MobileMainContainer,
   MobileHomeContentContainer,
+  MainContentContainer,
 } from './containers'
 import {
   ChevronIcon,
@@ -57,4 +58,5 @@ export {
   MobileHomeContentContainer,
   QuestionMark,
   CorrectMark,
+  MainContentContainer,
 }

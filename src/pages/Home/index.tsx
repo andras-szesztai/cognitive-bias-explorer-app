@@ -5,8 +5,6 @@ import {
   MobileHomeView,
 } from '../../components/templates'
 
-import { Container } from './styles'
-
 interface IProps {
   onFirstRender: () => void
   isFirstRender: boolean
@@ -14,7 +12,7 @@ interface IProps {
 
 const Home = ({ onFirstRender, isFirstRender }: IProps) => {
   return (
-    <Container>
+    <>
       {!isMobileOnly && (
         <DesktopTabletHomeView
           isFirstRender={isFirstRender}
@@ -22,7 +20,7 @@ const Home = ({ onFirstRender, isFirstRender }: IProps) => {
         />
       )}
       {isMobileOnly && <MobileHomeView isFirstRender={isFirstRender} />}
-    </Container>
+    </>
   )
 }
 

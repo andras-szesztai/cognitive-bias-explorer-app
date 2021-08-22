@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { isUndefined } from 'lodash'
 
-import { breakPoints } from '../../../styles'
+import { breakPoints, fontSizesString } from '../../../styles'
 import { IQuizResult } from '../../../types/quiz'
 import { CloseIcon, CorrectMark, QuestionMark } from '../icons'
 
@@ -30,6 +30,7 @@ const ResultsContainer = styled.div`
   grid-column-gap: 36px;
   align-items: center;
   margin-bottom: 8px;
+  font-size: ${fontSizesString.default};
 
   @media (max-width: ${breakPoints.second}) {
     grid-column-gap: 24px;
@@ -40,9 +41,11 @@ const ResultsContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
+    font-size: ${fontSizesString.sm};
     grid-template-columns: repeat(5, 24px);
     grid-template-rows: repeat(2, 24px);
     grid-row-gap: 8px;
+    margin-bottom: 0px;
   }
 `
 

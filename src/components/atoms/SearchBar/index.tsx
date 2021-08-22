@@ -7,7 +7,7 @@ import { usePrevious } from 'rooks'
 
 import { CloseIcon, SearchIcon } from '../icons'
 
-import { breakPoints, colors } from '../../../styles'
+import { breakPoints, colors, fontSizesString } from '../../../styles'
 
 interface IProps {
   onBlur?: () => void
@@ -79,10 +79,7 @@ const Input = styled.input`
   border-radius: 4px;
   border: 1px solid ${colors.darkGray};
   width: 282px;
-
-  @media (max-width: ${breakPoints.fifth}) {
-    width: 100%;
-  }
+  font-size: ${fontSizesString.default};
 
   :focus-visible {
     outline: none;
@@ -90,8 +87,19 @@ const Input = styled.input`
 
   ::placeholder {
     line-height: 1.6;
+    font-size: ${fontSizesString.default};
     color: ${colors.darkGray};
     opacity: 1;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    width: 100%;
+    font-size: ${fontSizesString.sm};
+
+    ::placeholder {
+      line-height: 1.4;
+      font-size: ${fontSizesString.sm};
+    }
   }
 `
 

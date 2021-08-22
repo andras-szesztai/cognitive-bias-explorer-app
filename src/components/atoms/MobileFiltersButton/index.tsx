@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 import { ArrowMainContainer, ArrowSubContainer } from '../containers'
 import { ChevronIcon } from '../icons'
 
-import { fontSizesString } from '../../../styles'
+import { breakPoints, fontSizesString } from '../../../styles'
 
 interface IProps {
   onClick: React.Dispatch<React.SetStateAction<boolean>>
@@ -37,6 +37,10 @@ const Button = styled.button`
   grid-auto-flow: column;
   justify-content: start;
   align-items: center;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    font-size: ${fontSizesString.sm};
+  }
 `
 
 export default MobileFiltersButton

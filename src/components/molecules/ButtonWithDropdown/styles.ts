@@ -2,7 +2,12 @@ import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
 
 import colors from '../../../styles/colors'
-import { fontSizesString, fontWeights, zIndexes } from '../../../styles'
+import {
+  breakPoints,
+  fontSizesString,
+  fontWeights,
+  zIndexes,
+} from '../../../styles'
 
 const space = 8
 const colorLegendWidth = 36
@@ -66,6 +71,15 @@ export const MainButton = styled(motion.button)<{
       border-width: 8px;
       margin-left: -8px;
     }
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding: 8px 8px;
+    font-size: ${fontSizesString.sm};
+  }
+
+  @media (max-width: ${breakPoints.sixth}) {
+    width: 210px;
   }
 `
 

@@ -3,18 +3,20 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { isUndefined } from 'lodash'
 
 import { ChevronIcon } from '../icons'
-
-import { QuestionTypes } from '../../../types/quiz'
 import { IQuizViewProps } from '../../templates/quiz/DesktopTabletQuizView'
 
 import { alphabet } from '../../../constants/quiz'
 
-import { breakPoints, colors, getOpacityInOut } from '../../../styles'
+import {
+  breakPoints,
+  colors,
+  fontSizesString,
+  getOpacityInOut,
+} from '../../../styles'
 
 type IProps = Pick<
   Required<IQuizViewProps>,
   | 'currentResult'
-  | 'quizType'
   | 'shuffledAnswers'
   | 'currentQuestion'
   | 'answerType'
@@ -26,7 +28,6 @@ type IProps = Pick<
 
 const QuizFeedback = ({
   currentResult,
-  quizType,
   shuffledAnswers,
   answerType,
   currentQuestion,
@@ -38,10 +39,7 @@ const QuizFeedback = ({
   return (
     <FeedbackContainer>
       {isUndefined(currentResult) ? (
-        <p>
-          Please select an answer for the following{' '}
-          {quizType === QuestionTypes.bias ? 'cognitive bias' : 'definition'}:
-        </p>
+        <p>Please select an answer:</p>
       ) : currentResult.result ? (
         <p>Correct!</p>
       ) : (
@@ -91,10 +89,15 @@ const FeedbackContainer = styled.div`
   grid-template-columns: repeat(2, max-content);
   align-items: center;
   justify-content: space-between;
+  font-size: ${fontSizesString.default};
 
   @media (max-width: ${breakPoints.fifth}) {
     grid-template-columns: 180px max-content;
-    align-items: start;
+    font-size: ${fontSizesString.sm};
+  }
+
+  @media (max-width: ${breakPoints.sixth}) {
+    grid-template-columns: 120px max-content;
   }
 `
 

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 
-import { heights } from '../../constants/dimensions'
-import { breakPoints } from '../../styles'
+import { heights } from '../../../../constants/dimensions'
+import { breakPoints } from '../../../../styles'
 
-export const Container = styled.div`
+const MainContentContainer = styled.div`
   width: 100vw;
   height: calc(
     100vh - ${heights.navbar}px
@@ -21,3 +21,5 @@ export const Container = styled.div`
     height: calc((var(--vh, 1vh) * 100) - ${heights.navbarMobile}px);
   }
 `
+
+export default MainContentContainer

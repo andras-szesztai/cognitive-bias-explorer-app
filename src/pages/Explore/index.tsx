@@ -14,8 +14,6 @@ import { defaultFilters } from '../../constants/filters'
 
 import { ISelectedBiasData } from '../../types/data'
 
-import { Container } from './styles'
-
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
 const Explore = () => {
@@ -34,7 +32,7 @@ const Explore = () => {
   })
 
   return (
-    <Container>
+    <>
       {!isMobileOnly && (
         <DesktopTabletExploreView
           selectedBias={selectedBias}
@@ -59,7 +57,7 @@ const Explore = () => {
           searchString={searchString}
         />
       )}
-    </Container>
+    </>
   )
 }
 

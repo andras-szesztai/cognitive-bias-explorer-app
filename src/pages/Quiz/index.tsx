@@ -16,8 +16,6 @@ import { categoryColors } from '../../styles/colors'
 import { IBiasData } from '../../types/data'
 import { QuestionTypes } from '../../types/quiz'
 
-import { Container } from './styles'
-
 const Quiz = () => {
   const [quizType, setQuizType] = useState<QuestionTypes | undefined>(undefined)
   const answerType =
@@ -84,10 +82,10 @@ const Quiz = () => {
   }
 
   return (
-    <Container>
+    <>
       {!isMobileOnly && <DesktopTabletQuizView {...viewProps} />}
       {isMobileOnly && <MobileQuizView {...viewProps} />}
-    </Container>
+    </>
   )
 }
 
