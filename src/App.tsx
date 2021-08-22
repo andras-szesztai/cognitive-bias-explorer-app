@@ -10,24 +10,26 @@ function App() {
   const [isFirstRender, setIsFirstRender] = useState(true)
 
   return (
-    <MainContentContainer>
+    <>
       {!isMobileOnly && <DesktopTabletNavbar />}
-      <Switch>
-        <Route path="/quiz">
-          <Quiz />
-        </Route>
-        <Route path="/explorer">
-          <Explore />
-        </Route>
-        <Route path="/">
-          <Home
-            onFirstRender={() => setIsFirstRender(false)}
-            isFirstRender={isFirstRender}
-          />
-        </Route>
-      </Switch>
+      <MainContentContainer>
+        <Switch>
+          <Route path="/quiz">
+            <Quiz />
+          </Route>
+          <Route path="/explorer">
+            <Explore />
+          </Route>
+          <Route path="/">
+            <Home
+              onFirstRender={() => setIsFirstRender(false)}
+              isFirstRender={isFirstRender}
+            />
+          </Route>
+        </Switch>
+      </MainContentContainer>
       {isMobileOnly && <MobileNavbar />}
-    </MainContentContainer>
+    </>
   )
 }
 
