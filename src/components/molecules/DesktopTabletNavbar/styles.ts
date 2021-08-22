@@ -70,6 +70,10 @@ export const StyledLink = styled(Link)`
   color: ${colors.darkGray};
   position: relative;
   text-decoration: none;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    padding: 8px;
+  }
 `
 
 export const Pill = styled(motion.span)<{

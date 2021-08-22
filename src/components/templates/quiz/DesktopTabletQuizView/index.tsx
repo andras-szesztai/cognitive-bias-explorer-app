@@ -208,7 +208,9 @@ export const SmallCardsContainer = styled.div`
   }
 
   @media (max-width: ${breakPoints.fifth}) {
+    grid-row-gap: 8px;
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, min-content);
   }
 `
 

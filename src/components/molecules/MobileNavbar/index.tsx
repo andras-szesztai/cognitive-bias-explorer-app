@@ -9,10 +9,10 @@ import { colors } from '../../../styles'
 import { pillSpring } from '../../../styles/animations'
 
 const pills = [
-  { color: colors.blue, top: -9, left: -11, delay: 0.1 },
-  { color: colors.pink, top: 17, right: -6, delay: 0.3 },
-  { color: colors.yellow, top: 24, left: -6, delay: 0.16 },
-  { color: colors.green, top: -4, right: -12, delay: 0.24 },
+  { color: colors.blue, top: 0, left: -12, delay: 0.1 },
+  { color: colors.pink, top: 26, right: 4, delay: 0.3 },
+  { color: colors.yellow, top: 31, left: -6, delay: 0.16 },
+  { color: colors.green, top: 6, right: -12, delay: 0.24 },
 ]
 
 const MobileNavbar = () => {

@@ -16,8 +16,7 @@ export const MainContainer = styled(motion.div)<{
   place-self: start;
   border: 1px solid ${colors.darkGray};
   border-radius: 4px;
-  padding: 24px;
-  padding-bottom: 64px;
+  padding: 16px;
 
   display: grid;
   grid-template-rows: repeat(2, min-content) 1fr;
@@ -26,13 +25,12 @@ export const MainContainer = styled(motion.div)<{
   color: ${colors.darkGray};
 
   @media (max-width: ${breakPoints.fifth}) {
-    padding: 8px 8px 12px 8px;
     height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 'auto' : '180px'};
+      maxExpandedCardHeight ? 'auto' : '175px'};
     min-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 306 : 180}px;
+      maxExpandedCardHeight ? 306 : 175}px;
     max-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? maxExpandedCardHeight : 180}px;
+      maxExpandedCardHeight ? maxExpandedCardHeight : 175}px;
   }
 `
 export const TitleContainer = styled(motion.div)<{ noBorder?: boolean }>`

@@ -20,5 +20,6 @@ export const widths = {
 }
 
 export const paddings = {
-  cardPadding: 24,
+  cardPadding: 16,
+  cardPaddingSm: 8,
 }

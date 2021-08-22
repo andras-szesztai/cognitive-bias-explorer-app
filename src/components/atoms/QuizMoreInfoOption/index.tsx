@@ -1,5 +1,6 @@
 import { isUndefined } from 'lodash'
 import styled from '@emotion/styled'
+import { usePrevious } from 'rooks'
 
 import HomeBigCard from '../HomeBigCard'
 
@@ -12,6 +13,7 @@ const QuizMoreInfoOption = ({
   currentResult,
   moreInfoOption,
 }: Pick<IQuizViewProps, 'currentResult' | 'moreInfoOption'>) => {
+  const prevMoreInfoOption = usePrevious(moreInfoOption)
   if (isUndefined(currentResult)) return null
   return !moreInfoOption ? (
     <Paragraph>Click around to find out more about the options!</Paragraph>
@@ -23,6 +25,7 @@ const QuizMoreInfoOption = ({
       subtitle={moreInfoOption.subCategory}
       paragraph={moreInfoOption.definition}
       noMaxHeight
+      isFirstRender={isUndefined(prevMoreInfoOption) && !!moreInfoOption}
     />
   )
 }

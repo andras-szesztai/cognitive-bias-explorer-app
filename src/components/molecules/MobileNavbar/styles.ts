@@ -29,7 +29,7 @@ export const List = styled.ul`
   place-self: stretch;
 
   display: grid;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   grid-auto-flow: column;
 

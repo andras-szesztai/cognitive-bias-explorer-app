@@ -149,6 +149,7 @@ const ContentContainer = styled(motion.div)`
 
   @media (max-width: ${breakPoints.fifth}) {
     padding-top: 8px;
+    grid-row-gap: 8px;
   }
 `
 
