@@ -88,7 +88,11 @@ const MobileQuizView = ({
         ) && (
           <ContentContainer
             initial={{ opacity: 0, y: -40 }}
-            animate={{ opacity: 1, y: 0, transition: { delay: durations.md } }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: { delay: durations.md },
+            }}
             exit={{ opacity: 0, y: 40 }}
             transition={cardSpring}
           >
@@ -125,6 +129,7 @@ const MobileQuizView = ({
                 moreInfoOption={moreInfoOption}
               />
             </TopTextContainer>
+            <div style={{ height: 32 }} />
           </ContentContainer>
         )}
       </AnimatePresence>

@@ -12,7 +12,7 @@ const MobileMainContainer = styled.div`
   grid-template-rows: min-content 1fr;
   grid-row-gap: 24px;
 
-  overflow-y: auto;
+  overflow-y: hidden;
 `
 
 export default MobileMainContainer
