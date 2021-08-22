@@ -74,7 +74,7 @@ export const homeCardsShared = {
     title: 'About',
     paragraph: () => (
       <>
-        Built & designed by{' '}
+        Designed & built by{' '}
         <a
           href="https://www.linkedin.com/in/andr%C3%A1s-szesztai-351a4379/"
           target="_blank"
