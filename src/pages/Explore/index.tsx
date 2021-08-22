@@ -14,7 +14,7 @@ import { defaultFilters } from '../../constants/filters'
 
 import { ISelectedBiasData } from '../../types/data'
 
-import { ContainerDesktop, ContainerMobile } from './styles'
+import { Container } from './styles'
 
 const subCategoriesPerCategory = getSubcategoriesPerCategory()
 
@@ -34,36 +34,32 @@ const Explore = () => {
   })
 
   return (
-    <>
+    <Container>
       {!isMobileOnly && (
-        <ContainerDesktop>
-          <DesktopTabletExploreView
-            selectedBias={selectedBias}
-            setSelectedBias={setSelectedBias}
-            filteredBiasData={filteredBiasData}
-            subCategoriesPerCategory={subCategoriesPerCategory}
-            filters={filters}
-            setFilters={setFilters}
-            setSearchString={setSearchString}
-            searchString={searchString}
-          />
-        </ContainerDesktop>
+        <DesktopTabletExploreView
+          selectedBias={selectedBias}
+          setSelectedBias={setSelectedBias}
+          filteredBiasData={filteredBiasData}
+          subCategoriesPerCategory={subCategoriesPerCategory}
+          filters={filters}
+          setFilters={setFilters}
+          setSearchString={setSearchString}
+          searchString={searchString}
+        />
       )}
       {isMobileOnly && (
-        <ContainerMobile>
-          <MobileExploreView
-            selectedBias={selectedBias}
-            setSelectedBias={setSelectedBias}
-            filteredBiasData={filteredBiasData}
-            subCategoriesPerCategory={subCategoriesPerCategory}
-            filters={filters}
-            setFilters={setFilters}
-            setSearchString={setSearchString}
-            searchString={searchString}
-          />
-        </ContainerMobile>
+        <MobileExploreView
+          selectedBias={selectedBias}
+          setSelectedBias={setSelectedBias}
+          filteredBiasData={filteredBiasData}
+          subCategoriesPerCategory={subCategoriesPerCategory}
+          filters={filters}
+          setFilters={setFilters}
+          setSearchString={setSearchString}
+          searchString={searchString}
+        />
       )}
-    </>
+    </Container>
   )
 }
 

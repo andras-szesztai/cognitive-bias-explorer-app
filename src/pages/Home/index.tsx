@@ -14,7 +14,7 @@ interface IProps {
 
 const Home = ({ onFirstRender, isFirstRender }: IProps) => {
   return (
-    <Container isMobileOnly={isMobileOnly}>
+    <Container>
       {!isMobileOnly && (
         <DesktopTabletHomeView
           isFirstRender={isFirstRender}

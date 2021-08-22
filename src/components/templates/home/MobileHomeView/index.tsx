@@ -14,6 +14,7 @@ const MobileHomeView = () => {
         {Object.values(homeCardsShared).map((card) => (
           <HomeBigCard key={card.colorLight} {...card} noMaxHeight />
         ))}
+        <div style={{ height: 8 }} />
       </MobileHomeContentContainer>
     </MobileMainContainer>
   )

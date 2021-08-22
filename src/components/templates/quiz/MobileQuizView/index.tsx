@@ -129,7 +129,7 @@ const MobileQuizView = ({
                 moreInfoOption={moreInfoOption}
               />
             </TopTextContainer>
-            <div style={{ height: 32 }} />
+            <div style={{ height: 8 }} />
           </ContentContainer>
         )}
       </AnimatePresence>
@@ -141,11 +141,9 @@ const ContentContainer = styled(motion.div)`
   padding-top: 16px;
   width: 100%;
   height: 100%;
-  max-height: 100%;
-  min-height: 100%;
 
   display: grid;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: repeat(1, min-content);
   grid-row-gap: 12px;
 
   overflow-y: auto;

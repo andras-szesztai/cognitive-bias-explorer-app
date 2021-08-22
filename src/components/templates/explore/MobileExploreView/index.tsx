@@ -66,6 +66,7 @@ const MobileView = ({
             searchString={searchString}
             isFiltered={isClearable}
           />
+          <div style={{ height: 8 }} />
         </ExploreCardsContainer>
         <AnimatePresence>
           {isBigCardExpanded && (
