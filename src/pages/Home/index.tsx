@@ -21,7 +21,7 @@ const Home = ({ onFirstRender, isFirstRender }: IProps) => {
           onFirstRender={onFirstRender}
         />
       )}
-      {isMobileOnly && <MobileHomeView />}
+      {isMobileOnly && <MobileHomeView isFirstRender={isFirstRender} />}
     </Container>
   )
 }
