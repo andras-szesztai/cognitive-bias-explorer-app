@@ -37,7 +37,7 @@ const MobileView = ({
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const [ref, { height }] = useMeasure()
   const [containerRef, { height: fullHeight }] = useMeasure()
-  const drawerHeight = height + 24
+  const drawerHeight = height + 16
   const [isBigCardExpanded, setIsBigCardExpanded] = useState(false)
 
   const handleClear = () => {

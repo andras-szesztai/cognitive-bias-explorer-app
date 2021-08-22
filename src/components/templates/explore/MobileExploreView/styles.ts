@@ -22,5 +22,5 @@ export const ClearButton = styled(motion.button)`
   line-height: 1;
   color: ${colors.white};
 
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `

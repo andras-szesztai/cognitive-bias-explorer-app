@@ -71,7 +71,7 @@ const SearchBar = ({
 const Container = styled.div<{ withMarginBottom?: boolean }>`
   position: relative;
 
-  margin-bottom: ${({ withMarginBottom }) => (withMarginBottom ? 16 : 0)}px;
+  margin-bottom: ${({ withMarginBottom }) => (withMarginBottom ? 8 : 0)}px;
 `
 
 const Input = styled.input`
