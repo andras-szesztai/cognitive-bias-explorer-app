@@ -1,4 +1,5 @@
 import { isMobile, isMobileOnly } from 'react-device-detect'
+import DetectableOverflow from 'react-detectable-overflow'
 
 import { CollapseIcon, ExpandIcon, KeyboardIcon } from '../icons'
 
@@ -19,6 +20,7 @@ import colors, {
   categoryColors,
   categoryLightColors,
 } from '../../../styles/colors'
+import { useEffect, useState } from 'react'
 
 interface IProps {
   selectedBias: ISelectedBiasData | undefined
@@ -48,13 +50,20 @@ const BigCard = ({
     filteredBiasData,
     selectedBias,
   })
+  const [isOverFlowing, setIsOverflowing] = useState(false)
+  useEffect(() => {
+    if (isExpanded && !isOverFlowing) {
+      setIsOverflowing(true)
+    }
+  }, [isExpanded, isOverFlowing])
 
   const renderIcon = () =>
-    isMobileOnly ? (
+    isMobileOnly && isOverFlowing ? (
       <ExpandIconContainer>
         {isExpanded ? <CollapseIcon /> : <ExpandIcon />}
       </ExpandIconContainer>
     ) : null
+
   return (
     <MainContainer
       layoutId={layoutId}
@@ -64,7 +73,9 @@ const BigCard = ({
       animate={{
         backgroundColor: colorLight,
       }}
-      onClick={onClick}
+      onClick={() => {
+        isOverFlowing && onClick?.()
+      }}
       maxExpandedCardHeight={maxExpandedCardHeight}
     >
       {selectedBias ? (
@@ -81,7 +92,14 @@ const BigCard = ({
             {renderIcon()}
           </TitleContainer>
           <SubTitle>{selectedBias.subCategory}</SubTitle>
-          <Paragraph color={color}>{selectedBias.definition}</Paragraph>
+          <Paragraph color={color}>
+            <DetectableOverflow
+              style={{ height: '100%' }}
+              onChange={(overflow) => !isExpanded && setIsOverflowing(overflow)}
+            >
+              {selectedBias.definition}
+            </DetectableOverflow>
+          </Paragraph>
           {!isMobile && (
             <IconContainer>
               <KeyboardIcon activeKeys={activeKeys} />

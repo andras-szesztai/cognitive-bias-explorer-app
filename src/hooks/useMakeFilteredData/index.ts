@@ -48,7 +48,6 @@ const useMakeFilteredData = ({
         }
         return isInSub && isInSearch
       })
-      console.log(1)
       setFilteredBiasData(newFilteredBiasData)
     }
   }, [

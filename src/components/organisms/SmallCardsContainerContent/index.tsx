@@ -6,7 +6,7 @@ import { SmallCard, ExploreSmallCardsContainer } from '../../atoms'
 
 import { IBiasData, ISelectedBiasData } from '../../../types/data'
 
-import { colors } from '../../../styles'
+import { breakPoints, colors } from '../../../styles'
 
 interface IProps {
   filteredBiasData: IBiasData[]
@@ -36,7 +36,7 @@ const SmallCardsContainerContent = ({
           />
         )
       })}
-
+      <div style={{ height: 90 }} />
       <AnimatePresence>
         {!filteredBiasData.length && isFiltered && (
           <MessageContainer
@@ -55,14 +55,19 @@ const SmallCardsContainerContent = ({
           <LoadingOverLay initial={{ opacity: 1 }} exit={{ opacity: 0 }} />
         )}
       </AnimatePresence>
-      <div style={{ height: 90 }} />
     </ExploreSmallCardsContainer>
   )
 }
 
 const MessageContainer = styled(motion.div)`
-  grid-column: 1 / -1;
   color: ${colors.darkGray};
+  position: absolute;
+  top: 0px;
+  width: 100%;
+
+  @media (max-width: ${breakPoints.fifth}) {
+    text-align: center;
+  }
 `
 const LoadingOverLay = styled(motion.div)`
   position: absolute;

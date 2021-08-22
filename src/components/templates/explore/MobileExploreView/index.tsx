@@ -46,7 +46,7 @@ const MobileView = ({
   }
 
   const isClearable = !!searchString || !!Object.values(filters).flat().length
-  const maxExpandedCardHeight = fullHeight - 148
+  const maxExpandedCardHeight = fullHeight - 128
 
   return (
     <MobileMainContainer ref={containerRef}>

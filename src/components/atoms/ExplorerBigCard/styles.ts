@@ -28,11 +28,11 @@ export const MainContainer = styled(motion.div)<{
   @media (max-width: ${breakPoints.fifth}) {
     padding: 16px;
     height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 'auto' : '175px'};
+      maxExpandedCardHeight ? 'auto' : '185px'};
     min-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? 306 : 175}px;
+      maxExpandedCardHeight ? 'auto' : '185px'};
     max-height: ${({ maxExpandedCardHeight }) =>
-      maxExpandedCardHeight ? maxExpandedCardHeight : 175}px;
+      maxExpandedCardHeight ? maxExpandedCardHeight : 185}px;
   }
 `
 export const TitleContainer = styled(motion.div)<{ noBorder?: boolean }>`
@@ -82,12 +82,13 @@ export const SubTitle = styled.h4`
   }
 `
 
-export const Paragraph = styled.p<{ color?: string }>`
+export const Paragraph = styled.div<{ color?: string }>`
   font-size: ${fontSizesString.default};
   padding: 0px 8px;
   line-height: 1.6;
   overflow-y: auto;
   max-height: 360px;
+  position: relative;
 
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1.4;
@@ -133,7 +134,7 @@ export const IconContainer = styled.div`
 
 export const FixedBigCard = styled(motion.div)<{ maxHeight: number }>`
   position: fixed;
-  top: 16px;
+  top: 68px;
   left: 16px;
   width: calc(100vw - 32px);
   max-height: ${({ maxHeight }) => maxHeight}px;
