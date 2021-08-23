@@ -65,9 +65,13 @@ const Container = styled(motion.div)`
   border-color: #fff;
   background-color: #fff;
 
-  @media (max-width: ${breakPoints.fifth}) {
+  @media (max-width: ${breakPoints.third}) {
     width: 160px;
     padding: 8px;
+  }
+
+  @media (max-width: ${breakPoints.fifth}) {
+    width: 160px;
     grid-row-gap: 4px;
   }
 

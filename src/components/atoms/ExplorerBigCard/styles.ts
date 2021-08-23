@@ -10,6 +10,7 @@ import {
 
 export const MainContainer = styled(motion.div)<{
   maxExpandedCardHeight?: number
+  isMobile: boolean
 }>`
   position: relative;
 
@@ -17,7 +18,7 @@ export const MainContainer = styled(motion.div)<{
   border: 1px solid ${colors.darkGray};
   border-radius: 4px;
   padding: 16px;
-  padding-bottom: 64px;
+  padding-bottom: ${({ isMobile }) => (isMobile ? 16 : 64)}px;
 
   display: grid;
   grid-template-rows: repeat(2, min-content) 1fr;
@@ -26,7 +27,6 @@ export const MainContainer = styled(motion.div)<{
   color: ${colors.darkGray};
 
   @media (max-width: ${breakPoints.fifth}) {
-    padding: 16px;
     height: ${({ maxExpandedCardHeight }) =>
       maxExpandedCardHeight ? 'auto' : '185px'};
     min-height: ${({ maxExpandedCardHeight }) =>

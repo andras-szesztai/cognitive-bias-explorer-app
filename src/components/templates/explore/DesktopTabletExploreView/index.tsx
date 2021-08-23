@@ -1,4 +1,4 @@
-import { isSafari, isMobileSafari } from 'react-device-detect'
+import { isSafari, isMobileSafari, isTablet } from 'react-device-detect'
 
 import {
   ExplorerBigCard,
@@ -52,7 +52,9 @@ const DesktopTabletView = ({
             onChange={(val) => setSearchString(val)}
             value={searchString}
           />
-          <ExploreCardsContainer isSafari={isSafari && !isMobileSafari}>
+          <ExploreCardsContainer
+            isSafari={(isSafari && !isMobileSafari) || isTablet}
+          >
             <ExplorerBigCard
               selectedBias={selectedBias}
               filteredBiasData={filteredBiasData}

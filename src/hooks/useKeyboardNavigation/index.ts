@@ -17,7 +17,7 @@ const useKeyboardNavigation = ({
   filteredBiasData,
 }: IParams): [boolean, Dispatch<SetStateAction<boolean>>] => {
   useEffect(() => {
-    if (!!selectedBias) {
+    if (!!selectedBias && !isMobile) {
       document
         ?.getElementById(kebabCase(selectedBias.cognitiveBias))
         ?.scrollIntoView({ behavior: 'smooth' })

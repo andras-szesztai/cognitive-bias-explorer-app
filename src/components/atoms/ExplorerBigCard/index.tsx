@@ -77,6 +77,7 @@ const BigCard = ({
         isOverFlowing && onClick?.()
       }}
       maxExpandedCardHeight={maxExpandedCardHeight}
+      isMobile={isMobile}
     >
       {selectedBias ? (
         <>

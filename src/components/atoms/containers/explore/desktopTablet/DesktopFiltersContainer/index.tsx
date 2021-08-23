@@ -15,11 +15,7 @@ const FiltersContainer = styled.div`
     grid-row-gap: 16px;
   }
 
-  @media (max-width: ${breakPoints.second}) {
-    grid-template-rows: repeat(2, max-content);
-  }
-
-  @media (max-width: ${breakPoints.third}) {
+  @media (max-width: ${breakPoints.fourth}) {
     grid-auto-flow: row;
     grid-row-gap: 8px;
   }

@@ -52,7 +52,7 @@ const MobileView = ({
     <MobileMainContainer ref={containerRef}>
       <TitleLogo isMobileOnly />
       <AnimateSharedLayout type="crossfade">
-        <ExploreCardsContainer isMobileOnly>
+        <ExploreCardsContainer>
           <ExplorerBigCard
             selectedBias={selectedBias}
             filteredBiasData={filteredBiasData}

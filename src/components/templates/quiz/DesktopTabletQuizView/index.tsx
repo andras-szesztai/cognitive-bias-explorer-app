@@ -66,7 +66,7 @@ const DesktopTabletQuizView = ({
   ...restProps
 }: IQuizViewProps) => {
   return (
-    <DesktopMainContainer withMarginBottom>
+    <DesktopMainContainer>
       <AnimatePresence
         onExitComplete={() => {
           setIsQuizOut(false)
@@ -150,6 +150,7 @@ const DesktopTabletQuizView = ({
           </ContentContainer>
         )}
       </AnimatePresence>
+      <div style={{ height: 8 }} />
     </DesktopMainContainer>
   )
 }

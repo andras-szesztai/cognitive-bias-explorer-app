@@ -43,14 +43,13 @@ const SmallCardsContainer = styled.div<{ justifyStart: boolean }>`
   }
 
   @media (max-width: ${breakPoints.third}) {
-    grid-template-columns: min-content;
+    grid-column-gap: 8px;
   }
 
   @media (max-width: ${breakPoints.fifth}) {
     grid-template-columns: repeat(2, min-content);
     justify-content: start;
     grid-row-gap: 8px;
-    grid-column-gap: 8px;
 
     ::-webkit-scrollbar-thumb {
       background: ${colors.darkGray};

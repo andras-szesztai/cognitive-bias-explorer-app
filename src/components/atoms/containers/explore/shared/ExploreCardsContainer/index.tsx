@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 import { breakPoints } from '../../../../../../styles'
 
 const ExploreCardsContainer = styled.div<{
-  isMobileOnly?: boolean
   isSafari?: boolean
 }>`
   height: ${({ isSafari }) => (isSafari ? '600px' : '100%')};
@@ -11,7 +10,7 @@ const ExploreCardsContainer = styled.div<{
 
   position: relative;
 
-  padding-bottom: 36px;
+  padding-bottom: 8px;
 
   display: grid;
   grid-template-columns: 3fr 5fr;
@@ -24,9 +23,7 @@ const ExploreCardsContainer = styled.div<{
   }
 
   @media (max-width: ${breakPoints.third}) {
-    grid-template-columns: ${({ isMobileOnly }) =>
-      isMobileOnly ? '5fr 6fr' : '1fr min-content'};
-    grid-column-gap: 16px;
+    grid-template-columns: 5fr 6fr;
   }
 
   @media (max-width: ${breakPoints.fifth}) {
