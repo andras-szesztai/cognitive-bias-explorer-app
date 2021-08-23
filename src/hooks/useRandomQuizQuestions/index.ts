@@ -36,6 +36,9 @@ const useRandomQuizQuestions = ({ quizType }: IParams) => {
       })
       setRandomQuizQuestions(questions)
     }
+    if (!quizType && !!prevQuizType) {
+      setRandomQuizQuestions(undefined)
+    }
   }, [quizType, prevQuizType])
 
   return randomQuizQuestions
