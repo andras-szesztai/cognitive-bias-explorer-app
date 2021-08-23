@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import useMeasure from 'react-use-measure'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { flatten } from 'lodash'
 
 import {
   ExplorerBigCard,
@@ -45,7 +46,7 @@ const MobileView = ({
     setSearchString('')
   }
 
-  const isClearable = !!searchString || !!Object.values(filters).flat().length
+  const isClearable = !!searchString || !!flatten(Object.values(filters)).length
   const maxExpandedCardHeight = fullHeight - 128
 
   return (

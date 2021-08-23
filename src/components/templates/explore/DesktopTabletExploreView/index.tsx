@@ -1,4 +1,5 @@
 import { isSafari, isMobileSafari, isTablet } from 'react-device-detect'
+import { flatten } from 'lodash'
 
 import {
   ExplorerBigCard,
@@ -34,7 +35,7 @@ const DesktopTabletView = ({
       filteredBiasData,
     })
 
-  const isFiltered = !!Object.values(filters).flat().length || !!searchString
+  const isFiltered = !!flatten(Object.values(filters)).length || !!searchString
 
   return (
     <DesktopMainContainer>

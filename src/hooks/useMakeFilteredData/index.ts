@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce/lib'
-import { isNull } from 'lodash'
+import { flatten, isNull } from 'lodash'
 import { usePrevious } from 'rooks'
 
 import { sortedBiasData } from '../../data/cognitiveBiases'
@@ -34,7 +34,7 @@ const useMakeFilteredData = ({
       (!isNull(prevDebouncedSearchString) &&
         prevDebouncedSearchString !== debouncedSearchString)
     ) {
-      const subCategories = Object.values(filters).flat()
+      const subCategories = flatten(Object.values(filters))
       const newFilteredBiasData = sortedBiasData.filter((d) => {
         let isInSub = true
         let isInSearch = true
