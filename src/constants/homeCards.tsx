@@ -19,13 +19,13 @@ export const homeCardsShared = {
     paragraph: () => (
       <>
         It is systematic pattern of deviation from norm or rationality in
-        judgment. Individuals create their own "subjective reality" from their
-        perception of the input, their construction of reality, not the
-        objective input, may dictate their behavior in the world. Thus,
-        cognitive biases may sometimes lead to perceptual distortion, inaccurate
+        judgment. Individuals create their own subjective reality from their
+        perception of the input, then it this "reality", not the objective
+        input, that may dictate their behavior in the world. Thus, cognitive
+        biases can oftentimes lead to perceptual distortion, inaccurate
         judgment, illogical interpretation, or what is broadly called
-        irrationality. The biases on this site, together with their definitions,
-        come directly from the{' '}
+        irrationality. The biases you can discover on this site, together with
+        their definitions, come directly from the{' '}
         <a
           href="https://commons.wikimedia.org/wiki/File:Cognitive_Bias_Codex_With_Definitions,_an_Extension_of_the_work_of_John_Manoogian_by_Brian_Morrissette.jpg"
           target="_blank"

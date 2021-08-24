@@ -3,7 +3,7 @@ import { isUndefined } from 'lodash'
 
 import { breakPoints, fontSizesString } from '../../../styles'
 import { IQuizResult } from '../../../types/quiz'
-import { CloseIcon, CorrectMark, QuestionMark } from '../icons'
+import { CorrectMark, IncorrectMark, QuestionMark } from '../icons'
 
 const QuizResults = ({ results }: { results: (IQuizResult | undefined)[] }) => {
   return (
@@ -16,7 +16,7 @@ const QuizResults = ({ results }: { results: (IQuizResult | undefined)[] }) => {
           ) : result.result ? (
             <CorrectMark fill={result.color} height={14} />
           ) : (
-            <CloseIcon fill={result.color} height={14} />
+            <IncorrectMark fill={result.color} height={14} />
           )}
         </Result>
       ))}

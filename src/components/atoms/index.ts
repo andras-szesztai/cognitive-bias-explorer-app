@@ -23,6 +23,7 @@ import {
   CloseIcon,
   QuestionMark,
   CorrectMark,
+  IncorrectMark,
 } from './icons'
 
 export { default as TitleLogo } from './TitleLogo'
@@ -59,4 +60,5 @@ export {
   QuestionMark,
   CorrectMark,
   MainContentContainer,
+  IncorrectMark,
 }
