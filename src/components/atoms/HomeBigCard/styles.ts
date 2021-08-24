@@ -68,12 +68,12 @@ export const SubTitle = styled.h4`
   line-height: 1.6;
   font-style: italic;
   font-weight: ${fontWeights.default};
-  font-size: ${fontSizesString.default};
+  font-size: ${fontSizesString.sm};
 
   @media (max-width: ${breakPoints.fifth}) {
     line-height: 1.4;
     padding: 0px 4px;
-    font-size: ${fontSizesString.sm};
+    font-size: ${fontSizesString.xs};
   }
 `
 

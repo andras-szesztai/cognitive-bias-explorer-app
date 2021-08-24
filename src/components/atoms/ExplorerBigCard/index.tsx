@@ -115,7 +115,7 @@ const BigCard = ({
           </TitleContainer>
           <Paragraph>
             Click around, filter and search for biases you would like to find
-            out more about!
+            out more about!{' '}
             {!isMobile &&
               'You can also use keyboard arrows or the WASD keys to browse around!'}
           </Paragraph>
