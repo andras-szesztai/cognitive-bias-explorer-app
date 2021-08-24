@@ -20,7 +20,7 @@ import {
 
 import { alphabet, quizTypes } from '../../../../constants/quiz'
 
-import { breakPoints, cardSpring, colors, durations } from '../../../../styles'
+import { cardSpring, colors, durations } from '../../../../styles'
 import { categoryColors, categoryLightColors } from '../../../../styles/colors'
 
 const MobileQuizView = ({
