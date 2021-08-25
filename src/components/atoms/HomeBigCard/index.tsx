@@ -68,10 +68,10 @@ const HomeBigCard = ({
       initial={{
         x: isFirstRender ? x : 0,
         y: isFirstRender ? y : 0,
-        opacity: isFirstRender ? 0 : 1,
+        opacity: 0,
       }}
       animate={{ x: 0, y: 0, opacity: 1 }}
-      transition={{ ...cardSpring, delay }}
+      transition={{ ...cardSpring, delay: isFirstRender ? delay : 0 }}
     >
       <CardContainer colorLight={colorLight} withSubtitle={!!subtitle}>
         {title && (
